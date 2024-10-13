@@ -1,0 +1,124 @@
+package org.iesvdm.mhm.repository;
+
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import org.iesvdm.mhm.domain.Producto;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import java.util.*;
+// Documentacion
+//@Repository
+public interface ProductoRepositoryDocumentacion extends JpaRepository<Producto, Long> {
+
+
+    // *********** METODOS DE CONSULTAS *****************
+    // EXISTEN DOS FORMAS DE EFECTUAR CONSULTAS MEDIANTE:  (JPQL- Objetos de Entidades JPA) &&  (SpringData JPA-  Tablas nativas de DDBB)
+
+    // METODOS DE CONSULTA A IMPLEMENTAR (4)
+
+  public List<Producto> findProductoByNombreContainingIgnoreCase(String nombre);
+  public List<Producto> findProductoByNombreContainingIgnoreCaseOrderByNombreAsc(String nombre);
+  public List<Producto> findProductoByNombreContainingIgnoreCaseOrderByNombreDesc(String nombre);
+  public List<Producto> findAllProductoByOrderByNombreAsc();
+  public List<Producto> findAllProductoByOrderByNombreDesc();
+
+
+
+
+    //BLOQUE METHOD @Query **"JPQL"** CON OBJETOS DE ENTIDADES JPA (
+    // Notacion para asociar peticiones JPQL --o-- SQL --a un metodo pasando parametros por orden de entrada
+    // de la firma del metodo  o parametrizados con mombre
+
+    @Query(value = "select C from Producto C where C.nombre like %:nombre%")
+    public List<Producto> queryProductoContainingIgnoreCase(@Param("nombre") String nombre);
+
+    @Query(value = "select C from Producto C where C.nombre like %:nombre% order by C.nombre asc")
+    public List<Producto> queryProductoContainingNombreIgnoreCaseOrderByNombreAsc(@Param("nombre") String nombre);
+
+    @Query(value = "select C from Producto C where C.nombre like ?1 order by C.nombre asc")
+    public List<Producto> queryProductoContainingNombreIgnoreCaseOrderByNombreDesc(String nombre);
+
+    @Query(value = "select C from Producto C order by C.nombre asc")
+    public List<Producto> queryAllProductoByNombreByOrderByAsc();
+
+    @Query(value = "select C from Producto C order by C.nombre desc")
+    public List<Producto> queryAllProductoByNombreByOrderByDesc();
+
+
+    //BLOQUE DE METODOS @QUERRY CON SQL NATIVO BASADO EN LAS TABLAS.
+    //@Query nativeQuery = true, es decir, SQL con **"JPA"**:
+    // Se Parametrizan con el nombre del parametro:  (%:nombre%)
+
+    @Query(value = "select * from producto where nombre like nombre", nativeQuery = true)
+    public List<Producto> queryProductoByNombreContainingIgnoreCase(@Param("nombre") String nombre);
+
+    @Query(value = "select * from Producto C where C.nombre like nombre order by C.nombre asc", nativeQuery = true)
+    public List<Producto> queryProductoByNombreContainingIgnoreCaseOrderByNombreAsc(@Param("nombre") String nombre);
+
+    // Parametrizada por  Parametros de entrada posicionales:  ?1
+    @Query(value = "select * from Producto C where C.nombre like ? order by C.nombre asc", nativeQuery = true)
+    public List<Producto> queryProductoByNombreContainingIgnoreCaseOrderByNombreDesc(String nombre);
+
+    @Query(value = "select * from Producto C order by C.nombre asc", nativeQuery = true)
+    public List<Producto> queryAllProductoByOrderByNombreAsc();
+
+    @Query(value = "select * from Producto C order by C.nombre desc", nativeQuery = true)
+    public List<Producto> queryAllProductoByOrderByNombreDesc();
+
+
+
+  @PersistenceContext
+  private EntityManager em;
+
+
+  //BLOQUE METHOD @Query JPQL CON OBJETOS DE ENTIDADES JPA
+  //Notación para asociar peticiones JPQL o SQL a un método pasando parámetros por orden de entrada
+  // de la firma del método o parametrizados con nombre
+  public List<Producto> queryProductoCustomJPQL(Optional<String> buscarOptional, Optional<String>  ordenarOptional) {
+    StringBuilder queryBuilder = new StringBuilder("select C from producto");
+    if (buscarOptional.isPresent()){
+      queryBuilder.append(" ").append("where C.nombre like: nombre");
+    }
+    if (ordenarOptional.isPresent()){
+      if(buscarOptional.isPresent() && "asc".equalsIgnoreCase(buscarOptional.get())){
+        queryBuilder.append(" ").append("order by C.nombre ASC");
+      }else if(buscarOptional.isPresent() && "desc".equalsIgnoreCase(buscarOptional.get())) {
+        queryBuilder.append(" ").append("order by C.nombre desc");
+      }
+    }
+    jakarta.persistence.Query query = em.createQuery(queryBuilder.toString());
+    if (buscarOptional.isPresent()){
+      query.setParameter("nombre", "%"+buscarOptional.get()+"%");
+    }
+    return query.getResultList();
+  }
+
+
+
+
+
+  //BLOQUE DE MÉTODOS @QUERY CON "SQL" NATIVO BASADO EN LAS TABLAS.
+  //@Query nativeQuery = true, es decir, SQL:
+  // Se Parametrizan con el nombre del parámetro:  (%:nombre%)
+  public List<Producto> queryProductoCustomJPA(Optional<String> buscarOptional,Optional<String>  ordenarOptional ) {
+    StringBuilder queryBuilder = new StringBuilder("select * from producto");
+    if (buscarOptional.isPresent()){
+      queryBuilder.append(" ").append("where nombre like: nombre");
+    }
+    if (ordenarOptional.isPresent()){
+      if(buscarOptional.isPresent() && "asc".equalsIgnoreCase(buscarOptional.get())){
+        queryBuilder.append(" ").append("order by nombre ASC");
+      }else if(buscarOptional.isPresent() && "desc".equalsIgnoreCase(buscarOptional.get())) {
+        queryBuilder.append(" ").append("order by nombre desc");
+      }
+    }
+    jakarta.persistence.Query query = em.createNativeQuery(queryBuilder.toString(),Producto.class);
+    if (buscarOptional.isPresent()){
+      query.setParameter("nombre", "%"+buscarOptional.get()+"%");
+    }
+    return query.getResultList();
+  }
+}

@@ -1,0 +1,25 @@
+https://github.com/coreybutler/nvm-windows/releases
+nvm ls-remote
+nvm install --lts
+nvm ls
+
+npm install -g @angular/cli
+ng add @ng-bootstrap/ng-bootstrap
+ng new app-mhm
+cd app-mhm
+ng add @ng-bootstrap/ng-bootstrap
+ng generate module producto --routing
+
+ng generate component producto/index
+ng generate component producto/create
+ng generate component producto/edit
+
+#en tsconfig.json" en compilerOptions -> "noImplicitAny": false
+
+#Para lanzar la aplicacion
+#cd src/main/frontend/app-mhm
+#npm install -g @angular/cli
+#npm install
+#npm start
+#ng serve
+
