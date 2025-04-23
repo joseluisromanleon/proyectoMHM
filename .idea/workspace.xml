@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="42527e49-09cd-4dfe-b96d-d5608878e110" name="Changes" comment="24/04/2025 mi primer commit desde nuevo git">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="42527e49-09cd-4dfe-b96d-d5608878e110" name="Changes" comment="24/04/2025 mi primer commit despues de eliminar los 17 anteriores" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,7 +105,7 @@
     "project.structure.side.proportion": "0.2",
     "run.configurations.included.in.services": "true",
     "settings.editor.selected.configurable": "preferences.keymap",
-    "ts.external.directory.path": "D:\\CLASES2023\\2DAW_2324\\DWES\\Trim2\\MHM\\src\\main\\frontend\\app-mhm\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\MHM\\src\\main\\frontend\\app-mhm\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -241,7 +239,7 @@
       <workItem from="1744969157913" duration="21309000" />
       <workItem from="1745234955019" duration="3840000" />
       <workItem from="1745416769254" duration="2054000" />
-      <workItem from="1745418842154" duration="3040000" />
+      <workItem from="1745418842154" duration="3813000" />
     </task>
     <task id="LOCAL-00001" summary="v1 para presentacion">
       <option name="closed" value="true" />
@@ -411,7 +409,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745450220383</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="24/04/2025 mi primer commit despues de eliminar los 17 anteriores">
+      <option name="closed" value="true" />
+      <created>1745451580624</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1745451580624</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -460,7 +466,8 @@
     <MESSAGE value="modificaciones para los modales pero sin funcionar 3" />
     <MESSAGE value="23/04/2025  cambios desde C:/" />
     <MESSAGE value="24/04/2025 mi primer commit desde nuevo git" />
-    <option name="LAST_COMMIT_MESSAGE" value="24/04/2025 mi primer commit desde nuevo git" />
+    <MESSAGE value="24/04/2025 mi primer commit despues de eliminar los 17 anteriores" />
+    <option name="LAST_COMMIT_MESSAGE" value="24/04/2025 mi primer commit despues de eliminar los 17 anteriores" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
