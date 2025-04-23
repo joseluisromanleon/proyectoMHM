@@ -1,0 +1,37 @@
+<div class="container">
+  <app-detalle-modal [categoria]="categoria"></app-detalle-modal>
+<!--  <app-create-modal></app-create-modal>-->
+<!--  <app-edit-modal [categoria]="categoria"></app-edit-modal>-->
+
+  <div class="d-flex justify-content-between">
+    <h4 class="col-md-6">Lista de Categorías</h4>
+    <a routerLink="/categoria/create" class="btn btn-success">Crear Nueva Categoría</a>
+  </div>
+  <div class="d-flex mt-lg-2" style="background-color: rgba(0, 0, 0, 0.3); z-index: 1">
+    <div class="d-flex col-md-8">
+      <div class="col-md-6 mx-md-1"><h5>Id</h5></div>
+      <div class="col-md-6 mx-md-1"><h5>Nombre</h5></div>
+    </div>
+    <div class="d-flex col-4 justify-content-center">
+      <div class="col-md-4"><h5 class="text-center">Acciónes</h5></div>
+    </div>
+  </div>
+
+  <div *ngFor="let categoria of categorias" class="row top5 align-items-center">
+    <div class="col-md-4">{{ categoria.id || 'No id' }}</div>
+    <div class="col-md-4">{{ categoria.nombre }}</div>
+    <div class="col-md-4 d-md-flex mt-1 justify-content-md-end mx-0">
+      <!-- Botón para Editar (abre modal de edición) -->
+      <button type="button" (click)="openEditModal(categoria)" class="btn btn-secondary" style="margin-left: 2px; margin-top: 2px;">Editar</button>
+
+      <!-- Botón para Detalles (abre modal de detalle) -->
+      <button type="button" (click)="openDetalleModal(categoria)" class="btn btn-primary" style="margin-left: 2px; margin-top: 2px;">Detalle</button>
+
+      <!-- Botón para Eliminar -->
+      <button type="button" (click)="deleteCategoria(categoria.id)" class="btn btn-danger" style="margin-left: 2px; margin-top: 2px;">Eliminar</button>
+    </div>
+  </div>
+</div>
+
+
+

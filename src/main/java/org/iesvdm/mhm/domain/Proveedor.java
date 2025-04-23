@@ -14,7 +14,7 @@ import java.util.Set;
 
 @Data
 @Entity
-@Table(name = "proveedor")
+@Table(name = "proveedores")
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)

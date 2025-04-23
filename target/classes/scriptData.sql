@@ -1,6 +1,6 @@
 # http://localhost:8080/data-api/explorer/index.html#
 
-insert into producto (id_producto, nombre, ultima_actualizacion)
+insert into productos (id_producto, nombre, ultima_actualizacion)
 values  (1, 'Action', '2006-02-15 04:46:27'),
         (2, 'Animation', '2006-02-15 04:46:27'),
         (3, 'Children', '2006-02-15 04:46:27'),
@@ -20,7 +20,7 @@ values  (1, 'Action', '2006-02-15 04:46:27'),
         (18, 'Producto10 - desde Insomnia UPDATED :PUT', null);
 
 
-insert into cliente (id_cliente, nombre, ultima_actualizacion)
+insert into clientes (id_cliente, nombre, ultima_actualizacion)
 values  (1, 'English', '2006-02-15 05:02:19'),
         (2, 'Italian', '2006-02-15 05:02:19'),
         (3, 'Japanese', '2006-02-15 05:02:19'),
@@ -30,7 +30,7 @@ values  (1, 'English', '2006-02-15 05:02:19'),
 
 
 
-insert into empleado (id_empleado, apellidos, nombre, ultima_actualizacion)
+insert into empleados (id_empleado, apellidos, nombre, ultima_actualizacion)
 values  (1, 'PENELOPE', 'GUINESS', '2006-02-15 04:34:33'),
         (2, 'NICK', 'WAHLBERG', '2006-02-15 04:34:33'),
         (3, 'ED', 'CHASE', '2006-02-15 04:34:33'),
@@ -248,17 +248,17 @@ values  (1, '2006-02-15 05:03:42', 'Deleted Scenes,Behind the Scenes', 'PG', 'A 
 
 
 -- Insertar categorías de productos de cocina industrial
-INSERT INTO cat_prod (nombre, voltaje_v, potencia_w, capacidad_l, alto, ancho, fondo) VALUES
-                                                                                       ('Freidora', 220, 3000, '12L', 50.0, 40.0, 60.0),
-                                                                                       ('Planchas', 220, 2500, NULL, 20.0, 70.0, 40.0),
-                                                                                       ('Boiler', 380, 5000, '100L', 180.0, 60.0, 60.0),
-                                                                                       ('Horno Convección', 220, 4500, NULL, 90.0, 80.0, 70.0),
-                                                                                       ('Batidora Industrial', 220, 750, '20L', 120.0, 40.0, 50.0),
-                                                                                       ('Lavavajillas', 380, 6000, NULL, 90.0, 80.0, 70.0),
-                                                                                       ('Cocedor de Pasta', 220, 4000, '25L', 85.0, 50.0, 60.0),
-                                                                                       ('Horno Microondas', 220, 1500, '40L', 35.0, 60.0, 45.0),
-                                                                                       ('Tostador Industrial', 220, 2000, NULL, 30.0, 40.0, 50.0),
-                                                                                       ('Nevera Industrial', 220, 800, NULL, 200.0, 120.0, 80.0);
+INSERT INTO categoria (nombre) VALUES
+              ('Freidora'),
+              ('Planchas'),
+              ('Boiler'),
+              ('Horno Convección'),
+              ('Batidora Industrial'),
+              ('Lavavajillas'),
+              ('Cocedor de Pasta'),
+              ('Horno Microondas'),
+              ('Tostador Industrial'),
+              ('Nevera Industrial');
 
 INSERT INTO proveedor (empresa, tel_empresa, mail_empresa, contacto, tel_contacto, mail_contacto, cif, direccion)
 VALUES

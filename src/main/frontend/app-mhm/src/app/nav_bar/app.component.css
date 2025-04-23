@@ -1,0 +1,63 @@
+:root {
+  --handwriting-font: 'Great Vibes', cursive;
+  --main-font: 'Playfair Display', serif;
+  --defecto-main: 'Roboto';
+  --brand: 'fantasy';
+}
+
+
+
+h1 {
+  /*font-family: "fantasy" /*var(--handwriting-font)*/;
+  font-family:  'fantasy', serif;
+  font-size: 48px;
+  font-weight: 700; /* Esto aplica la versión en negrita de la fuente */
+  color: #fff; /* Color blanco  */
+}
+
+
+/* Estilo para el logo */
+.logo-img {
+  width: 170px;
+  height: 150px;
+  position: absolute;
+  top: 30%; /* Para centrar verticalmente */
+  left: 30px; /* Para alinear a la izquierda con un margen de 20px */
+  transform: translateY(-50%); /* Ajusta el centrado vertical */
+}
+
+/* Estilo para la imagen de fondo */
+.bg-image {
+  height: 400px; /* Ajusta la altura del contenedor para que el logo encaje */
+  background-size: cover;
+  background-position: center;
+}
+
+
+/* Estilos para los dropdown items personalizados */
+.custom-dropdown-item {
+  background-color: #343a40; /* Fondo gris oscuro */
+  color: white; /* Texto blanco */
+  border-radius: 0; /* Sin esquinas redondeadas */
+  padding: 10px; /* Espaciado interno para que parezcan botones */
+  text-align: center; /* Centrar el texto */
+  margin: 2px 0; /* Separación entre opciones */
+  display: block;
+}
+
+/* Cambia el color al pasar el cursor */
+.custom-dropdown-item:hover {
+  background-color: #495057; /* Un gris más claro cuando el mouse esté sobre el botón */
+  color: white;
+  text-decoration: none; /* Sin subrayado */
+}
+
+/* Opcional: Estilo para todo el menú desplegable */
+.custom-dropdown-menu {
+  border-radius: 0; /* Sin esquinas redondeadas */
+  padding: 0;
+  border: none; /* Sin bordes */
+}
+
+
+

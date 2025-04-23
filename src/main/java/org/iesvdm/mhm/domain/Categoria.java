@@ -12,7 +12,7 @@ import java.util.Set;
 
 @Data
 @Entity
-@Table(name = "cat_prod")
+@Table(name = "categorias")
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -22,37 +22,18 @@ public class Categoria {
     @Column(name = "id_categoria")
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idCategoria;
+    private long id;
 
     @Column(name = "nombre", nullable = false)
     @EqualsAndHashCode.Include
     private String nombre;
 
-    @Column(name = "voltaje_v")
-    @EqualsAndHashCode.Include
-    private int voltaje;
-
-    @Column(name = "potencia_w")
-    @EqualsAndHashCode.Include
-    private int potencia;
-
-    @Column(name = "capacidad_l")
-    @EqualsAndHashCode.Include
-    private String capacidad;
-
-    @Column(name = "alto")
-    @EqualsAndHashCode.Include
-    private Float alto;
-
-    @Column(name = "ancho")
-    @EqualsAndHashCode.Include
-    private Float ancho;
-
-    @Column(name = "fondo")
-    @EqualsAndHashCode.Include
-    private Float fondo;
-
-    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "categoria",
+            joinColumns = @JoinColumn(name = "categoria"),
+            inverseJoinColumns = @JoinColumn(name = "categoria_id")
+    )
     private Set<Producto> productos = new HashSet<>();
+
 
 }

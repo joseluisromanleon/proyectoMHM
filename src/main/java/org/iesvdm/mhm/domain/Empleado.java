@@ -2,11 +2,15 @@ package org.iesvdm.mhm.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import lombok.*;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.builder.ToStringExclude;
+import org.iesvdm.mhm.notations.EmailValid;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -14,7 +18,7 @@ import java.util.Set;
 
 @Data
 @Entity
-@Table(name = "empleado")
+@Table(name = "empleados")
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)  //solo los que tienen include
@@ -28,8 +32,18 @@ public class Empleado {
     private String nombre;
     private String apellidos;
     private String direccion;
+
+    @Size(min = 9, max = 9)
+    @Column(name = "telefono", length = 9)
     private String telefono;
-    private String ccc_empleado;
+
+    @Column(name = "email_empl")
+    @EmailValid
+    private String Email_Empl;
+
+    @Size(min = 24, max = 24)
+    @Column(name = "iban_empleado", length = 24)
+    private String IBAN_empleado;
 
     @ManyToMany (fetch = FetchType.EAGER)
     @JoinTable(name = "empl_clientes",
@@ -49,6 +63,11 @@ public class Empleado {
     @Column(name = "fecha_alta")
     @JsonFormat(pattern = "yyyy-MM-dd-HH:mm:ss",  shape = JsonFormat.Shape.STRING)
     private Date fecha_alta;
+
+
+    @ManyToOne
+    @JoinColumn(name = "rol_id")
+    private Rol rol; // Un empleado tiene un solo rol
 
     // ******* CONSTRUCTORES PARA TESTS *********
     public Empleado(int id, String nombre) {

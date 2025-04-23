@@ -12,7 +12,7 @@ import java.util.Set;
 
 @Data
 @Entity
-@Table(name = "producto")
+@Table(name = "productos")
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -26,22 +26,55 @@ public class Producto {
 
     @EqualsAndHashCode.Include
     private String nombre;
-    private double precioCompra;
-    private double precioVenta;
+
 
 //    @ManyToOne
 //    @JoinColumn(name = "id_categoria", nullable = false) //FK para la relaccion
 //    private Categoria categoria;
 
-    private String categoria;
-    private String proveedor;
+
+    @Column(name = "voltaje_v")
+    @EqualsAndHashCode.Include
+    private int voltaje;
+
+    @Column(name = "potencia_w")
+    @EqualsAndHashCode.Include
+    private int potencia;
+
+    @Column(name = "capacidad_l")
+    @EqualsAndHashCode.Include
+    private String capacidad;
+
+    @Column(name = "alto")
+    @EqualsAndHashCode.Include
+    private Float alto;
+
+    @Column(name = "ancho")
+    @EqualsAndHashCode.Include
+    private Float ancho;
+
+    @Column(name = "fondo")
+    @EqualsAndHashCode.Include
+    private Float fondo;
+
+    @ManyToOne
+    @JoinColumn(name = "categoria_id_categoria")
+    private Categoria categoria;
+
+    @ManyToOne
+    @JoinColumn(name = "proveedor_id_proveedor")
+    private Proveedor proveedor;
+
     private long stock;
     private long stockMinimo;
     private boolean descatalogado;
     private long unidadesServidas;
-    private double descuento_max;
+    private double precioCompra;
+    private double precioVenta;
+
     private double iva;
     private double rec_equivalencia;
+    private double descuento_max;
 
     @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonBackReference
@@ -53,6 +86,6 @@ public class Producto {
     private Date ultimaCompra;
 
     // Constructores
-
     // Otros métodos necesite para calculos
+
 }

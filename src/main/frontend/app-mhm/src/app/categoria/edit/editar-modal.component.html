@@ -1,0 +1,33 @@
+<div class="modal fade" id="editarModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar Categoría</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulario de editar -->
+        <form [formGroup]="editarForm">
+          <div class="form-group row">
+            <label for="id" class="col-md-4 col-form-label">ID:</label>
+            <div class="col-md-8">
+              <input id="id" type="text" class="form-control" formControlName="id" [value]="categoria.id">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="nombre" class="col-md-4 col-form-label">Nombre:</label>
+            <div class="col-md-8">
+              <input id="nombre" type="text" class="form-control" formControlName="nombre">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-primary" (click)="editarCategoria(categoria.id, categoria.name)">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>

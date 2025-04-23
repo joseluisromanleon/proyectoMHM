@@ -4,7 +4,7 @@
       <h4>Lista de Productos</h4>
     </div>
     <div class="col-md-6">
-      <a routerLink="/producto/create" class="btn btn-success float-md-end" style="margin-left: 2px; margin-top: 2px;">Crear Nueva Categoría</a>
+      <a routerLink="/categoria/create" class="btn btn-success float-md-end" style="margin-left: 2px; margin-top: 2px;">Crear Nueva Categoría</a>
     </div>
   </div>
   <div class="row top5">
@@ -23,6 +23,7 @@
 
     <div class="col-md-3 d-md-flex justify-content-md-center">
       <button type="button" [routerLink]="['/producto/', 'edit', producto.id  ]" class="btn btn-secondary" style="margin-left: 2px; margin-top: 2px;">Editar</button>
+      <button type="button" (click)="deleteProducto(producto.id)" class="btn btn-primary" style="margin-left: 2px; margin-top: 2px;">Detalle</button>
       <button type="button" (click)="deleteProducto(producto.id)" class="btn btn-danger" style="margin-left: 2px; margin-top: 2px;">Eliminar</button>
 
     </div>

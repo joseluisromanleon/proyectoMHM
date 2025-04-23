@@ -1,0 +1,13 @@
+
+
+# Archivos de IntelliJ
+.idea/
+*.iml
+*.class
+
+# Carpeta de compilados
+/target/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db

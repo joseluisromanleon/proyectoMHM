@@ -4,8 +4,10 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.apache.commons.lang3.builder.ToStringExclude;
+import org.iesvdm.mhm.notations.EmailValid;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -19,7 +21,7 @@ Si utilizo @OneToMany(FetchType.LAZY) además debo usar
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 */
 @Data
-@Table(name="cliente")
+@Table(name="clientes")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -33,16 +35,40 @@ public class Cliente {
     @Column(name = "id_cliente")
     @EqualsAndHashCode.Include
     private Long id;
+
     private String nombre;
     private String direccion;
+
+    @Size(min = 5, max = 5)
+    @Column(name = "cp", length = 5)
     private String cp;
-    private String ccc_empresa;
+
+    @Size(min = 24, max = 24)
+    @Column(name = "iban_empresa", length = 24)
+    private String IBAN_empresa;
+
+    @Size(min = 9, max = 9)
+    @Column(name = "tel_empresa", length = 9)
     private String tel_empresa;
+
+    @EmailValid //Anotacion Personalizada Basica
+    @Column(name = "email_empresa")
     private String email_empresa;
+
     private String nombre_contacto;
+
+    @Size(min = 9, max = 9)
+    @Column(name = "tel_contacto", length = 9)
     private String tel_contacto;
+
+    @EmailValid // Anotacion Personalizada Basica
     private String email_contacto;
+
+    @Size(min = 256, max = 256)
+    @Column(name = "observaciones", length = 256)
     private String observaciones;
+
+    private static long rol_id = 4;
 
     @ManyToMany(mappedBy = "clientes", cascade = {
             CascadeType.PERSIST,
@@ -70,7 +96,5 @@ public class Cliente {
         this.pedidos = new HashSet<>();
         this.empleados = new HashSet<>();
     }
-
-
 
 }

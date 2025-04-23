@@ -13,7 +13,7 @@ import java.util.Set;
 
 @Data
 @Entity
-@Table(name="pedido")
+@Table(name="pedidos")
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
