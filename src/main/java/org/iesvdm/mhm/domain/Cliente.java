@@ -68,7 +68,13 @@ public class Cliente {
     @Column(name = "observaciones", length = 256)
     private String observaciones;
 
-    private static long rol_id = 4;
+    private long rol_id;
+
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
+    @ToStringExclude    //Rompe el lazo de Serializacion
+    @JsonBackReference
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Set<Pedido> pedidos;
 
     @ManyToMany(mappedBy = "clientes", cascade = {
             CascadeType.PERSIST,
@@ -77,12 +83,6 @@ public class Cliente {
     @JsonIgnoreProperties({"clientes", "empleados", "pedidos"})         //Rompe el lazo de Serializacion
     @ToStringExclude    //Rompe el lazo de Serializacion
     private Set<Empleado> empleados;
-
-    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
-    @ToStringExclude    //Rompe el lazo de Serializacion
-    @JsonBackReference
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private Set<Pedido> pedidos;
 
     @Column(name = "fecha_alta")
     @JsonFormat(pattern = "yyyy-MM-dd-HH:mm:ss",  shape = JsonFormat.Shape.STRING)

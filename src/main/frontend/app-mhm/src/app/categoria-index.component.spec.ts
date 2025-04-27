@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CategoriaIndexComponent } from './categoria-index.component';
+import { CategoriaIndexComponent } from './categoria/index/categoria-index.component';
 
 describe('IndexComponent', () => {
   let component: CategoriaIndexComponent;

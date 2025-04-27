@@ -1,16 +1,15 @@
 package org.iesvdm.mhm.domain;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.builder.ToStringExclude;
 
-import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -24,9 +23,13 @@ public class Rol {
     private Long id_rol;
     private String nombre;
 
-    @OneToMany(mappedBy = "rol")
-    private List<Empleado> empleados;
-
+    @ManyToMany(mappedBy = "roles", cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE,
+    },fetch = FetchType.EAGER)
+    @JsonIgnoreProperties({"roles", "empleados", "pedidos"})         //Rompe el lazo de Serializacion
+    @ToStringExclude    //Rompe el lazo de Serializacion
+    private Set<Empleado> empleados;
 
 
 }

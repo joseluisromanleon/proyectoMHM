@@ -76,6 +76,10 @@ public class Pedido {
         this.empleado = empleado;
     }
 
+    @Column(name = "ultima_actualizacion")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",  shape = JsonFormat.Shape.STRING)
+    private Date ultimaActualizacion;
+
     //Constructor Pedido Productos
 
 

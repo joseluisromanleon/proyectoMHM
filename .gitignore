@@ -4,10 +4,11 @@
 .idea/
 *.iml
 *.class
+/dataSources/
 
 # Carpeta de compilados
 /target/
-
 # Archivos de sistema
 .DS_Store
 Thumbs.db
+node_modules

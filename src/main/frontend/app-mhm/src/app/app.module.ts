@@ -2,16 +2,17 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './nav_bar/app.component';
+import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {CategoriaModule} from "./categoria/categoria.module";
 import {CategoriaRoutingModule} from "./categoria/categoria-routing.module";
 import {DetalleModalComponent} from "./categoria/Detalle/detalle-modal.component";
+import {CarruselComponent} from "./carrusel/carrusel.component";
 
 @NgModule({
   declarations: [
-    AppComponent
-
+    AppComponent,
+    CarruselComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,7 +21,7 @@ import {DetalleModalComponent} from "./categoria/Detalle/detalle-modal.component
     CategoriaModule,
     CategoriaRoutingModule,
     HttpClientModule,
-    DetalleModalComponent
+    DetalleModalComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

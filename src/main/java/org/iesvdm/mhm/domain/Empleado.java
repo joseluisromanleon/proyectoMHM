@@ -22,6 +22,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)  //solo los que tienen include
+
 public class Empleado {
 
     @Id
@@ -45,29 +46,32 @@ public class Empleado {
     @Column(name = "iban_empleado", length = 24)
     private String IBAN_empleado;
 
-    @ManyToMany (fetch = FetchType.EAGER)
-    @JoinTable(name = "empl_clientes",
-        joinColumns = @JoinColumn (name = "id_empleado"),
-        inverseJoinColumns = @JoinColumn(name = "id_cliente")
-    )
-    @JsonIgnoreProperties({"clientes","empleados"})          //Rompe el lazo de Serializacion
-    @ToStringExclude    //Rompe el lazo de Serializacion
-    Set<Cliente> clientes = new HashSet<>();
-
-    @OneToMany(mappedBy = "empleado", fetch = FetchType.LAZY)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})       //Rompe el lazo de Serializacion
-    @ToStringExclude    //Rompe el lazo de Serializacion
-    @JsonBackReference
-    Set<Pedido> pedidos = new HashSet<>();
-
     @Column(name = "fecha_alta")
     @JsonFormat(pattern = "yyyy-MM-dd-HH:mm:ss",  shape = JsonFormat.Shape.STRING)
     private Date fecha_alta;
 
+    @OneToMany(mappedBy = "empleado", fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})  //Rompe el lazo de Serializacion
+    @ToStringExclude                                                //Rompe el lazo de Serializacion
+    @JsonBackReference
+    Set<Pedido> pedidos = new HashSet<>();
 
-    @ManyToOne
-    @JoinColumn(name = "rol_id")
-    private Rol rol; // Un empleado tiene un solo rol
+    @ManyToMany (fetch = FetchType.EAGER)
+    @JoinTable(name = "empleados_clientes",
+            joinColumns = @JoinColumn (name = "id_empleado"),
+            inverseJoinColumns = @JoinColumn(name = "id_cliente"))
+    @JsonIgnoreProperties({"clientes","empleados"}) //Rompe el lazo de Serializacion
+    @ToStringExclude                                //Rompe el lazo de Serializacion
+    Set<Cliente> clientes = new HashSet<>();
+
+    @ManyToMany (fetch = FetchType.EAGER)
+    @JoinTable(name = "empleados_roles",
+        joinColumns = @JoinColumn (name = "empleado_id"),
+        inverseJoinColumns = @JoinColumn(name = "rol_id"))
+    @JsonIgnoreProperties({"empleados", "roles"})   //Rompe el lazo de Serializacion
+    @ToStringExclude                                //Rompe el lazo de Serializacion
+    Set<Rol> roles; // Un empleado tiene un solo rol
+
 
     // ******* CONSTRUCTORES PARA TESTS *********
     public Empleado(int id, String nombre) {
