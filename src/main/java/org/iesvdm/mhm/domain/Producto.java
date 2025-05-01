@@ -30,7 +30,7 @@ public class Producto {
 
 //    @ManyToOne
 //    @JoinColumn(name = "id_categoria", nullable = false) //FK para la relaccion
-//    private Categoria categoria;
+//    private Mensaje categoria;
 
 
     @Column(name = "voltaje_v")

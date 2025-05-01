@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, RouterLink} from '@angular/router';
 import { CategoriaService } from 'src/app/categoria/categoria.service';
 import { Categoria } from 'src/app/categoria/categoria';
-import {CommonModule} from "@angular/common";  // Asegúrate de que está la interfaz Categoria
+import {CommonModule} from "@angular/common";  // Asegúrate de que está la interfaz Mensaje
 
 @Component({
   selector: 'app-detalle-categoria',
@@ -12,7 +12,7 @@ import {CommonModule} from "@angular/common";  // Asegúrate de que está la int
   imports: [CommonModule, RouterLink] // Importa los módulos necesarios directamente aquí
 })
 export class CategoriaDetalleComponent implements OnInit {
-  categoria: Categoria | undefined;  // Usamos Categoria como tipo de datos
+  categoria: Categoria | undefined;  // Usamos Mensaje como tipo de datos
 
   constructor(
     private route: ActivatedRoute,

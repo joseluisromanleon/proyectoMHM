@@ -3,7 +3,7 @@ package org.iesvdm.mhm;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import org.iesvdm.mhm.domain.Categoria;
+import org.iesvdm.mhm.domain.Mensaje;
 import org.iesvdm.mhm.domain.Empleado;
 import org.iesvdm.mhm.domain.Pedido;
 import org.iesvdm.mhm.repository.EmpleadoRepository;
@@ -59,11 +59,11 @@ import java.util.HashSet;
             Empleado empleado2 = new Empleado(0, "empleado2", new HashSet<Pedido>());
             empleadoRepository.save(empleado2);
 
-            Pedido pedido1 = new Pedido(0, "Pedido1", new HashSet<Categoria>(), new HashSet<Empleado>());
+            Pedido pedido1 = new Pedido(0, "Pedido1", new HashSet<Mensaje>(), new HashSet<Empleado>());
             pedidoRepository.save(pedido1);
 
 
-            Pedido pedido2 = new Pedido(0, "Pedido2", new HashSet<Categoria>(), new HashSet<Empleado>());
+            Pedido pedido2 = new Pedido(0, "Pedido2", new HashSet<Mensaje>(), new HashSet<Empleado>());
             pedidoRepository.save(pedido2);
 
             Empleado empleado3 = new Empleado(0, "Empleado3 - Programando fácil con JPA :P", new HashSet<>());
@@ -112,7 +112,7 @@ import java.util.HashSet;
                         Empleado2.setPedido(new HashSet<>(pedidos));
                         UtilJPA.initializeLazyManyToManyByJoinFetch(entityManager,
                                 Pedido.class,
-                                Categoria.class,
+                                Mensaje.class,
                                 Empleado2.getId(),
                                 Empleado2::setPedido
                         );*//*
@@ -123,16 +123,16 @@ import java.util.HashSet;
             //Si se utlizas un fetch LAZY, mejor estrategia realizar un join fetch en JPQL
             //y cargar en la colección. NOTA: si utilizas EAGER puedes prescindir de join fetch.
                        */
-/* List<Categoria> empleados = entityManager.createQuery(
+/* List<Mensaje> empleados = entityManager.createQuery(
                                 "select p " +
-                                        "from Categoria p " +
+                                        "from Mensaje p " +
                                         "join fetch p.pedidos ts " +
-                                        "where ts.id = :id", Categoria.class)
+                                        "where ts.id = :id", Mensaje.class)
                                 .setParameter("id", pedido1.getId())
                                 .getResultList();
                         pedido1.setProductos(new HashSet<>(empleados));
                         UtilJPA.initializeLazyManyToManyByJoinFetch(entityManager,
-                                Categoria.class,
+                                Mensaje.class,
                                 Pedido.class,
                                 pedido1.getId(),
                                 pedido1::setProductos
@@ -153,17 +153,17 @@ import java.util.HashSet;
             //Si se utlizas un fetch LAZY, la mejor estrategia es realizar un join fetch en JPQL
             //y cargar en la colección. NOTA: si utilizas EAGER puedes prescindir de join fetch.
                         */
-/*List<Categoria> empleados = entityManager.createQuery(
+/*List<Mensaje> empleados = entityManager.createQuery(
                         "select p " +
-                                "from Categoria p " +
+                                "from Mensaje p " +
                                 "join fetch p.pedidos ts " +
-                                "where ts.id = :id", Categoria.class)
+                                "where ts.id = :id", Mensaje.class)
                                 .setParameter("id", pedido.getId())
                                 .getResultList();
 
                         pedido.setProductos(new HashSet<>(empleados));
                                         UtilJPA.initializeLazyManyToManyByJoinFetch(entityManager,
-                                                Categoria.class,
+                                                Mensaje.class,
                                                 Pedido.class,
                                                 pedido1.getId(),
                                                 pedido1::setProductos
@@ -189,16 +189,16 @@ import java.util.HashSet;
             //Si se utlizas un fetch LAZY, mejor estrategia realizar un join fetch en JPQL
             //y cargar en la colección. NOTA: si utilizas EAGER puedes prescindir de join fetch.
        */
-/* List<Categoria> empleados = entityManager.createQuery(
+/* List<Mensaje> empleados = entityManager.createQuery(
                         "select p " +
-                                "from Categoria p " +
+                                "from Mensaje p " +
                                 "join fetch p.pedidos ts " +
-                                "where ts.id = :id", Categoria.class)
+                                "where ts.id = :id", Mensaje.class)
                 .setParameter("id", pedido.getId())
                 .getResultList();
         pedido.setProductos(new HashSet<>(empleados));
                         UtilJPA.initializeLazyManyToManyByJoinFetch(entityManager,
-                                Categoria.class,
+                                Mensaje.class,
                                 Pedido.class,
                                 pedido3.getId(),
                                 pedido3::setProductos
@@ -213,7 +213,7 @@ import java.util.HashSet;
                 pedido4.getEmpleados().remove(empleado);
             });
 
-            ArrayList<Categoria> auxCopyProductos = new ArrayList<>(pedido4.getProductos());
+            ArrayList<Mensaje> auxCopyProductos = new ArrayList<>(pedido4.getProductos());
             auxCopyProductos.forEach(cat -> {
                 cat.getPedidos().remove(pedido4);
                 productoRepository.save(cat);

@@ -26,7 +26,7 @@ import java.util.Date;
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private long id;
 
-        @Size(min = 1, max = 1)   // ojo no sabemos que guarda si el id  o podriamos guardar el objeto y como
+        @Size(min = 1, max = 1)   // ojo no sabemos que guarda si el, id  o podriamos guardar el objeto y como
         @Column(name = "cliente_id", length = 1)
         private Long cliente_id;
 

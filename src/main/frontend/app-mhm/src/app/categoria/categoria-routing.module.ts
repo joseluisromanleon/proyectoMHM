@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CategoriaIndexComponent } from './index/categoria-index.component';
 import { CategoriaCreateComponent } from './create/categoria-create.component';
 import { CategoriaEditComponent } from './edit/Categoria-edit.component';
-import {CategoriaDetalleComponent} from "./Detalle/categoria-detalle.component";
+import { CategoriaDetalleComponent } from "./Detalle/categoria-detalle.component";
 
 const routes: Routes = [
   { path: 'categoria', redirectTo: 'categoria/index', pathMatch: 'full'},

@@ -1,20 +1,23 @@
 import { Component, Input } from '@angular/core';
 import { Categoria } from '../categoria';
-import {NgIf} from "@angular/common";  // Asegúrate de que la ruta sea correcta
+import {NgIf} from "@angular/common";
+
+// Asegúrate de que la ruta sea correcta
 
 @Component({
-  selector: 'app-detalle-modal',
-  templateUrl: './detalle-modal.component.html',
+  selector: 'categoria-detalle-modal',
+  templateUrl: './categoria-modal.component.html',
   standalone: true,
   imports: [
     NgIf
   ],
-  styleUrls: ['./detalle-modal.component.css']
+  styleUrls: ['./categoria-modal.component.css']
 })
-export class DetalleModalComponent {
+export class CategoriaModalComponent{
 
   // El input para recibir la categoría seleccionada desde el componente padre (el index)
   @Input() categoria: Categoria | undefined;
+
 
   constructor() {}
 

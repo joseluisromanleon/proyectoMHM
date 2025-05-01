@@ -34,25 +34,25 @@ import java.util.Map;
 
         @PostMapping({"","/"})
         public Producto newProducto(@RequestBody @Valid  Producto producto) {
-            log.info("Creando un Categoria"+ producto.getNombre());
+            log.info("Creando un Mensaje"+ producto.getNombre());
             return this.productoService.save(producto);
         }
 
         @GetMapping("/{id}")
         public Producto one(@PathVariable("id") Long id) {
-            log.info("Buscando un Categoria con id "+id);
+            log.info("Buscando un Mensaje con id "+id);
             return this.productoService.one(id);
         }
 
         @PutMapping("/{id}")
         public Producto replaceProducto(@PathVariable("id") Long id, @RequestBody Producto producto) {
-            log.info("Actualizando un Categoria con id "+ id);
+            log.info("Actualizando un Mensaje con id "+ id);
             return this.productoService.replace(id, producto);
         }
 
         @DeleteMapping({"{id}","/{id}"})
         public void deleteProducto(@PathVariable("id") Long id) {
-            log.info("Eliminando un Categoria con id "+id);
+            log.info("Eliminando un Mensaje con id "+id);
             this.productoService.delete(id);
         }
 
@@ -141,8 +141,8 @@ import java.util.Map;
 
         // ACCEDIENDO A PEDIDO DESDE PRODUCTO CASCADA
         @PostMapping(value ={"/{idPe}/addpel/{idProd}","/{idPe}/addpel/{idProd}/"})
-        public Categoria addProductoAPedido(@PathVariable Long idPe, @PathVariable Long idProd) {
-            Categoria prod = this.productoService.one(idProd);
+        public Mensaje addProductoAPedido(@PathVariable Long idPe, @PathVariable Long idProd) {
+            Mensaje prod = this.productoService.one(idProd);
             log.info("Añadiendo pedido con id "+ idPe +" al set de producto-pedidos  la producto con id "+idProd );
             return this.pedidoService.addProductoAPedido(idPe, idProd);
         }
@@ -163,7 +163,7 @@ import java.util.Map;
 
             Map<String, Object> response = new HashMap<>();
             // Construir la consulta de búsqueda dinámicamente
-            StringBuilder queryBuilder = new StringBuilder("SELECT p FROM Categoria p WHERE ");
+            StringBuilder queryBuilder = new StringBuilder("SELECT p FROM Mensaje p WHERE ");
             for (int i = 0; i < campos.length; i++) {
                 if (i > 0) {
                     queryBuilder.append(" AND ");
@@ -173,12 +173,12 @@ import java.util.Map;
             String queryString = queryBuilder.toString();
 
             // Ejecutar la consulta utilizando los parámetros proporcionados
-            TypedQuery<Categoria> query = entityManager.createQuery(queryString, Categoria.class);
+            TypedQuery<Mensaje> query = entityManager.createQuery(queryString, Mensaje.class);
             for (int i = 0; i < valores.length; i++) {
                 query.setParameter("valor" + i, valores[i]);
             }
 
-            List<Categoria> resultados = query.getResultList();
+            List<Mensaje> resultados = query.getResultList();
             response.put("resultados", resultados);
 
             return ResponseEntity.ok(response);

@@ -6,8 +6,11 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {CategoriaModule} from "./categoria/categoria.module";
 import {CategoriaRoutingModule} from "./categoria/categoria-routing.module";
-import {DetalleModalComponent} from "./categoria/Detalle/detalle-modal.component";
+import {CategoriaModalComponent} from "./categoria/Detalle/categoria-modal.component";
 import {CarruselComponent} from "./carrusel/carrusel.component";
+import {MensajeDetalleModalComponent} from "./mensaje/Detalle/mensaje-detalle-modal.component";
+import {MensajeModule} from "./mensaje/mensaje.module";
+import {MensajeRoutingModule} from "./mensaje/mensaje-routing.module";
 
 @NgModule({
   declarations: [
@@ -18,10 +21,13 @@ import {CarruselComponent} from "./carrusel/carrusel.component";
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    MensajeModule,
+    MensajeRoutingModule,
     CategoriaModule,
     CategoriaRoutingModule,
     HttpClientModule,
-    DetalleModalComponent,
+    CategoriaModalComponent,
+    MensajeDetalleModalComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

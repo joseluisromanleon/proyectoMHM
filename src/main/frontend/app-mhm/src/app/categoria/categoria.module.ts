@@ -7,7 +7,7 @@ import { CategoriaCreateComponent } from './create/categoria-create.component';
 import { CategoriaEditComponent } from './edit/Categoria-edit.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {DetalleModalComponent} from "./Detalle/detalle-modal.component";
+import {CategoriaModalComponent} from "./Detalle/categoria-modal.component";
 
 
 @NgModule({
@@ -21,7 +21,7 @@ import {DetalleModalComponent} from "./Detalle/detalle-modal.component";
         ReactiveFormsModule,
         CommonModule,
         CategoriaRoutingModule,
-        DetalleModalComponent
+        CategoriaModalComponent
     ]
 })
 export class CategoriaModule { }

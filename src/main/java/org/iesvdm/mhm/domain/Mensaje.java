@@ -32,13 +32,13 @@ public class Mensaje {
     @EqualsAndHashCode.Include
     private Long id_mensaje;
 
-    @Size(min = 50, max = 50)
+    @Size(min = 3, max = 50)
     @Column(name = "nombre_empresa", length = 50)
-    private String nombre_empresa;
+    private String nombreEmpresa;
 
-    @Size(min = 100, max = 100)
+    @Size(min = 3, max = 100)
     @Column(name = "direccion_empresa", length = 100)
-    private String direccion_empresa;
+    private String direccionEmpresa;
 
     @Size(min = 5, max = 5)
     @Column(name = "cp_empresa", length = 5)
@@ -84,16 +84,16 @@ public class Mensaje {
     @Column(name = "observaciones", length = 256)
     private String observaciones;
 
-    @Column(name = "ultima_actualizacion")
+    @Column(name = "fecha")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",  shape = JsonFormat.Shape.STRING)
-    private Date ultimaActualizacion;
+    private Date Fecha;
 
 
 
     // ******** CONSTRUCTOR PARA TESTS **************
     public Mensaje(long id, String nombre) {
         this.id_mensaje = id;
-        this.nombre_empresa = nombre;
+        this.nombreEmpresa = nombre;
         this.observaciones = getObservaciones();
         this.comercial = getComercial();
     }

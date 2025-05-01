@@ -32,7 +32,7 @@ export class CategoriaIndexComponent implements OnInit {
     console.log("Entró en el metodo de index.ts");
     this.categoriaService.delete(id).subscribe(res => {
       this.categorias = this.categorias.filter(cat => cat.id !== id);
-      console.log('Categoria id =' + id + ' eliminada satisfactoriamente!');
+      console.log('Mensaje id =' + id + ' eliminada satisfactoriamente!');
     }, error => {
       console.error('Error al eliminar la categoría', error);
     });

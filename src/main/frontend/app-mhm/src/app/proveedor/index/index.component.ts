@@ -27,7 +27,7 @@ export class IndexComponent implements OnInit {
     console.log("Entró en el metodo de index.ts");
     this.productoService.delete(id).subscribe(res => {
       this.productos = this.productos.filter(cat => cat.id !== id);
-      console.log('Categoria id =' + id + ' eliminada satisfactoriamente!');
+      console.log('Mensaje id =' + id + ' eliminada satisfactoriamente!');
     })
   }
 
