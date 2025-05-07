@@ -70,7 +70,7 @@ public class Empleado {
         inverseJoinColumns = @JoinColumn(name = "rol_id"))
     @JsonIgnoreProperties({"empleados", "roles"})   //Rompe el lazo de Serializacion
     @ToStringExclude                                //Rompe el lazo de Serializacion
-    Set<Rol> roles; // Un empleado tiene un solo rol
+    Set<Rol> roles; // Un empleado tiene mas de un solo rol
 
 
     // ******* CONSTRUCTORES PARA TESTS *********
@@ -87,5 +87,4 @@ public class Empleado {
         this.fecha_alta = fecha_alta;
         this.pedidos = new HashSet<Pedido>();
     }
-
 }

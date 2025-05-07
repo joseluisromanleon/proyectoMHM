@@ -245,7 +245,7 @@ public class ClienteService {
     //BLOQUE DE MÉTODOS @QUERY CON "SQL" NATIVO BASADO EN LAS TABLAS.
     //@Query nativeQuery = true, es decir, SQL:
     // Se Parametrizan con el nombre del parámetro:  (%:nombre%)
-    public List<Mensaje> queryProductoCustomJPA(Optional<String> buscarOptional,Optional<String>  ordenarOptional ) {
+    public List<Contacto> queryProductoCustomJPA(Optional<String> buscarOptional,Optional<String>  ordenarOptional ) {
         String queryBodyString = "select * from producto";
         if (buscarOptional.isPresent()){
             queryBodyString += "where nombre like :nombre";
@@ -257,7 +257,7 @@ public class ClienteService {
                 queryBodyString += "order by nombre desc";
             }
         }
-        Query query = em.createNativeQuery(queryBodyString.toString(),Mensaje.class);
+        Query query = em.createNativeQuery(queryBodyString.toString(),Contacto.class);
         if (buscarOptional.isPresent()){
             query.setParameter("nombre", "%"+buscarOptional.get()+"%");
         }
@@ -289,7 +289,7 @@ public class ClienteService {
     /*
     public Cliente addAclienteProducto(Long idped, Long idprod){
         Cliente ped = one(idped);
-        Mensaje prod = this.productoRepository.findById(idprod).get();
+        Contacto prod = this.productoRepository.findById(idprod).get();
         if(!prod.getclientes().contains(ped)){
             ped.getProductos().add(prod);
             save(ped);

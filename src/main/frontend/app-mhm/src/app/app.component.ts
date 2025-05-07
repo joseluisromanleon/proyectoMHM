@@ -1,9 +1,20 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core'
+import { MatDialog } from '@angular/material/dialog';
+import { MensajeFormModalComponent } from './components/mensaje/modal/mensaje-form-modal.component';
+import {ModalService} from "./components/modal/modal.service";
+import {MatCardModule} from "@angular/material/card";
+import {RouterOutlet} from "@angular/router";
+import {CommonModule, NgIf} from "@angular/common";
+import {AppModule} from "./app.module";
+
+//const MATERIAL_MODULES = [MatCardModule, MatDialog]
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  standalone: true,
+  imports: [RouterOutlet, NgIf, AppModule, CommonModule, MatCardModule]// AppModule]
 })
 export class AppComponent implements OnInit{
   title = 'app-mhm';
@@ -12,7 +23,9 @@ export class AppComponent implements OnInit{
   userRole: string = '';       // Rol del usuario (admin, cliente, proveedor, etc.)
   username: string = '';       // Nombre del usuario
 
-  constructor() {}
+  private readonly _modalSvc = inject(ModalService)
+
+  //constructor(public _dialog:MatDialog) {}
 
   ngOnInit(): void {
     // Verificar el estado de autenticación al cargar el componente
@@ -21,7 +34,20 @@ export class AppComponent implements OnInit{
       this.userRole = this.getUserRole();
       this.username = this.getUserName();
     }
+
 }
+
+  onClickNewContact(): void {
+    const dialogRef = this._modalSvc.openModal<MensajeFormModalComponent>(MensajeFormModalComponent, {
+      width: '600px', // Ajusta el tamaño
+      data: {mensaje:'Hola Mundo'} // Puedes pasar datos iniciales si es necesario o eliminarlos
+    });
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log('Modal cerrado', result);
+    //   // Aquí puedes recargar datos o mostrar mensajes
+    // });
+  }
+
 // Función para verificar si el usuario está logueado
   checkLoginStatus(): boolean {
     // Simula la verificación del estado de autenticación (por ejemplo, desde localStorage)

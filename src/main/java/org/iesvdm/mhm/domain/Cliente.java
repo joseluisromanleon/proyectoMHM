@@ -30,6 +30,7 @@ Si utilizo @OneToMany(FetchType.LAZY) además debo usar
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Cliente {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_cliente")

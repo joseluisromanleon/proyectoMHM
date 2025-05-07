@@ -4,57 +4,134 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="42527e49-09cd-4dfe-b96d-d5608878e110" name="Changes" comment="27-04-2025 index terminado">
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/Detalle/mensaje-detalle-modal.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/Detalle/mensaje-detalle-modal.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/Detalle/mensaje-detalle-modal.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/Detalle/mensaje-detalle.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/Detalle/mensaje-detalle.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/Detalle/mensaje-detalle.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/Detalle/mensaje-detalle.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/create/mensaje-create.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/create/mensaje-create.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/create/mensaje-create.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/create/mensaje-create.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/edit/editar-modal.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/edit/editar-modal.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/edit/mensaje-edit.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/edit/mensaje-edit.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/edit/mensaje-edit.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/edit/mensaje-edit.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/index/mensaje-index.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/index/mensaje-index.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/index/mensaje-index.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/mensaje-routing.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/mensaje.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/mensaje.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/mensaje.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/controller/MensajeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/exception/MensajeNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/repository/MensajeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/service/MensajeService.java" afterDir="false" />
+    <list default="true" id="42527e49-09cd-4dfe-b96d-d5608878e110" name="Changes" comment="01-05-2025 empezamos con contacto">
+      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/proxy.conf.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/modal/categoria-form-modal.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/modal/categoria-form-modal.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/modal/categoria-form-modal.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/mensaje/mensaje.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/mensaje/modal/mensaje-form-modal.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/mensaje/modal/mensaje-form-modal.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/mensaje/modal/mensaje-form-modal.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/modal/modal.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/features/mensaje.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/zbasura/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/26da8319-2f15-4267-8c02-426df19870b3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/26da8319-2f15-4267-8c02-426df19870b3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/app-index.component.spec.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/app.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/carrusel/carrusel.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/carrusel/carrusel.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria-index.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/app-index.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/Detalle/categoria-detalle.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/Detalle/categoria-detalle.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/Detalle/detalle-modal.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/Detalle/categoria-modal.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/Detalle/detalle-modal.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/Detalle/categoria-modal.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/Detalle/detalle-modal.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/Detalle/categoria-modal.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/categoria-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/categoria-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/categoria.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/categoria.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/index/categoria-index.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/index/categoria-index.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/index/categoria-index.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/index/categoria-index.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/producto/edit/edit.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/producto/edit/edit.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/producto/index/index.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/producto/index/index.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/proveedor/index/index.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/proveedor/index/index.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/carrusel/carrusel.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/carrusel/carrusel.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/carrusel/carrusel.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/carrusel/carrusel.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/carrusel/carrusel.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/carrusel/carrusel.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/Detalle/categoria-detalle.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/Detalle/categoria-detalle.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/Detalle/categoria-detalle.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/Detalle/categoria-detalle.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/Detalle/categoria-detalle.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/Detalle/categoria-detalle.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/Detalle/categoria-detalle.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/Detalle/categoria-modal.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/edit/categoria-edit.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/Detalle/categoria-modal.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/Detalle/categoria-modal.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/categoria-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/categoria-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/categoria.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/categoria.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/categoria.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/categoria.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/categoria.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/features/categoria.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/create/categoria-create.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/create/categoria-create.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/create/categoria-create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/create/categoria-create.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/create/categoria-create.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/create/categoria-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/create/categoria-create.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/edit/Categoria-edit.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/edit/Categoria-edit.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/edit/categoria-edit.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/edit/Categoria-edit.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/edit/Categoria-edit.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/edit/categoria-edit.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/edit/editar-modal.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/edit/editar-modal.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/edit/editar-modal.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/edit/editar-modal.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/index/categoria-index.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/index/categoria-index.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/index/categoria-index.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/index/categoria-index.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/categoria/index/categoria-index.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/index/categoria-index.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/marcas/marcas.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/marcas/marcas.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/marcas/marcas.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/marcas/marcas.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/marcas/marcas.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/marcas/marcas.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/Detalle/mensaje-detalle-modal.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/Detalle/mensaje-detalle-modal.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/Detalle/mensaje-detalle-modal.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/Detalle/mensaje-detalle.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/mensaje/Detalle/mensaje-detalle.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/Detalle/mensaje-detalle.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/mensaje/Detalle/mensaje-detalle.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/Detalle/mensaje-detalle.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/Detalle/mensaje-detalle.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/mensaje/Detalle/mensaje-detalle.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/create/mensaje-create.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/mensaje/create/mensaje-create.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/create/mensaje-create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/mensaje/create/mensaje-create.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/create/mensaje-create.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/create/mensaje-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/mensaje/create/mensaje-create.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/edit/editar-modal.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/edit/editar-modal.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/edit/mensaje-edit.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/mensaje/edit/mensaje-edit.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/edit/mensaje-edit.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/mensaje/edit/mensaje-edit.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/edit/mensaje-edit.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/edit/mensaje-edit.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/mensaje/edit/mensaje-edit.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/index/mensaje-index.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/mensaje/index/mensaje-index.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/index/mensaje-index.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/mensaje/index/mensaje-index.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/index/mensaje-index.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/mensaje/index/mensaje-index.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/mensaje-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/mensaje/mensaje-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/mensaje.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/mensaje.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/mensaje/mensaje.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/mensaje/mensaje.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/navbar/navbar.compnent.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/navbar/navbar.compnent.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/navbar/navbar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/navbar/navbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/navbar/navbar.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/producto/create/create.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/producto/create/create.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/producto/create/create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/producto/create/create.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/producto/create/create.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/producto/create/create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/producto/create/create.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/producto/edit/edit.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/producto/edit/edit.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/producto/edit/edit.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/producto/edit/edit.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/producto/edit/edit.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/producto/edit/edit.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/producto/edit/edit.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/producto/index/index.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/producto/index/index.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/producto/index/index.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/producto/index/index.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/producto/index/index.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/producto/index/index.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/producto/index/index.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/producto/producto-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/producto/producto-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/producto/producto.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/producto/producto.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/producto/producto.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/producto/producto.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/producto/producto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/categoria/producto/producto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/proveedor/create/create.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/proveedor/create/create.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/proveedor/create/create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/proveedor/create/create.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/proveedor/create/create.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/proveedor/create/create.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/proveedor/create/create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/proveedor/create/create.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/proveedor/edit/edit.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/proveedor/edit/edit.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/proveedor/edit/edit.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/proveedor/edit/edit.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/proveedor/edit/edit.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/proveedor/edit/edit.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/proveedor/edit/edit.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/proveedor/edit/edit.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/proveedor/index/index.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/proveedor/index/index.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/proveedor/index/index.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/proveedor/index/index.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/proveedor/index/index.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/proveedor/index/index.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/proveedor/index/index.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/proveedor/index/index.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/proveedor/producto-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/proveedor/producto-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/proveedor/producto.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/proveedor/producto.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/proveedor/producto.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/proveedor/producto.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/proveedor/producto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/proveedor/producto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/CorsConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/controller/CategoriaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/controller/CategoriaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/controller/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/controller/ClienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/controller/MensajeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/controller/MensajeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/controller/ProductoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/controller/ProductoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/domain/Aviso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/domain/Aviso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/domain/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/domain/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/domain/Empleado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/domain/Empleado.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/domain/Mensaje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/domain/Mensaje.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/domain/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/domain/Producto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/exception/MensajeNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/exception/MensajeNotFoundException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/exception/ProductoDTONotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/exception/ProductoDTONotFoundException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/exception/ProductoNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/exception/ProductoNotFoundException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/repository/ClienteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/repository/ClienteRepository.java" afterDir="false" />
@@ -62,10 +139,16 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/repository/ProductoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/repository/ProductoRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/repository/RepositoryDocumentacion" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/repository/RepositoryDocumentacion" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/service/ClienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/service/ClienteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/service/MensajeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/service/MensajeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/out/production/main/org/iesvdm/mhm/repository/RepositoryDocumentacion" beforeDir="false" afterPath="$PROJECT_DIR$/src/out/production/main/org/iesvdm/mhm/repository/RepositoryDocumentacion" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/iesvdm/mhm/PedidoEmpleadoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/iesvdm/mhm/PedidoEmpleadoTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/iesvdm/mhm/PedidoProductoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/iesvdm/mhm/PedidoProductoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/CorsConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/CorsConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/controller/ClienteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/controller/ClienteController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/controller/ProductoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/controller/ProductoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/domain/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/domain/Cliente.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/exception/ProductoDTONotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/exception/ProductoDTONotFoundException.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/exception/ProductoNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/exception/ProductoNotFoundException.class" afterDir="false" />
     </list>
@@ -88,7 +171,9 @@
       <list>
         <option value="Interface" />
         <option value="HTML File" />
+        <option value="com.haulmont.jpb.JpaEntity" />
         <option value="Class" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -160,7 +245,7 @@
     "Spring Boot.VideoclubApplication.executor": "Run",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/MHM/src/main/frontend/app-mhm/src/app/mensaje",
+    "last_opened_file_path": "C:/MHM/src/main/frontend/app-mhm/src/app/zbasura",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -172,7 +257,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "preferences.keymap",
+    "settings.editor.selected.configurable": "configurable.group.tools",
     "ts.external.directory.path": "C:\\MHM\\src\\main\\frontend\\app-mhm\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   },
@@ -187,18 +272,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\MHM\src\main\frontend\app-mhm\src\app\zbasura" />
+      <recent name="C:\MHM\src\main\frontend\app-mhm\src\app\components\categoria" />
       <recent name="C:\MHM\src\main\frontend\app-mhm\src\app\mensaje" />
       <recent name="C:\MHM\src\main\frontend\app-mhm\src\assets\image" />
       <recent name="C:\CLASES2023\2DAW_2324\DWES\Trim2\MHM\src\main\frontend\app-mhm\src\app\categoria\Detalle" />
-      <recent name="C:\CLASES2023\2DAW_2324\DWES\Trim2\MHM\src\main\frontend\app-mhm\src\app\categoria\create" />
-      <recent name="C:\CLASES2023\2DAW_2324\DWES\Trim2\MHM\src\main\frontend\app-mhm\src\assets\image" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\MHM\src\main\frontend\app-mhm\src\app\components\navbar" />
+      <recent name="C:\MHM\src\main\frontend\app-mhm\src\app\components\mensaje" />
+      <recent name="C:\MHM\src\main\frontend\app-mhm\src\app\components\modal" />
+      <recent name="C:\MHM\src\main\frontend\app-mhm\src\app\features" />
       <recent name="C:\MHM\src\main\frontend\app-mhm\src\app" />
-      <recent name="C:\CLASES2023\2DAW_2324\DWES\Trim2\MHM\src\main\frontend\app-mhm\src\app\nav_bar" />
-      <recent name="C:\CLASES2023\2DAW_2324\DWES\Trim2\MHM\src\main\frontend\app-mhm\src\app\categoria\create" />
-      <recent name="C:\CLASES2023\2DAW_2324\DWES\Trim2\MHM\src\main\frontend" />
-      <recent name="C:\CLASES2023\2DAW_2324\DWES\Trim2\MHM\src\main\frontend\app-mhm\src\assets\image" />
     </key>
     <key name="ImportMappingsDialog.RecentPackages">
       <recent name="" />
@@ -300,7 +385,9 @@
       <workItem from="1745416769254" duration="2054000" />
       <workItem from="1745418842154" duration="5578000" />
       <workItem from="1745453883345" duration="41439000" />
-      <workItem from="1745738283287" duration="26647000" />
+      <workItem from="1745738283287" duration="92186000" />
+      <workItem from="1746358694530" duration="12294000" />
+      <workItem from="1746449482694" duration="23648000" />
     </task>
     <task id="LOCAL-00001" summary="v1 para presentacion">
       <option name="closed" value="true" />
@@ -494,7 +581,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745738458546</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="01-05-2025 empezamos con contacto">
+      <option name="closed" value="true" />
+      <created>1746087556345</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1746087556345</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -546,7 +641,8 @@
     <MESSAGE value="24/04/2025 mi primer commit despues de eliminar los 17 anteriores" />
     <MESSAGE value="24-04-2025 mi primer commit en proyecto nuevo" />
     <MESSAGE value="27-04-2025 index terminado" />
-    <option name="LAST_COMMIT_MESSAGE" value="27-04-2025 index terminado" />
+    <MESSAGE value="01-05-2025 empezamos con contacto" />
+    <option name="LAST_COMMIT_MESSAGE" value="01-05-2025 empezamos con contacto" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

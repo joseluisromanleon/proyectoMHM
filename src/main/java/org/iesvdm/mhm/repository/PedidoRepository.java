@@ -40,7 +40,7 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long> {
     }
 
     // Método auxiliar para consulta SQL nativa
-    @Query(nativeQuery = true, value = "SELECT * FROM Mensaje WHERE nombre LIKE CONCAT('%', :nombre, '%')")
+    @Query(nativeQuery = true, value = "SELECT * FROM Contacto WHERE nombre LIKE CONCAT('%', :nombre, '%')")
     List<Pedido> queryProductoCustomJPA(String nombre);*//*
 
 

@@ -4,8 +4,10 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
+import org.iesvdm.mhm.domain.Cliente;
 import org.iesvdm.mhm.domain.Mensaje;
 import org.iesvdm.mhm.exception.MensajeNotFoundException;
+import org.iesvdm.mhm.repository.ClienteRepository;
 import org.iesvdm.mhm.repository.MensajeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,16 +16,18 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 @Slf4j
 @Service
 public class MensajeService {
 
+        @Autowired
         private final MensajeRepository mensajeRepository;
+
+        @Autowired
+        private final ClienteRepository clienteRepository = null;
 
         // para las consultas dinamicas  8 en una  logica de control para multiconsultas
         @PersistenceContext
@@ -33,13 +37,15 @@ public class MensajeService {
         public MensajeService(MensajeRepository mensajeRepository)
         { this.mensajeRepository = mensajeRepository; }
 
+
+
         public Mensaje one(Long id) {
             return this.mensajeRepository.findById(id)
                     .orElseThrow(() -> new MensajeNotFoundException(id));
         }
 
         public Mensaje replace(Long id, Mensaje mensaje) {
-            return this.mensajeRepository.findById(id).map( c -> (id.equals(mensaje.getId_mensaje()) ?
+            return this.mensajeRepository.findById(id).map( c -> (id.equals(mensaje.getIdMensaje()) ?
                             this.mensajeRepository.save(mensaje) : null))
                     .orElseThrow(() -> new MensajeNotFoundException(id));
         }
@@ -60,18 +66,58 @@ public class MensajeService {
             return mensaje;
         }
 
-    /**
-     * // (Trabajar con optional  los nulos)
-     * public List<Mensaje> all(String nombre) {
-     *     return Optional.ofNullable(nombre)
-     *             .filter(n -> !n.trim().isEmpty())
-     *             .map(this.mensajeRepository::findMensajeByNombre_empresaContainingIgnoreCase)
-     *             .orElseGet(this.mensajeRepository::findAll);
-     * }
-     *
-     */
+
+
+    public Cliente crearClienteDesdeMensaje(Long idMensaje) {
+
+        // 1. Buscar el mensaje
+        Mensaje mensaje = mensajeRepository.findById(idMensaje)
+                .orElseThrow(() -> new RuntimeException("Mensaje no encontrado"));
+
+        // 2. Crear el cliente desde los datos del mensaje
+        Cliente cliente = Cliente.builder()
+                .nombre(mensaje.getNombreEmpresa())
+                .direccion(mensaje.getDireccionEmpresa())
+                .cp(mensaje.getCpEmpresa())
+                .IBAN_empresa(mensaje.getIBANEmpresa())
+                .tel_empresa(mensaje.getTelEmpresa())
+                .email_empresa(mensaje.getEmailEmpresa())
+                .nombre_contacto(mensaje.getNombreContacto())
+                .tel_contacto(mensaje.getTelContacto())
+                .email_contacto(mensaje.getEmailContacto())
+                .observaciones(mensaje.getObservaciones())
+                .rol_id(mensaje.getRolId())
+                .fecha_alta(new Date())
+                .pedidos(new HashSet<>()) // Inicializar colecciones
+                .empleados(new HashSet<>())
+                .build();
+
+        // 3. Guardar el cliente
+        Cliente clienteGuardado = clienteRepository.save(cliente);
+
+        // 4. Actualizar el mensaje
+        mensaje.setEstadoMsje(Mensaje.EstadoMensaje.ACEPTADO);
+        mensaje.setCliente(clienteGuardado); // Vincular con el cliente
+        mensajeRepository.save(mensaje);
+
+        return clienteGuardado;
+    }
+
+
+        // 5. Rechaza un mensaje (cambia su estado a RECHAZADO).
+
+    public void rechazarMensaje(Long idMensaje) {
+        Mensaje mensaje = mensajeRepository.findById(idMensaje)
+                .orElseThrow(() -> new RuntimeException("Mensaje no encontrado"));
+        mensaje.setEstadoMsje(Mensaje.EstadoMensaje.RECHAZADO);
+        mensajeRepository.save(mensaje);
+    }
+
+
+
 
         public List<Mensaje> all() {
+
             return this.mensajeRepository.findAll();
         }
 

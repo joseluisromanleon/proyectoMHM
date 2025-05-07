@@ -26,17 +26,17 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
 
     /// ******************************
 
-    //public Page<Mensaje> findByProveedorContainsIgnoreCaseAndCategoriaContainingIgnoreCase(String proveedor, String categoria, Pageable pageable);
+    //public Page<Contacto> findByProveedorContainsIgnoreCaseAndCategoriaContainingIgnoreCase(String proveedor, String categoria, Pageable pageable);
 
-/* public List<Mensaje> findAll();
+/* public List<Contacto> findAll();
 
-    public List<Mensaje> findByNombreContainsIgnoreCaseOrderByNombreAsc(String nombre);
+    public List<Contacto> findByNombreContainsIgnoreCaseOrderByNombreAsc(String nombre);
 
-    public List<Mensaje> findByNombreContainsIgnoreCaseOrderByNombreDesc(String nombre);
+    public List<Contacto> findByNombreContainsIgnoreCaseOrderByNombreDesc(String nombre);
 
-    public List<Mensaje> findByNombreContainsIgnoreCase(String nombre);
+    public List<Contacto> findByNombreContainsIgnoreCase(String nombre);
 
-    public Page<Mensaje> findByNombreContainsIgnoreCase(String nombre, Pageable pageable);
+    public Page<Contacto> findByNombreContainsIgnoreCase(String nombre, Pageable pageable);
 
  */
 

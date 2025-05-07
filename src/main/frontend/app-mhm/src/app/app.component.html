@@ -4,19 +4,20 @@
     position: relative; /* Para posicionar elementos absolutos dentro del contenedor */
   ">
 
-    <div >
-    </div>
 
-    <div class="d-flex justify-content-end web" style="position: relative; z-index: 1;">
+    <div class="d-flex justify-content-end web" style="position: relative;">
       <div class="text-white">
         <!-- Imagen del logo con clases personalizadas -->
-        <img src="assets/image/MHM.jpg" alt="" class="logo-img">
-        <ul *ngIf="!isLoggedIn" class="d-flex mt-lg-5 mx-4 mt-5" style="list-style: none; gap: 5%">
+        <a routerLink="/">
+          <img src="assets/image/MHM.jpg" alt="Logo MHM" class="logo-img" />
+        </a>
+        <ul *ngIf="!isLoggedIn" class="d-flex flex-md-row flex-column  mx-4 mt-5"
+            style="list-style: none; gap: 10px;">
           <li>
             <a class="btn btn-secondary" routerLink="/login">Login</a>
           </li>
           <li>
-            <a class="btn btn-secondary" routerLink="/mensaje/create">Contact</a>
+            <a class="btn btn-secondary" (click)="onClickNewContact">Contactar</a>
           </li>
         </ul>
       </div>
@@ -34,8 +35,6 @@
       <h1 class="mt-2">Mediterranea de Hostelería Malagueña</h1>
     </div>
   </div>
-
     <app-carrusel></app-carrusel>
-
-  <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
 </div>

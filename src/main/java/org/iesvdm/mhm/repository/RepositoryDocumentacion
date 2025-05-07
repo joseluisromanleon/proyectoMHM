@@ -3,7 +3,7 @@ package org.iesvdm.mhm.repository;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import org.iesvdm.mhm.domain.Mensaje;
+import org.iesvdm.mhm.domain.Contacto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -11,7 +11,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.*;
 // Documentacion
 //@Repository
-public interface ProductoRepositoryDocumentacion extends JpaRepository<Mensaje, Long> {
+public interface ProductoRepositoryDocumentacion extends JpaRepository<Contacto, Long> {
 
 
     // *********** METODOS DE CONSULTAS *****************
@@ -19,11 +19,11 @@ public interface ProductoRepositoryDocumentacion extends JpaRepository<Mensaje, 
 
     // METODOS DE CONSULTA A IMPLEMENTAR (4)
 
-  public List<Mensaje> findProductoByNombreContainingIgnoreCase(String nombre);
-  public List<Mensaje> findProductoByNombreContainingIgnoreCaseOrderByNombreAsc(String nombre);
-  public List<Mensaje> findProductoByNombreContainingIgnoreCaseOrderByNombreDesc(String nombre);
-  public List<Mensaje> findAllProductoByOrderByNombreAsc();
-  public List<Mensaje> findAllProductoByOrderByNombreDesc();
+  public List<Contacto> findProductoByNombreContainingIgnoreCase(String nombre);
+  public List<Contacto> findProductoByNombreContainingIgnoreCaseOrderByNombreAsc(String nombre);
+  public List<Contacto> findProductoByNombreContainingIgnoreCaseOrderByNombreDesc(String nombre);
+  public List<Contacto> findAllProductoByOrderByNombreAsc();
+  public List<Contacto> findAllProductoByOrderByNombreDesc();
 
 
 
@@ -32,20 +32,20 @@ public interface ProductoRepositoryDocumentacion extends JpaRepository<Mensaje, 
     // Notacion para asociar peticiones JPQL --o-- SQL --a un metodo pasando parametros por orden de entrada
     // de la firma del metodo  o parametrizados con mombre
 
-    @Query(value = "select C from Mensaje C where C.nombre like %:nombre%")
-    public List<Mensaje> queryProductoContainingIgnoreCase(@Param("nombre") String nombre);
+    @Query(value = "select C from Contacto C where C.nombre like %:nombre%")
+    public List<Contacto> queryProductoContainingIgnoreCase(@Param("nombre") String nombre);
 
-    @Query(value = "select C from Mensaje C where C.nombre like %:nombre% order by C.nombre asc")
-    public List<Mensaje> queryProductoContainingNombreIgnoreCaseOrderByNombreAsc(@Param("nombre") String nombre);
+    @Query(value = "select C from Contacto C where C.nombre like %:nombre% order by C.nombre asc")
+    public List<Contacto> queryProductoContainingNombreIgnoreCaseOrderByNombreAsc(@Param("nombre") String nombre);
 
-    @Query(value = "select C from Mensaje C where C.nombre like ?1 order by C.nombre asc")
-    public List<Mensaje> queryProductoContainingNombreIgnoreCaseOrderByNombreDesc(String nombre);
+    @Query(value = "select C from Contacto C where C.nombre like ?1 order by C.nombre asc")
+    public List<Contacto> queryProductoContainingNombreIgnoreCaseOrderByNombreDesc(String nombre);
 
-    @Query(value = "select C from Mensaje C order by C.nombre asc")
-    public List<Mensaje> queryAllProductoByNombreByOrderByAsc();
+    @Query(value = "select C from Contacto C order by C.nombre asc")
+    public List<Contacto> queryAllProductoByNombreByOrderByAsc();
 
-    @Query(value = "select C from Mensaje C order by C.nombre desc")
-    public List<Mensaje> queryAllProductoByNombreByOrderByDesc();
+    @Query(value = "select C from Contacto C order by C.nombre desc")
+    public List<Contacto> queryAllProductoByNombreByOrderByDesc();
 
 
     //BLOQUE DE METODOS @QUERRY CON SQL NATIVO BASADO EN LAS TABLAS.
@@ -53,20 +53,20 @@ public interface ProductoRepositoryDocumentacion extends JpaRepository<Mensaje, 
     // Se Parametrizan con el nombre del parametro:  (%:nombre%)
 
     @Query(value = "select * from producto where nombre like nombre", nativeQuery = true)
-    public List<Mensaje> queryProductoByNombreContainingIgnoreCase(@Param("nombre") String nombre);
+    public List<Contacto> queryProductoByNombreContainingIgnoreCase(@Param("nombre") String nombre);
 
-    @Query(value = "select * from Mensaje C where C.nombre like nombre order by C.nombre asc", nativeQuery = true)
-    public List<Mensaje> queryProductoByNombreContainingIgnoreCaseOrderByNombreAsc(@Param("nombre") String nombre);
+    @Query(value = "select * from Contacto C where C.nombre like nombre order by C.nombre asc", nativeQuery = true)
+    public List<Contacto> queryProductoByNombreContainingIgnoreCaseOrderByNombreAsc(@Param("nombre") String nombre);
 
     // Parametrizada por  Parametros de entrada posicionales:  ?1
-    @Query(value = "select * from Mensaje C where C.nombre like ? order by C.nombre asc", nativeQuery = true)
-    public List<Mensaje> queryProductoByNombreContainingIgnoreCaseOrderByNombreDesc(String nombre);
+    @Query(value = "select * from Contacto C where C.nombre like ? order by C.nombre asc", nativeQuery = true)
+    public List<Contacto> queryProductoByNombreContainingIgnoreCaseOrderByNombreDesc(String nombre);
 
-    @Query(value = "select * from Mensaje C order by C.nombre asc", nativeQuery = true)
-    public List<Mensaje> queryAllProductoByOrderByNombreAsc();
+    @Query(value = "select * from Contacto C order by C.nombre asc", nativeQuery = true)
+    public List<Contacto> queryAllProductoByOrderByNombreAsc();
 
-    @Query(value = "select * from Mensaje C order by C.nombre desc", nativeQuery = true)
-    public List<Mensaje> queryAllProductoByOrderByNombreDesc();
+    @Query(value = "select * from Contacto C order by C.nombre desc", nativeQuery = true)
+    public List<Contacto> queryAllProductoByOrderByNombreDesc();
 
 
 
@@ -77,7 +77,7 @@ public interface ProductoRepositoryDocumentacion extends JpaRepository<Mensaje, 
   //BLOQUE METHOD @Query JPQL CON OBJETOS DE ENTIDADES JPA
   //Notación para asociar peticiones JPQL o SQL a un método pasando parámetros por orden de entrada
   // de la firma del método o parametrizados con nombre
-  public List<Mensaje> queryProductoCustomJPQL(Optional<String> buscarOptional, Optional<String>  ordenarOptional) {
+  public List<Contacto> queryProductoCustomJPQL(Optional<String> buscarOptional, Optional<String>  ordenarOptional) {
     StringBuilder queryBuilder = new StringBuilder("select C from producto");
     if (buscarOptional.isPresent()){
       queryBuilder.append(" ").append("where C.nombre like: nombre");
@@ -103,7 +103,7 @@ public interface ProductoRepositoryDocumentacion extends JpaRepository<Mensaje, 
   //BLOQUE DE MÉTODOS @QUERY CON "SQL" NATIVO BASADO EN LAS TABLAS.
   //@Query nativeQuery = true, es decir, SQL:
   // Se Parametrizan con el nombre del parámetro:  (%:nombre%)
-  public List<Mensaje> queryProductoCustomJPA(Optional<String> buscarOptional,Optional<String>  ordenarOptional ) {
+  public List<Contacto> queryProductoCustomJPA(Optional<String> buscarOptional,Optional<String>  ordenarOptional ) {
     StringBuilder queryBuilder = new StringBuilder("select * from producto");
     if (buscarOptional.isPresent()){
       queryBuilder.append(" ").append("where nombre like: nombre");
@@ -115,7 +115,7 @@ public interface ProductoRepositoryDocumentacion extends JpaRepository<Mensaje, 
         queryBuilder.append(" ").append("order by nombre desc");
       }
     }
-    jakarta.persistence.Query query = em.createNativeQuery(queryBuilder.toString(),Mensaje.class);
+    jakarta.persistence.Query query = em.createNativeQuery(queryBuilder.toString(),Contacto.class);
     if (buscarOptional.isPresent()){
       query.setParameter("nombre", "%"+buscarOptional.get()+"%");
     }

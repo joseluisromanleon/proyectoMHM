@@ -10,6 +10,13 @@
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
+        "architect": {
+          "serve": {
+            "options": {
+              "proxyConfig": "proxy.conf.json"
+            }
+          }
+        },
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {

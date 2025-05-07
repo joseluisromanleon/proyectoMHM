@@ -2,8 +2,11 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "outDir": "./dist/out-tsc",
+    "paths": {
+      "@features/*": ["app/features/*"]
+    },
     "forceConsistentCasingInFileNames": true,
     "strict": true,
 

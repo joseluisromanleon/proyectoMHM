@@ -34,7 +34,7 @@ import java.util.Optional;
 
         @GetMapping(value = {"","/"}, params = {"!nombreCli", "!nombreEmpl", "!page", "!size", "!buscar", "!sort", "!column", "!orden", "!campo", "!valor"})
         public List<Cliente> all() {
-            log.info("Accediendo a todas los clientes");
+            log.info("Accediendo a todas los clientes sin parametros");
             return this.clienteService.all();
         }
         @Transactional

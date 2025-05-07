@@ -3,6 +3,8 @@ package org.iesvdm.mhm.controller;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.iesvdm.mhm.domain.Mensaje;
+import org.iesvdm.mhm.domain.Mensaje.EstadoMensaje;
+import org.iesvdm.mhm.repository.MensajeRepository;
 import org.iesvdm.mhm.service.MensajeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -11,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -18,43 +21,57 @@ import java.util.Map;
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/v1/api/mensajes")
-public class MensajeController {
 
+    public class MensajeController {
+        private final MensajeRepository mensajeRepository;
 
         private final MensajeService mensajeService;
 
         @Autowired
-        public MensajeController(MensajeService mensajeService) {
+        public MensajeController(MensajeService mensajeService,
+                                 MensajeRepository mensajeRepository) {
             this.mensajeService = mensajeService;
+            this.mensajeRepository = mensajeRepository;
         }
 
 
         @PostMapping({"","/"})
         public Mensaje newMensaje(@RequestBody @Valid Mensaje mensaje) {
-            log.info("Creando un Mensaje"+ mensaje.getNombreEmpresa());
+            log.info("New mensaje para contacto"+ mensaje.getNombreEmpresa());
             return this.mensajeService.save(mensaje);
         }
 
+        @PostMapping({"/"})
+        public ResponseEntity<Mensaje> crearMensaje(@RequestBody Mensaje mensaje) {
+            mensaje.setEstadoMsje(EstadoMensaje.PENDIENTE);
+            mensaje.setFecha(new Date());
+            Mensaje saved = mensajeRepository.save(mensaje);
+            return ResponseEntity.ok(saved);
+        }
+
+
         @GetMapping("/{id}")
         public Mensaje one(@PathVariable("id") Long id) {
-            log.info("Buscando Mensaje con id "+id);
+            log.info("Buscando Contacto con id "+id);
             return this.mensajeService.one(id);
+
         }
 
         @PutMapping("/{id}")
         public Mensaje replaceMensaje(@PathVariable("id") Long id, @RequestBody Mensaje mensaje) {
-            log.info("Actualizando Mensaje con id "+ id);
+            log.info("Actualizando Contacto con id "+ id);
             return this.mensajeService.replace(id, mensaje);
         }
 
         @DeleteMapping({"{id}","/{id}"})
         public void deleteMensaje(@PathVariable("id") Long id) {
-            log.info("Eliminando Mensaje con id "+id);
+            log.info("Eliminando Contacto con id "+id);
             this.mensajeService.delete(id);
         }
 
         @GetMapping(value = {"","/"}, params = {"!nombre", "!page", "!size", "!buscar", "!sort", "!column", "!orden"})
         //******  agregar paremetros que se quieran evitar  *******
+
         public List<Mensaje> all() {
             mensajeService.all();
             log.info("Accediendo a todas los Mensajes sin parametros");
@@ -62,7 +79,7 @@ public class MensajeController {
         }
 
         //CON PARAMETROS
-        //Buscar un Mensaje por nombre_empresa
+        //Buscar un Contacto por nombre_empresa
         @GetMapping(value = {"", "/"}, params = {"nombre_empresa"})
         public List<Mensaje> all(@RequestParam("nombre_empresa")String nombre) {
             log.info("Accediendo a un mensaje por nombre");
@@ -133,7 +150,6 @@ public class MensajeController {
                 return ResponseEntity.badRequest().build();
             }
         }
-
 
     }
 
