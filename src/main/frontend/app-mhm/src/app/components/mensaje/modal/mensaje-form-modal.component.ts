@@ -6,9 +6,10 @@ import {ModalService} from "../../modal/modal.service";
 import {Mensaje} from "@features/mensaje";
 import {MensajeService} from "../mensaje.service";
 import {MatFormField, MatLabel} from "@angular/material/form-field";
+import {MatButtonModule} from "@angular/material/button";
 
 
-const MATERIAL_MODULES = [MatDialogModule, MatLabel, MatFormField, MatInput, ReactiveFormsModule, MatInputModule]
+const MATERIAL_MODULES = [MatDialogModule, MatLabel, MatFormField, MatInput, ReactiveFormsModule]
 @Component({
   selector: 'mensaje-form-modal',
   templateUrl: './mensaje-form-modal.component.html',
@@ -17,7 +18,7 @@ const MATERIAL_MODULES = [MatDialogModule, MatLabel, MatFormField, MatInput, Rea
   imports: [
     MatDialogModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatButtonModule,
   ]
 
 })

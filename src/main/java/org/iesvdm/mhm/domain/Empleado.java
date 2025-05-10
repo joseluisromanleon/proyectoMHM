@@ -57,7 +57,7 @@ public class Empleado {
     Set<Pedido> pedidos = new HashSet<>();
 
     @ManyToMany (fetch = FetchType.EAGER)
-    @JoinTable(name = "empleados_clientes",
+    @JoinTable(name = "empleado_clientes",
             joinColumns = @JoinColumn (name = "id_empleado"),
             inverseJoinColumns = @JoinColumn(name = "id_cliente"))
     @JsonIgnoreProperties({"clientes","empleados"}) //Rompe el lazo de Serializacion
@@ -65,7 +65,7 @@ public class Empleado {
     Set<Cliente> clientes = new HashSet<>();
 
     @ManyToMany (fetch = FetchType.EAGER)
-    @JoinTable(name = "empleados_roles",
+    @JoinTable(name = "empleado_roles",
         joinColumns = @JoinColumn (name = "empleado_id"),
         inverseJoinColumns = @JoinColumn(name = "rol_id"))
     @JsonIgnoreProperties({"empleados", "roles"})   //Rompe el lazo de Serializacion

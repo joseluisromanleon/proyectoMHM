@@ -13,12 +13,12 @@ export class ModalService {
 
   constructor() {}
 
-  openModal<CT, T = Mensaje>(componentRef: ComponentType<CT>, data?: {
-    data: { mensaje: string };
-    width: string
-  }, isEditing = false): void{
+  /*Tipo de componente genérico Contacto, producto, proveedor etc.
+   data T genérico  (no sabemos cuál será la data  genérico tb) */
 
-    const config = {data, isEditing};
+  openModal<CT, T>(componentRef: ComponentType<CT>, data?: T, isEditing = false) {
+
+    const config = {data, isEditing}; //reunimos los dos valores en la variable
 
     this._dialog.open(componentRef, {
       data: config,

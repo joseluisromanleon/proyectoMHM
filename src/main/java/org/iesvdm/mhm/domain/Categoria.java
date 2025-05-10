@@ -29,7 +29,7 @@ public class Categoria {
     private String nombre;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "categoria",
+    @JoinTable(name = "categoria-productos",
             joinColumns = @JoinColumn(name = "categoria"),
             inverseJoinColumns = @JoinColumn(name = "categoria_id")
     )

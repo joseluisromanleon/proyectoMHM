@@ -1,7 +1,0 @@
-{
-  "/api": {
-    "target": "http://casper-ai-573fqmg7wa-uc.a.run.app",
-    "secure": false,
-    "changeOrigin": true
-  }
-}
