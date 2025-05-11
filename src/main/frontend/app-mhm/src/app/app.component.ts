@@ -4,11 +4,12 @@ import {NgIf, NgOptimizedImage} from '@angular/common';
 import {CarruselDesktopComponent} from './components/carrusel-desktop/carrusel-desktop.component';
 import {CarruselMobileComponent} from './components/carrusel-mobile/carrusel-mobile.component';
 import {CabeceraComponent} from './components/cabecera/cabecera.component';
+import {FooterComponent} from './components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgIf, RouterLink, NgOptimizedImage, CarruselDesktopComponent, CarruselMobileComponent, CabeceraComponent],
+  imports: [RouterOutlet, NgIf, RouterLink, NgOptimizedImage, CarruselDesktopComponent, CarruselMobileComponent, CabeceraComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

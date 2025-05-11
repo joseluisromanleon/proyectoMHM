@@ -9,13 +9,13 @@
       <a routerLink="/">
         <img src="assets/image/MHM.jpg" alt="Logo MHM" class="logo-img align-top"/>
       </a>
-      <ul *ngIf="!isLoggedIn" class="d-flex  align-top mt-3 me-3 "
+      <ul *ngIf="!isLoggedIn" class="d-flex  align-top mt-3 "
           style="list-style: none; gap: 10px;">
         <li>
-          <a class="btn btn-secondary" routerLink="/login">Login</a>
+          <a class="btn " routerLink="/login">Login</a>
         </li>
         <li>
-          <a class="btn btn-secondary" (click)="onClickNewContact()">Contact</a>
+          <a class="btn " (click)="onClickNewContact()">Contact</a>
         </li>
       </ul>
     </div>
