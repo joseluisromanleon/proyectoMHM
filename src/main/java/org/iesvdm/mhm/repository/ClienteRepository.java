@@ -1,27 +1,26 @@
 package org.iesvdm.mhm.repository;
 
 import org.iesvdm.mhm.domain.Cliente;
-import org.iesvdm.mhm.domain.Producto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+
 import java.util.List;
 
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
-    public List<Cliente> findClienteByNombreContainingIgnoreCaseOrderByIdDesc(String nombreCliente);
+    public List<Cliente> findClienteByNombreEmpresaContainingIgnoreCaseOrderByIdClienteDesc(String nombreCliente);
 
-    @Query("SELECT DISTINCT c FROM Cliente c JOIN c.empleados e WHERE LOWER(e.nombre) LIKE LOWER(concat('%', :nombreEmpleado, '%'))")
-    List<Cliente> findClientesByNombreEmpleadoContaining(@Param("nombreEmpleado") String nombreEmpleado);
+//    @Query("SELECT DISTINCT c FROM Cliente c JOIN c.empleados e WHERE LOWER(e.nombre) LIKE LOWER(concat('%', :nombreEmpleado, '%'))")
+//    List<Cliente> findClientesByNombreEmpleadoContaining(@Param("nombreEmpleado") String nombreEmpleado);
 
 
-    public  Page<Cliente> findClienteByEmpleadosIsEmpty(Pageable pageable);
-    public  Page<Cliente> findClienteByCpContains(String valor, Pageable pageable);
-    public  Page<Cliente> findClienteByPedidosIsEmptyOrderByCp(Pageable pageable);
+//    public  Page<Cliente> findClienteByEmpleadosIsEmpty(Pageable pageable);
+    public  Page<Cliente> findClienteByCpEmpresaContains(String valor, Pageable pageable);
+    public  Page<Cliente> findClienteByPedidosIsEmptyOrderByCpEmpresa(Pageable pageable);
+    public  List<Cliente> findClienteByNombreContactoContaining(String valor);
 
 
 

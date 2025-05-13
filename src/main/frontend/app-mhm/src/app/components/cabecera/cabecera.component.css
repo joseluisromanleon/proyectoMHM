@@ -1,66 +1,104 @@
-
-h1 {
-  font-family:  'roboto', serif;
-  font-size: 10px;
-  font-weight: 200; /* Esto aplica la versión en negrita de la fuente */
-  color: #fff; /* Color blanco  */
+/*Reseteamos para todos los navegadores*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
 }
 
-
-/* Estilo para el logo */
-.logo-img {
-  width: 70px; /* 15vm 15% del ancho de pantalla */
-  position: relative;
-  top: 35px; /* Para centrar verticalmente */
-  left: 0px; /* Para alinear a la izquierda con un margen de 20px */
-  transform: translateY(-50%); /* Ajusta el centrado vertical */
-}
-
-.cabecera {
-  height: 100px; /* Ajusta la altura del contenedor para que el logo encaje */
+.bg-image {
   background-size: cover;
   background-position: center;
+  min-height: 100px;
+  height: 100px;
+  width: 100vw;
+
+  margin-left: calc(-50vw + 50%); /* Corregir desplazamiento horizontal de la imagen ?*/
   position: relative;
-  max-width: 1200px;
 }
 
-/* Estilos para los dropdown items personalizados */
-.custom-dropdown-item {
-  background-color: #343a40; /* Fondo gris oscuro */
-  color: white; /* Texto blanco */
-  border-radius: 0; /* Sin esquinas redondeadas */
-  padding: 10px; /* Espaciado interno para que parezcan botones */
-  text-align: center; /* Centrar el texto */
-  margin: 2px 0; /* Separación entre opciones */
+.cabecera-outer {
+  min-height: 100px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cabecera-inner {
+  max-width: 1100px; /* Ancho máximo deseado */
+  width: 100%; /* Ocupa todo el ancho disponible dentro del límite */
+  min-height: 80px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  margin: 0 auto; /* Centra horizontalmente el contenedor */
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo-img {
+  max-width: 70px;
+  width: 70px;
+  height: auto;
   display: block;
+  margin-left: 10px;
 }
 
-/* Cambia el color al pasar el cursor */
-.custom-dropdown-item:hover {
-  background-color: #495057; /* Un gris más claro cuando el mouse esté sobre el botón */
-  color: white;
-  text-decoration: none; /* Sin subrayado */
+.cabecera-title {
+  font-family: 'Roboto', serif;
+  font-size: 2.5rem;
+  font-weight: 200;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  white-space: normal;
+  word-break: break-word;
 }
 
-/* Opcional: Estilo para todo el menú desplegable */
-.custom-dropdown-menu {
-  border-radius: 0; /* Sin esquinas redondeadas */
-  padding: 0;
-  border: none; /* Sin bordes */
+.inicial {
+  font-weight: bold;
+  font-family: "Californian FB", serif;
 }
 
-h1 {
-  font-size: 2rem;
-}
-
-@media (max-width: 768px) {
-  h1 {
-    font-size: 1.5rem;
+/* Responsive */
+@media (max-width: 992px) {
+  .cabecera-inner {
+    max-width: 98vw;
+  }
+  .logo-img {
+    margin-left: 0px;
+  }
+  .cabecera-title {
+    font-size: 2rem;
+    margin-right: 1rem;
   }
 }
 
-@media (max-width: 450px) {
-  h1 {
-    font-size: 1rem;
+@media (max-width: 600px) {
+  .cabecera-inner {
+    max-width: 90vw;
+    min-height: 60px;
+    margin-left: 0px;
+  }
+  .logo-img {
+    max-width: 50px;
+    min-width: 50px;
+    width: 50px;
+    margin-left: 10px;
+
+  }
+  .cabecera-title {
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+    margin-right: 1rem;
   }
 }

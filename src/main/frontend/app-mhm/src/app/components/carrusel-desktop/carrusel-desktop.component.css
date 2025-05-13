@@ -1,5 +1,16 @@
-.carrusel {
-  max-width: 1200px;
+*{
+
+}
+
+.carousel {
+  max-width: 1100px; /* Ancho máximo del carrusel */
+  margin: 65px auto 0; /* Margen superior para separarlo del nav, centrado horizontal */
+  padding: 0 15px; /* Espaciado interno para evitar recortes */
+}
+
+.carousel .carousel-inner {
+  position: relative; /* Asegura que el contenido esté correctamente posicionado */
+  z-index: 1; /* Asegura que esté por encima del fondo */
 }
 
 .carrusel .card {
@@ -24,6 +35,8 @@ div.card.bg-secondary {
   object-fit: contain;
 }
 .bg-video {
+  margin: 0;
+  padding: 0;
   position: fixed;
   top: 0;
   left: 0;
@@ -35,6 +48,7 @@ div.card.bg-secondary {
   z-index: -1;
   /*opacity: 0.0; !* Ajusta la transparencia *!*/
   pointer-events: none; /* Para que no bloquee clics */
+
 }
 
 

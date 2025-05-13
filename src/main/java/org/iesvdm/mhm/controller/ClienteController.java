@@ -88,7 +88,7 @@ import java.util.Optional;
                 String nombre = empleadoNombreOptional.get();
                 log.info("El empleado con nombre: " + nombre + " existe");
 
-                return this.clienteService.clientesEmpleado(nombreEmpl);
+                return this.clienteService.clientesContacto(nombreEmpl);
             }else {
                 return this.clienteService.all();
             }

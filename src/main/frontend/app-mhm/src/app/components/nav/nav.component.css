@@ -1,0 +1,50 @@
+
+.limpiar {
+  margin: 0;
+  padding: 0;
+  width: 100vw; /* Ancho completo de la ventana */
+  position: absolute;
+}
+
+.nav {
+  height: 50px; /* Ajusta la altura del contenedor para que el logo encaje */
+  max-width: 1100px;
+  margin: 0 auto;
+
+}
+ul {
+  list-style: none; /* Elimina los puntos de la lista */
+  padding: 0; /* Elimina el padding predeterminado */
+  margin: 0; /* Elimina el margen predeterminado */
+
+}
+
+ul > li {
+  list-style: none;
+}
+/* Estilos para los dropdown (desplegables) items personalizados */
+.nav-btn {
+  /*background-color: #343a40; /* Fondo gris oscuro */
+  color: white; /* Texto blanco */
+  border-radius: 0; /* Sin esquinas redondeadas */
+  padding: 5px; /* Espaciado interno para que parezcan botones */
+  text-align: center; /* Centrar el texto */
+  margin: 2px 0; /* Separación entre opciones */
+  display: block;
+}
+
+/* Cambia el color al pasar el cursor */
+.nav-btn:hover {
+  /* background-color: #495057; /* Un gris más claro cuando el mouse esté sobre el botón */
+  color: black;
+  text-decoration: none; /* Sin subrayado */
+}
+
+/* Opcional: Estilo para todo el menú desplegable */
+.custom-dropdown-menu {
+  border-radius: 0; /* Sin esquinas redondeadas */
+  padding: 0;
+  border: none; /* Sin bordes */
+}
+
+

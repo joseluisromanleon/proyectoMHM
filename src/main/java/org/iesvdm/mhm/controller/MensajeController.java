@@ -3,7 +3,6 @@ package org.iesvdm.mhm.controller;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.iesvdm.mhm.domain.Mensaje;
-import org.iesvdm.mhm.domain.Mensaje.EstadoMensaje;
 import org.iesvdm.mhm.repository.MensajeRepository;
 import org.iesvdm.mhm.service.MensajeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -37,17 +35,17 @@ import java.util.Map;
 
         @PostMapping({"","/"})
         public Mensaje newMensaje(@RequestBody @Valid Mensaje mensaje) {
-            log.info("New mensaje para contacto"+ mensaje.getNombreEmpresa());
+            log.info("New mensaje para contacto" + mensaje.getNombreEmpresa());
             return this.mensajeService.save(mensaje);
         }
 
-        @PostMapping({"/"})
-        public ResponseEntity<Mensaje> crearMensaje(@RequestBody Mensaje mensaje) {
-            mensaje.setEstadoMsje(EstadoMensaje.PENDIENTE);
-            mensaje.setFecha(new Date());
-            Mensaje saved = mensajeRepository.save(mensaje);
-            return ResponseEntity.ok(saved);
-        }
+//        @PostMapping({"/"})
+//        public ResponseEntity<Mensaje> crearMensaje(@RequestBody Mensaje mensaje) {
+//            mensaje.setEstadoMsje(EstadoMensaje.PENDIENTE);
+//            mensaje.setFecha(LocalDateTime.now());
+//            Mensaje saved = mensajeRepository.save(mensaje);
+//            return ResponseEntity.ok(saved);
+//        }
 
 
         @GetMapping("/{id}")

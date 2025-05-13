@@ -4,7 +4,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
-import org.iesvdm.mhm.domain.Cliente;
 import org.iesvdm.mhm.domain.Mensaje;
 import org.iesvdm.mhm.exception.MensajeNotFoundException;
 import org.iesvdm.mhm.repository.ClienteRepository;
@@ -16,7 +15,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 @Slf4j
@@ -68,43 +69,7 @@ public class MensajeService {
 
 
 
-    public Cliente crearClienteDesdeMensaje(Long idMensaje) {
 
-        // 1. Buscar el mensaje
-        Mensaje mensaje = mensajeRepository.findById(idMensaje)
-                .orElseThrow(() -> new RuntimeException("Mensaje no encontrado"));
-
-        // 2. Crear el cliente desde los datos del mensaje
-        Cliente cliente = Cliente.builder()
-                .nombre(mensaje.getNombreEmpresa())
-                .direccion(mensaje.getDireccionEmpresa())
-                .cp(mensaje.getCpEmpresa())
-                .IBAN_empresa(mensaje.getIBANEmpresa())
-                .tel_empresa(mensaje.getTelEmpresa())
-                .email_empresa(mensaje.getEmailEmpresa())
-                .nombre_contacto(mensaje.getNombreContacto())
-                .tel_contacto(mensaje.getTelContacto())
-                .email_contacto(mensaje.getEmailContacto())
-                .observaciones(mensaje.getObservaciones())
-                .rol_id(mensaje.getRolId())
-                .fecha_alta(new Date())
-                .pedidos(new HashSet<>()) // Inicializar colecciones
-                .empleados(new HashSet<>())
-                .build();
-
-        // 3. Guardar el cliente
-        Cliente clienteGuardado = clienteRepository.save(cliente);
-
-        // 4. Actualizar el mensaje
-        mensaje.setEstadoMsje(Mensaje.EstadoMensaje.ACEPTADO);
-        mensaje.setCliente(clienteGuardado); // Vincular con el cliente
-        mensajeRepository.save(mensaje);
-
-        return clienteGuardado;
-    }
-
-
-        // 5. Rechaza un mensaje (cambia su estado a RECHAZADO).
 
     public void rechazarMensaje(Long idMensaje) {
         Mensaje mensaje = mensajeRepository.findById(idMensaje)

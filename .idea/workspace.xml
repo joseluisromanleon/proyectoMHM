@@ -4,18 +4,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="42527e49-09cd-4dfe-b96d-d5608878e110" name="Changes" comment="10-05-2025 video, cabecera y carrusel terminado">
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/footer/footer.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/footer/footer.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/footer/footer.component.ts" afterDir="false" />
+    <list default="true" id="42527e49-09cd-4dfe-b96d-d5608878e110" name="Changes" comment="11-05-2025 video, cabecera y carrusel terminado responsive">
+      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/contacto-modal/contacto-modal.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/contacto-modal/contacto-modal.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/contacto-modal/contacto-modal.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/nav/nav.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/nav/nav.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/nav/nav.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/services/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/26da8319-2f15-4267-8c02-426df19870b3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/26da8319-2f15-4267-8c02-426df19870b3.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/app.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/cabecera/cabecera.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/cabecera/cabecera.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/cabecera/cabecera.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/cabecera/cabecera.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/cabecera/cabecera.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/cabecera/cabecera.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/carrusel-desktop/carrusel-desktop.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/carrusel-desktop/carrusel-desktop.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/carrusel-desktop/carrusel-desktop.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/carrusel-desktop/carrusel-desktop.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/carrusel-desktop/carrusel-desktop.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/carrusel-desktop/carrusel-desktop.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/modal/modal.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/controller/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/controller/ClienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/controller/MensajeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/controller/MensajeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/domain/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/domain/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/domain/Mensaje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/domain/Mensaje.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/repository/ClienteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/repository/ClienteRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/service/ClienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/service/ClienteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/service/MensajeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/service/MensajeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/controller/ClienteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/controller/ClienteController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/domain/Cliente$ClienteBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/domain/Cliente$ClienteBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/domain/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/domain/Cliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/repository/ClienteRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/repository/ClienteRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/service/ClienteService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/service/ClienteService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,10 +173,10 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\MHM\src\main\frontend\app-mhm\src\app\components" />
+      <recent name="C:\MHM\src\main\frontend\app-mhm\src\app\components\cabecera" />
       <recent name="C:\MHM\src\main\frontend\app-mhm\src" />
       <recent name="C:\MHM\src" />
       <recent name="C:\MHM\src\main\frontend\app-mhm\src\app" />
-      <recent name="C:\MHM\src\main\frontend\app-mhm\public" />
     </key>
     <key name="ImportMappingsDialog.RecentPackages">
       <recent name="" />
@@ -261,7 +284,7 @@
       <workItem from="1746625717254" duration="8690000" />
       <workItem from="1746639179819" duration="26150000" />
       <workItem from="1746724100305" duration="19501000" />
-      <workItem from="1746864370067" duration="31174000" />
+      <workItem from="1746864370067" duration="88804000" />
     </task>
     <task id="LOCAL-00001" summary="v1 para presentacion">
       <option name="closed" value="true" />
@@ -479,7 +502,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746903448485</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="11-05-2025 video, cabecera y carrusel terminado responsive">
+      <option name="closed" value="true" />
+      <created>1746984603357</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1746984603357</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -534,19 +565,8 @@
     <MESSAGE value="01-05-2025 empezamos con contacto" />
     <MESSAGE value="07-05-2025 commit antes de actualizar Angular Cli" />
     <MESSAGE value="10-05-2025 video, cabecera y carrusel terminado" />
-    <option name="LAST_COMMIT_MESSAGE" value="10-05-2025 video, cabecera y carrusel terminado" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/cabecera/cabecera.component.ts</url>
-          <line>21</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="11-05-2025 video, cabecera y carrusel terminado responsive" />
+    <option name="LAST_COMMIT_MESSAGE" value="11-05-2025 video, cabecera y carrusel terminado responsive" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

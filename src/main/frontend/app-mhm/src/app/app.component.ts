@@ -5,11 +5,13 @@ import {CarruselDesktopComponent} from './components/carrusel-desktop/carrusel-d
 import {CarruselMobileComponent} from './components/carrusel-mobile/carrusel-mobile.component';
 import {CabeceraComponent} from './components/cabecera/cabecera.component';
 import {FooterComponent} from './components/footer/footer.component';
+import {ContactoModalComponent} from './components/contacto-modal/contacto-modal.component';
+import {NavComponent} from './components/nav/nav.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgIf, RouterLink, NgOptimizedImage, CarruselDesktopComponent, CarruselMobileComponent, CabeceraComponent, FooterComponent],
+  imports: [RouterOutlet, NgIf, RouterLink, NgOptimizedImage, CarruselDesktopComponent, CarruselMobileComponent, CabeceraComponent, FooterComponent, ContactoModalComponent, NavComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

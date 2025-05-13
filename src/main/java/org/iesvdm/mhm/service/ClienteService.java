@@ -1,10 +1,8 @@
 package org.iesvdm.mhm.service;
 
-import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.iesvdm.mhm.domain.Cliente;
 import org.iesvdm.mhm.domain.Empleado;
-import org.iesvdm.mhm.domain.Producto;
 import org.iesvdm.mhm.exception.ClienteNotFoundException;
 import org.iesvdm.mhm.exception.EmpleadoNotFoundException;
 import org.iesvdm.mhm.repository.ClienteRepository;
@@ -52,7 +50,7 @@ public class ClienteService {
     }
 
     public Cliente replace(Long id, Cliente cliente) {
-        return this.clienteRepository.findById(id).map( p -> (id.equals(cliente.getId())  ?
+        return this.clienteRepository.findById(id).map( p -> (id.equals(cliente.getIdCliente())  ?
                         this.clienteRepository.save(cliente) : null))
                 .orElseThrow(() -> new ClienteNotFoundException(id));
     }
@@ -75,21 +73,21 @@ public class ClienteService {
 
     public Page<Cliente> getAllBuscar(String campo, String valor, Pageable pageable) {
 
-        return campo.equalsIgnoreCase("empleados") ?
-                this.clienteRepository.findClienteByEmpleadosIsEmpty(pageable)
-                : campo.equalsIgnoreCase("cp") ?
-                this.clienteRepository.findClienteByCpContains(valor, pageable)
+        return campo.equalsIgnoreCase("clientes") ?
+//                this.clienteRepository.findClienteByEmpleadosIsEmpty(pageable)
+//                : campo.equalsIgnoreCase("cp") ?
+                this.clienteRepository.findClienteByCpEmpresaContains(valor, pageable)
                 : campo.equalsIgnoreCase("pedidos") ?
-                this.clienteRepository.findClienteByPedidosIsEmptyOrderByCp(pageable)
+                this.clienteRepository.findClienteByPedidosIsEmptyOrderByCpEmpresa(pageable)
                 : getAll(pageable);
 
     }
     public List<Cliente> clientesNombre(String nombreCliente){
-        return this.clienteRepository.findClienteByNombreContainingIgnoreCaseOrderByIdDesc(nombreCliente);
+        return this.clienteRepository.findClienteByNombreEmpresaContainingIgnoreCaseOrderByIdClienteDesc(nombreCliente);
     }
 
-    public List<Cliente> clientesEmpleado(String nombreEmpleado){
-        return this.clienteRepository.findClientesByNombreEmpleadoContaining(nombreEmpleado);
+    public List<Cliente> clientesContacto(String nombreEmpleado){
+        return this.clienteRepository.findClienteByNombreContactoContaining(nombreEmpleado);
     }
 
     // *****************   METODOS  PARA  USOS DE LA CLASE  ***********************

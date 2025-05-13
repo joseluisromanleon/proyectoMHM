@@ -21,7 +21,7 @@ export class CarruselDesktopComponent implements AfterViewInit, OnInit {
   ngAfterViewInit(): void {
     const superior = document.getElementById('carruselSuperior');
     const inferior = document.getElementById('carruselInferior');
-    const mobile = document.getElementById('carruselmovil')
+    const mobile = document.getElementById('carruselMovil')
 
     if (superior && inferior ) {
       const bsSuperior = bootstrap.Carousel.getOrCreateInstance(superior, { interval: false });

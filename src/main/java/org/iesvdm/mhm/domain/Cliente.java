@@ -9,7 +9,7 @@ import lombok.*;
 import org.apache.commons.lang3.builder.ToStringExclude;
 import org.iesvdm.mhm.notations.EmailValid;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -35,41 +35,47 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_cliente")
     @EqualsAndHashCode.Include
-    private Long id;
+    private Long idCliente;
 
-    private String nombre;
-    private String direccion;
+    @Size(min = 3, max = 50)
+    @Column(name = "nombre_empresa", length = 50)
+    private String nombreEmpresa;
+
+    @Size(min = 3, max = 100)
+    @Column(name = "direccion_empresa", length = 100)
+    private String direccionEmpresa;
 
     @Size(min = 5, max = 5)
-    @Column(name = "cp", length = 5)
-    private String cp;
+    @Column(name = "cp_empresa", length = 5)
+    private String cpEmpresa;
 
     @Size(min = 24, max = 24)
     @Column(name = "iban_empresa", length = 24)
-    private String IBAN_empresa;
+    private String IbanEmpresa;
 
     @Size(min = 9, max = 9)
     @Column(name = "tel_empresa", length = 9)
-    private String tel_empresa;
+    private String telEmpresa;
 
     @EmailValid //Anotacion Personalizada Basica
     @Column(name = "email_empresa")
-    private String email_empresa;
+    private String emailEmpresa;
 
-    private String nombre_contacto;
+    @Size(min = 3, max = 50)
+    @Column(name = "nombre_contacto",length = 50)
+    private String nombreContacto;
 
-    @Size(min = 9, max = 9)
-    @Column(name = "tel_contacto", length = 9)
-    private String tel_contacto;
+    @Size(min = 9, max = 12)
+    @Column(name = "tel_contacto", length = 12)
+    private String telContacto;
 
     @EmailValid // Anotacion Personalizada Basica
-    private String email_contacto;
+    @Column(name = "email_contacto")
+    private String emailContacto;
 
-    @Size(min = 256, max = 256)
-    @Column(name = "observaciones", length = 256)
-    private String observaciones;
-
-    private long rol_id;
+    @Size(min = 1, max = 1)
+    @Column(name = "rol_id", length = 1)
+    private Long rolId;
 
     @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
     @ToStringExclude    //Rompe el lazo de Serializacion
@@ -87,14 +93,20 @@ public class Cliente {
 
     @Column(name = "fecha_alta")
     @JsonFormat(pattern = "yyyy-MM-dd-HH:mm:ss",  shape = JsonFormat.Shape.STRING)
-    private Date fecha_alta;
+    private LocalDateTime fecha_alta = LocalDateTime.now();
+
+    @Size(min = 0, max = 256)
+    @Column(name = "observaciones", length = 256)
+    private String observaciones;
+
 
 
     // ******** CONSTRUCTOR PARA TESTS **************
     public Cliente(long id, String nombre) {
-        this.id = id;
-        this.nombre = nombre;
+        this.idCliente = id;
+        this.nombreEmpresa = nombre;
         this.pedidos = new HashSet<>();
         this.empleados = new HashSet<>();
+        this.fecha_alta = LocalDateTime.now();
     }
 }
