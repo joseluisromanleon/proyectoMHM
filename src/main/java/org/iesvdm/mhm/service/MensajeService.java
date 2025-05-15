@@ -46,39 +46,55 @@ public class MensajeService {
         }
 
         public Mensaje replace(Long id, Mensaje mensaje) {
-            return this.mensajeRepository.findById(id).map( c -> (id.equals(mensaje.getIdMensaje()) ?
-                            this.mensajeRepository.save(mensaje) : null))
+            return this.mensajeRepository.findById(id)
+                    .map(existing -> {
+                        // Solo actualiza los campos editables
+                        existing.setNombreEmpresa(mensaje.getNombreEmpresa());
+                        existing.setDireccionEmpresa(mensaje.getDireccionEmpresa());
+                        existing.setTelEmpresa(mensaje.getTelEmpresa());
+                        existing.setEmailEmpresa(mensaje.getEmailEmpresa());
+                        existing.setNombreContacto(mensaje.getNombreContacto());
+                        existing.setTelContacto(mensaje.getTelContacto());
+                        existing.setEmailContacto(mensaje.getEmailContacto());
+                        existing.setObservaciones(mensaje.getObservaciones());
+                        existing.setEstadoMsje(mensaje.getEstadoMsje());
+                        existing.setAceptaCondiciones(mensaje.getAceptaCondiciones());
+                        // NO actualices la fecha, así se mantiene la original
+                        return this.mensajeRepository.save(existing);
+                    })
                     .orElseThrow(() -> new MensajeNotFoundException(id));
         }
+
 
         public void delete(Long id) {
-            log.info("Eliminando mensaje con ID: " + id);
-            this.mensajeRepository.findById(id).map(p -> {
-                        this.mensajeRepository.delete(p);
-                        return p;})
-                    .orElseThrow(() -> new MensajeNotFoundException(id));
+                log.info("Eliminando mensaje con ID: " + id);
+                this.mensajeRepository.findById(id).map(p -> {
+                            this.mensajeRepository.delete(p);
+                            return p;})
+                        .orElseThrow(() -> new MensajeNotFoundException(id));
+            }
+
+            @Transactional
+            public Mensaje save(Mensaje mensaje) {
+                this.mensajeRepository.save(mensaje);
+                this.em.refresh(mensaje);
+                return mensaje;
+            }
+        public void aceptarMensaje(Long idMensaje) {
+            Mensaje mensaje = mensajeRepository.findById(idMensaje)
+                    .orElseThrow(() -> new RuntimeException("Mensaje no encontrado"));
+            mensaje.setEstadoMsje(Mensaje.EstadoMensaje.ACEPTADO);
+            mensajeRepository.save(mensaje);
         }
 
-        @Transactional
-        public Mensaje save(Mensaje mensaje) {
-            this.mensajeRepository.save(mensaje);
-            this.em.refresh(mensaje);
 
-            return mensaje;
+
+        public void rechazarMensaje(Long idMensaje) {
+            Mensaje mensaje = mensajeRepository.findById(idMensaje)
+                    .orElseThrow(() -> new RuntimeException("Mensaje no encontrado"));
+            mensaje.setEstadoMsje(Mensaje.EstadoMensaje.RECHAZADO);
+            mensajeRepository.save(mensaje);
         }
-
-
-
-
-
-    public void rechazarMensaje(Long idMensaje) {
-        Mensaje mensaje = mensajeRepository.findById(idMensaje)
-                .orElseThrow(() -> new RuntimeException("Mensaje no encontrado"));
-        mensaje.setEstadoMsje(Mensaje.EstadoMensaje.RECHAZADO);
-        mensajeRepository.save(mensaje);
-    }
-
-
 
 
         public List<Mensaje> all() {
@@ -94,9 +110,12 @@ public class MensajeService {
             return this.mensajeRepository.findMensajeByNombreEmpresaContainingIgnoreCase(nombre);
         }
 
+
         public Page<Mensaje> getAll(Pageable pageable) {
+
             return this.mensajeRepository.findAll(pageable);
         }
+
 
         // AUTOMATICA PARA DOS CAMPOS CON DIFERENTES DEVOLUCIONES PAGE Y LIST
         // Sin orden y pageable completo

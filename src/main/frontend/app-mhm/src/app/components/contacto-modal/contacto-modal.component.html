@@ -127,12 +127,19 @@
 
           <!-- Observaciones -->
           <div class="mb-3">
-            <label for="observaciones" class="form-label">Observaciones</label>
+            <label for="mensaje" class="form-label">Mensaje de Contacto</label>
             <textarea
-              id="observaciones"
+              id="mensaje"
               class="form-control"
               formControlName="observaciones"
-            ></textarea>
+              [ngClass]="{'is-invalid': (f['observaciones'].touched || submitted) && f['observaciones'].invalid}">
+            </textarea>
+            <div *ngIf="(f['observaciones'].touched || submitted) && f['observaciones'].invalid"
+                 class="text-danger">
+              <div *ngIf="f['observaciones'].errors?.['required']">Exponga el motivo de su contacto.</div>
+              <div *ngIf="f['observaciones'].errors?.['minlength']">Debe tener al menos 1 carácter.</div>
+              <div *ngIf="f['observaciones'].errors?.['maxlength']">No puede superar 256 caracteres.</div>
+            </div>
           </div>
 
           <!-- Checkbox de condiciones -->

@@ -14,6 +14,8 @@ export class ContactoModalComponent implements OnInit, AfterViewInit {
   contactForm!: FormGroup;
   submitted = false;
 
+  private apiUrl = 'http://localhost:8080/v1/api/mensajes';
+
   @ViewChild('contactModal') modalRef!: ElementRef;
 
   constructor(private fb: FormBuilder, private http: HttpClient) {}
@@ -21,13 +23,13 @@ export class ContactoModalComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.contactForm = this.fb.group({
       nombreEmpresa: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      direccionEmpresa: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(50)]],
+      direccionEmpresa: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
       telEmpresa: ['', [Validators.required, Validators.pattern(/^\d{9}$/)]],
       emailEmpresa: ['', [Validators.required, Validators.email]],
       nombreContacto: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
       telContacto: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(12)]],
       emailContacto: ['', [Validators.required, Validators.email]],
-      observaciones: ['',[Validators.required, Validators.minLength(6), Validators.maxLength(256)]],
+      observaciones: ['',[Validators.required, Validators.minLength(3), Validators.maxLength(256)]],
       aceptaCondiciones: [false, Validators.requiredTrue]
     });
   }
@@ -46,6 +48,7 @@ export class ContactoModalComponent implements OnInit, AfterViewInit {
     return this.contactForm.controls;
   }
 
+
   enviarMensaje() {
     this.submitted = true;
     this.contactForm.markAllAsTouched();
@@ -54,10 +57,10 @@ export class ContactoModalComponent implements OnInit, AfterViewInit {
       return;
     }
 
-    this.http.post('/v1/api/mensajes', this.contactForm.value)
+    this.http.post(this.apiUrl, this.contactForm.value)
       .subscribe({
         next: () => alert('Mensaje enviado correctamente'),
-        error: () => alert('Error al enviar mensaje')
+        error: () => alert('Error al enviar mensaje'),
       });
   }
 }

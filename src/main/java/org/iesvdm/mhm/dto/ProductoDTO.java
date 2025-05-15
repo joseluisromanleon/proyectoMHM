@@ -9,9 +9,7 @@ import org.iesvdm.mhm.domain.Producto;
 @Builder
 public class ProductoDTO {
 
-
       private Producto producto;
       private int conteoPedido;
-
 
 }
