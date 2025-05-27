@@ -1,3 +1,4 @@
+import { AuthService} from '../../services/auth.service';
 import {Component, HostListener, OnInit} from '@angular/core';
 import {NgIf} from '@angular/common';
 import {RouterLink} from '@angular/router';
@@ -7,7 +8,7 @@ import {RouterLink} from '@angular/router';
   standalone: true,
   imports: [
     NgIf,
-    RouterLink
+    RouterLink,
   ],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
@@ -16,27 +17,29 @@ export class NavComponent implements OnInit{
   //variable para controlar el tamano de la pantalla
   isMobile = window.innerWidth < 765;
 // Variables para controlar el estado del usuario
-  isLoggedIn: boolean = false; // Indica si el usuario está logueado
-  userRole: string = '';       // Rol del usuario (admin, cliente, proveedor, etc.)
-  username: string = '';       // Nombre del usuario
+  isLoggedIn: boolean = false;  // Indica si el usuario está logueado
+  userRole: string = '';        // Rol del usuario (admin, cliente, proveedor, etc.)
+  username: string = '';        // Nombre del usuario
+  roles: string[] = [];         // array de roles
+  estado: string = '';          // estado del usuario
 
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
-    // Verificar el estado de autenticación al cargar el componente
-    this.isLoggedIn = this.checkLoginStatus();
-    if (this.isLoggedIn) {
-      this.userRole = this.getUserRole();
-      this.username = this.getUserName();
-    }
-  }
+    // Suscríbete al observable para reaccionar a cambios de login/logout
 
-
-// Función para verificar si el usuario está logueado
-  checkLoginStatus(): boolean {
-    if (typeof window !== 'undefined' && window.localStorage) {
-      return localStorage.getItem('isLoggedIn') === 'true';
-    }
-    return false;
+    this.authService.isLoggedIn$.subscribe(isLogged => {
+      this.isLoggedIn = isLogged;
+      if (isLogged) {
+        this.roles = this.authService.getRoles();
+        this.username = this.authService.getName();
+        this.estado = this.authService.getEstado();
+      } else {
+        this.roles = [];
+        this.estado = '';
+        this.username = '';
+      }
+    });
   }
 
   // Función para obtener el rol del usuario

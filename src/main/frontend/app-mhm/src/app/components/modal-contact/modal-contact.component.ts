@@ -1,21 +1,22 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, AbstractControl } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import {NgClass, NgIf} from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contacto-modal',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './contacto-modal.component.html',
-  styleUrls: ['./contacto-modal.component.css'],
+  imports: [ReactiveFormsModule, NgIf, NgClass],
+  templateUrl: './modal-contact.component.html',
+  styleUrls: ['./modal-contact.component.css'],
 })
-export class ContactoModalComponent implements OnInit, AfterViewInit {
+export class ModalContactComponent implements OnInit, AfterViewInit {
   contactForm!: FormGroup;
   submitted = false;
 
   private apiUrl = 'http://localhost:8080/v1/api/mensajes';
 
+  // Resetea los datos cada vez que se abre el modal
   @ViewChild('contactModal') modalRef!: ElementRef;
 
   constructor(private fb: FormBuilder, private http: HttpClient) {}
@@ -30,11 +31,13 @@ export class ContactoModalComponent implements OnInit, AfterViewInit {
       telContacto: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(12)]],
       emailContacto: ['', [Validators.required, Validators.email]],
       observaciones: ['',[Validators.required, Validators.minLength(3), Validators.maxLength(256)]],
-      aceptaCondiciones: [false, Validators.requiredTrue]
+      aceptaCondiciones: [false, Validators.requiredTrue],
+      enabled: [true]
     });
   }
 
   ngAfterViewInit() {
+    // Resetear el formulario cada vez que se abre el modal
     const modalEl = this.modalRef.nativeElement;
     modalEl.addEventListener('show.bs.modal', () => {
       this.contactForm.reset({
@@ -49,7 +52,7 @@ export class ContactoModalComponent implements OnInit, AfterViewInit {
   }
 
 
-  enviarMensaje() {
+  onSubmit() {
     this.submitted = true;
     this.contactForm.markAllAsTouched();
 

@@ -30,6 +30,12 @@ public class Empleado {
     @Column(name = "id_empleado")
     @EqualsAndHashCode.Include
     private long id;
+
+    // Composicion para Usuario (equivale a una Herencia de Usuario)
+    @OneToOne
+    @JoinColumn(name = "usuario_id", nullable = false, unique = true)
+    private Usuario usuario;
+
     private String nombre;
     private String apellidos;
     private String direccion;
@@ -38,17 +44,17 @@ public class Empleado {
     @Column(name = "telefono", length = 9)
     private String telefono;
 
-    @Column(name = "email_empl")
+    @Column(name = "email_empleado")
     @EmailValid
-    private String Email_Empl;
+    private String emailEmpleado;
 
     @Size(min = 24, max = 24)
     @Column(name = "iban_empleado", length = 24)
-    private String IBAN_empleado;
+    private String IbanEmpleado;
 
     @Column(name = "fecha_alta")
     @JsonFormat(pattern = "yyyy-MM-dd-HH:mm:ss",  shape = JsonFormat.Shape.STRING)
-    private Date fecha_alta;
+    private Date fechaAlta;
 
     @OneToMany(mappedBy = "empleado", fetch = FetchType.LAZY)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})  //Rompe el lazo de Serializacion
@@ -60,17 +66,9 @@ public class Empleado {
     @JoinTable(name = "empleado_clientes",
             joinColumns = @JoinColumn (name = "id_empleado"),
             inverseJoinColumns = @JoinColumn(name = "id_cliente"))
-    @JsonIgnoreProperties({"clientes","empleados"}) //Rompe el lazo de Serializacion
+    @JsonIgnoreProperties({"empleados", "pedidos"}) //Rompe el lazo de Serializacion
     @ToStringExclude                                //Rompe el lazo de Serializacion
     Set<Cliente> clientes = new HashSet<>();
-
-    @ManyToMany (fetch = FetchType.EAGER)
-    @JoinTable(name = "empleado_roles",
-        joinColumns = @JoinColumn (name = "empleado_id"),
-        inverseJoinColumns = @JoinColumn(name = "rol_id"))
-    @JsonIgnoreProperties({"empleados", "roles"})   //Rompe el lazo de Serializacion
-    @ToStringExclude                                //Rompe el lazo de Serializacion
-    Set<Rol> roles; // Un empleado tiene mas de un solo rol
 
 
     // ******* CONSTRUCTORES PARA TESTS *********
@@ -84,7 +82,7 @@ public class Empleado {
         this.id = 0;
         this.apellidos = apellidos;
         this.nombre = nombre;
-        this.fecha_alta = fecha_alta;
+        this.fechaAlta = fecha_alta;
         this.pedidos = new HashSet<Pedido>();
     }
 }

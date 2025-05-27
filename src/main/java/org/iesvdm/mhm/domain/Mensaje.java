@@ -8,13 +8,6 @@ import org.iesvdm.mhm.notations.EmailValid;
 
 import java.time.LocalDateTime;
 
-/*
-Si utilizo @OneToMany(FetchType.LAZY) además debo usar
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
- Para evitar que se envíe información de serialización
- JSON sobre los handler e hibernateLazyInitializer
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-*/
 @Data
 @Table(name="mensajes")
 @AllArgsConstructor

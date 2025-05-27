@@ -16,7 +16,6 @@ ul {
   list-style: none; /* Elimina los puntos de la lista */
   padding: 0; /* Elimina el padding predeterminado */
   margin: 0; /* Elimina el margen predeterminado */
-
 }
 
 ul > li {
@@ -45,6 +44,21 @@ ul > li {
   border-radius: 0; /* Sin esquinas redondeadas */
   padding: 0;
   border: none; /* Sin bordes */
+}
+
+
+
+/* Responsive */
+@media (max-width: 992px) {
+  .nav {
+    text-size-adjust: 60%;
+  }
+}
+@media (max-width: 500px) {
+  .nav {
+    text-size-adjust: 40%;
+
+  }
 }
 
 

@@ -10,6 +10,6 @@ public record MensajeDTO(
         @NotBlank @Size(min = 3, max = 50) String nombreContacto,
         @NotBlank @Pattern(regexp = "\\d{9}") String telContacto,
         @NotBlank @Email String emailContacto,
-        @NotBlank @Size(min = 3, max = 256) String observaciones,
+        @NotBlank @Size(min = 3, max = 255) String observaciones,
         @AssertTrue Boolean aceptaCondiciones
 ){}

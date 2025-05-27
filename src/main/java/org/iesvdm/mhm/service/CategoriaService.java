@@ -78,10 +78,10 @@ public class CategoriaService {
             return  campo.equalsIgnoreCase("nombre") ?
                     this.categoriaRepository.findByNombreContainingIgnoreCaseOrderByNombreAsc(valor, pageable)
 
-//                    : campo.equalsIgnoreCase("proveedor") ?
-//                    this.categoriaRepository.findCategoriaByProveedorContainingIgnoreCase(valor, pageable)
-//                    : campo.equalsIgnoreCase("stock") ?
-//                    this.categoriaRepository.findCategoriaByStock(valor, pageable)
+                    : campo.equalsIgnoreCase("proveedor") ?
+                    this.categoriaRepository.findCategoriaByNombreContainingIgnoreCase(valor, pageable)
+                    //: campo.equalsIgnoreCase("stock") ?
+                   // this.categoriaRepository.findCategoriaByStock(valor, pageable)
 
                     : this.getAll(pageable);
 

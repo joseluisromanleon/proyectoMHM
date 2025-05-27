@@ -1,7 +1,7 @@
 import {Component, Inject, Input, } from '@angular/core';
-import {MatDialogRef, MAT_DIALOG_DATA, MatDialogModule, MatDialogContent} from '@angular/material/dialog';
+import {MatDialogRef, MAT_DIALOG_DATA, MatDialogModule, } from '@angular/material/dialog';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {MatInput, MatInputModule} from "@angular/material/input";
+import {MatFormField, MatInput,} from "@angular/material/input";
 import {ModalService} from "../../modal/modal.service";
 import {Mensaje} from "@features/mensaje";
 import {MensajeService} from "../mensaje.service";
@@ -19,6 +19,7 @@ const MATERIAL_MODULES = [MatDialogModule, MatLabel, MatFormField, MatInput, Rea
     MatDialogModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatFormField,
   ]
 
 })

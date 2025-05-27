@@ -4,10 +4,13 @@
   <div class="nav container justify-content-end">
     <ul *ngIf="!isLoggedIn" class="d-flex align-items-center justify-content-center p-2 gap-2">
       <li>
-        <a class="btn nav-btn m-0" routerLink="/login">Login</a>
+        <button class="btn nav-btn m-0" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
       </li>
       <li>
-        <a class="btn nav-btn m-0" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a>
+        <button class="btn nav-btn m-0" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
+      </li>
+      <li>
+        <button class="btn nav-btn m-0" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</button>
       </li>
     </ul>
   </div>

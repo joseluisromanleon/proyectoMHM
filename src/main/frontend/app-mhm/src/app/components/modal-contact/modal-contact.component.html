@@ -1,22 +1,17 @@
 <!-- Modal Bootstrap: el id debe coincidir con el data-bs-target del botón -->
-<div #contactModal class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+<div #contactModal class="modal fade " id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
-      <form [formGroup]="contactForm" (ngSubmit)="enviarMensaje()">
-        <div class="modal-header">
-          <h5 class="modal-title" id="contactModalLabel">Enviar mensaje</h5>
+    <div class="modal-content bg-light">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="modal-header bg-secondary">
+          <h5 class="modal-title" id="contactModalLabel">Envio de mensaje</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
         </div>
         <div class="modal-body">
-
           <!-- Nombre Empresa -->
           <div class="mb-3">
             <label for="nombreEmpresa" class="form-label">Nombre empresa</label>
-            <input
-              type="text"
-              id="nombreEmpresa"
-              class="form-control"
-              formControlName="nombreEmpresa"
+            <input type="text" id="nombreEmpresa" class="form-control" formControlName="nombreEmpresa" required maxlength="50"
               [ngClass]="{'is-invalid': (f['nombreEmpresa'].touched || submitted) && f['nombreEmpresa'].invalid}">
             <div *ngIf="(f['nombreEmpresa'].touched || submitted) && f['nombreEmpresa'].invalid"
                  class="text-danger">
@@ -131,7 +126,7 @@
             <textarea
               id="mensaje"
               class="form-control"
-              formControlName="observaciones"
+              formControlName="observaciones" placeholder="256 caracteres"
               [ngClass]="{'is-invalid': (f['observaciones'].touched || submitted) && f['observaciones'].invalid}">
             </textarea>
             <div *ngIf="(f['observaciones'].touched || submitted) && f['observaciones'].invalid"
@@ -158,11 +153,12 @@
               Debe aceptar las condiciones para enviar el mensaje.
             </div>
           </div>
+          <input type="hidden" formControlName="enabled">
 
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-primary" [disabled]="contactForm.invalid">Enviar</button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-success" [disabled]="contactForm.invalid">Enviar</button>
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
         </div>
       </form>
     </div>

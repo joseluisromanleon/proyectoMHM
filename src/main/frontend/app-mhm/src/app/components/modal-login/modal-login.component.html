@@ -1,0 +1,44 @@
+<div #loginModal class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content bg-light">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="modal-header bg-secondary">
+          <h5 class="modal-title" id="loginModalLabel">Iniciar sesión</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+
+          <!-- Usuario -->
+          <div class="mb-3">
+            <label for="login-username" class="form-label">Usuario</label>
+            <input type="text" id="login-username" class="form-control" formControlName="username"
+                   placeholder="Introduce tu nombre de usuario"
+                   [ngClass]="{'is-invalid': (f['username'].touched || submitted) && f['username'].invalid}">
+            <div *ngIf="(f['username'].touched || submitted) && f['username'].invalid" class="text-danger">
+              <div *ngIf="f['username'].errors?.['required']">El usuario es obligatorio.</div>
+            </div>
+          </div>
+
+          <!-- Contraseña -->
+          <div class="mb-3">
+            <label for="login-password" class="form-label">Contraseña</label>
+            <input type="password" id="login-password" class="form-control" formControlName="password"
+                   placeholder="Introduce tu contraseña"
+                   [ngClass]="{'is-invalid': (f['password'].touched || submitted) && f['password'].invalid}">
+            <div *ngIf="(f['password'].touched || submitted) && f['password'].invalid" class="text-danger">
+              <div *ngIf="f['password'].errors?.['required']">La contraseña es obligatoria.</div>
+            </div>
+          </div>
+
+          <!-- Mensaje de error global opcional -->
+          <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success" [disabled]="loginForm.invalid">Entrar</button>
+          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Salir</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

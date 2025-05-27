@@ -28,7 +28,7 @@ Si utilizo @OneToMany(FetchType.LAZY) además debo usar
 @ToString
 @Entity
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Cliente {
+public class Cliente{
 
 
     @Id
@@ -36,6 +36,11 @@ public class Cliente {
     @Column(name = "id_cliente")
     @EqualsAndHashCode.Include
     private Long idCliente;
+
+    // Composicion para Usuario (equivale a una Herencia)
+    @OneToOne
+    @JoinColumn(name = "id_usuario", nullable = false, unique = true)
+    private Usuario usuario;
 
     @Size(min = 3, max = 50)
     @Column(name = "nombre_empresa", length = 50)
@@ -83,11 +88,11 @@ public class Cliente {
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Set<Pedido> pedidos;
 
-    @ManyToMany(mappedBy = "clientes", cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE,
-    },fetch = FetchType.EAGER)
-    @JsonIgnoreProperties({"clientes", "empleados", "pedidos"})         //Rompe el lazo de Serializacion
+    // un cliente puede ser atendido por varios empleados bidireccional
+    @ManyToMany(mappedBy = "clientes",
+            cascade = { CascadeType.MERGE},
+            fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"clientes","pedidos"})         //Rompe el lazo de Serializacion
     @ToStringExclude    //Rompe el lazo de Serializacion
     private Set<Empleado> empleados;
 

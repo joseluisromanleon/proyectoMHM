@@ -16,10 +16,5 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
-    <data-source name="MHM@localhost" uuid="d15e4bde-8d42-4846-90d2-5b0f931ae156">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" />
-      <user-name>root</user-name>
-      <schema-mapping />
-    </data-source>
   </component>
 </project>

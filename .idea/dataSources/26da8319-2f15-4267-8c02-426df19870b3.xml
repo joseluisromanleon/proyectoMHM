@@ -2,8 +2,97 @@
 <dataSource name="@localhost">
   <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.51">
     <root id="1">
+      <DefaultCasing>lower/lower</DefaultCasing>
       <DefaultEngine>InnoDB</DefaultEngine>
       <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
+      <Grants>|root||root|localhost|ALTER|G
+|root||root|localhost|ALTER ROUTINE|G
+|root||root|localhost|APPLICATION_PASSWORD_ADMIN|G
+|root||mysql.infoschema|localhost|AUDIT_ABORT_EXEMPT|G
+|root||mysql.session|localhost|AUDIT_ABORT_EXEMPT|G
+|root||mysql.sys|localhost|AUDIT_ABORT_EXEMPT|G
+|root||root|localhost|AUDIT_ABORT_EXEMPT|G
+|root||root|localhost|AUDIT_ADMIN|G
+|root||root|localhost|AUTHENTICATION_POLICY_ADMIN|G
+|root||mysql.session|localhost|BACKUP_ADMIN|G
+|root||root|localhost|BACKUP_ADMIN|G
+|root||root|localhost|BINLOG_ADMIN|G
+|root||root|localhost|BINLOG_ENCRYPTION_ADMIN|G
+|root||mysql.session|localhost|CLONE_ADMIN|G
+|root||root|localhost|CLONE_ADMIN|G
+|root||mysql.session|localhost|CONNECTION_ADMIN|G
+|root||root|localhost|CONNECTION_ADMIN|G
+|root||root|localhost|CREATE|G
+|root||root|localhost|CREATE ROLE|G
+|root||root|localhost|CREATE ROUTINE|G
+|root||root|localhost|CREATE TABLESPACE|G
+|root||root|localhost|CREATE TEMPORARY TABLES|G
+|root||root|localhost|CREATE USER|G
+|root||root|localhost|CREATE VIEW|G
+|root||root|localhost|DELETE|G
+|root||root|localhost|DROP|G
+|root||root|localhost|DROP ROLE|G
+|root||root|localhost|ENCRYPTION_KEY_ADMIN|G
+|root||root|localhost|EVENT|G
+|root||root|localhost|EXECUTE|G
+|root||root|localhost|FILE|G
+|root||mysql.infoschema|localhost|FIREWALL_EXEMPT|G
+|root||mysql.session|localhost|FIREWALL_EXEMPT|G
+|root||mysql.sys|localhost|FIREWALL_EXEMPT|G
+|root||root|localhost|FIREWALL_EXEMPT|G
+|root||root|localhost|FLUSH_OPTIMIZER_COSTS|G
+|root||root|localhost|FLUSH_STATUS|G
+|root||root|localhost|FLUSH_TABLES|G
+|root||root|localhost|FLUSH_USER_RESOURCES|G
+|root||root|localhost|GROUP_REPLICATION_ADMIN|G
+|root||root|localhost|GROUP_REPLICATION_STREAM|G
+|root||root|localhost|INDEX|G
+|root||root|localhost|INNODB_REDO_LOG_ARCHIVE|G
+|root||root|localhost|INNODB_REDO_LOG_ENABLE|G
+|root||root|localhost|INSERT|G
+|root||root|localhost|LOCK TABLES|G
+|root||root|localhost|PASSWORDLESS_USER_ADMIN|G
+|root||mysql.session|localhost|PERSIST_RO_VARIABLES_ADMIN|G
+|root||root|localhost|PERSIST_RO_VARIABLES_ADMIN|G
+|root||root|localhost|PROCESS|G
+|root||root|localhost|REFERENCES|G
+|root||root|localhost|RELOAD|G
+|root||root|localhost|REPLICATION CLIENT|G
+|root||root|localhost|REPLICATION SLAVE|G
+|root||root|localhost|REPLICATION_APPLIER|G
+|root||root|localhost|REPLICATION_SLAVE_ADMIN|G
+|root||root|localhost|RESOURCE_GROUP_ADMIN|G
+|root||root|localhost|RESOURCE_GROUP_USER|G
+|root||root|localhost|ROLE_ADMIN|G
+|root||mysql.infoschema|localhost|SELECT|G
+|root||root|localhost|SELECT|G
+|root||root|localhost|SENSITIVE_VARIABLES_OBSERVER|G
+|root||root|localhost|SERVICE_CONNECTION_ADMIN|G
+|root||mysql.session|localhost|SESSION_VARIABLES_ADMIN|G
+|root||root|localhost|SESSION_VARIABLES_ADMIN|G
+|root||root|localhost|SET_USER_ID|G
+|root||root|localhost|SHOW DATABASES|G
+|root||root|localhost|SHOW VIEW|G
+|root||root|localhost|SHOW_ROUTINE|G
+|root||mysql.session|localhost|SHUTDOWN|G
+|root||root|localhost|SHUTDOWN|G
+|root||mysql.session|localhost|SUPER|G
+|root||root|localhost|SUPER|G
+|root||mysql.infoschema|localhost|SYSTEM_USER|G
+|root||mysql.session|localhost|SYSTEM_USER|G
+|root||mysql.sys|localhost|SYSTEM_USER|G
+|root||root|localhost|SYSTEM_USER|G
+|root||mysql.session|localhost|SYSTEM_VARIABLES_ADMIN|G
+|root||root|localhost|SYSTEM_VARIABLES_ADMIN|G
+|root||root|localhost|TABLE_ENCRYPTION_ADMIN|G
+|root||mysql.session|localhost|TELEMETRY_LOG_ADMIN|G
+|root||root|localhost|TELEMETRY_LOG_ADMIN|G
+|root||root|localhost|TRIGGER|G
+|root||root|localhost|UPDATE|G
+|root||root|localhost|XA_RECOVER_ADMIN|G
+|root||root|localhost|grant option|G
+performance_schema|schema||mysql.session|localhost|SELECT|G
+sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <ServerVersion>8.0.40</ServerVersion>
     </root>
     <collation id="2" parent="1" name="armscii8_general_ci">
@@ -921,7 +1010,7 @@
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="293" parent="1" name="mhm">
-      <LastIntrospectionLocalTimestamp>2025-05-14.17:35:01</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-05-27.10:24:46</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="294" parent="1" name="blog3">
@@ -987,710 +1076,815 @@
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="311" parent="293" name="empleado_roles">
+    <table id="311" parent="293" name="empleados">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="312" parent="293" name="empleados">
+    <table id="312" parent="293" name="mensajes">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="313" parent="293" name="mensajes">
+    <table id="313" parent="293" name="pedidos">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="314" parent="293" name="pedidos">
+    <table id="314" parent="293" name="productos">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="315" parent="293" name="productos">
+    <table id="315" parent="293" name="proveedores">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="316" parent="293" name="proveedores">
+    <table id="316" parent="293" name="roles">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <table id="317" parent="293" name="roles">
+    <table id="317" parent="293" name="usuario_roles">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <column id="318" parent="305" name="id_aviso">
+    <table id="318" parent="293" name="usuarios">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <column id="319" parent="305" name="id_aviso">
       <AutoIncrement>1</AutoIncrement>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="319" parent="305" name="cliente_id">
+    <column id="320" parent="305" name="cliente_id">
       <DasType>bigint|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="320" parent="305" name="empleado_id">
+    <column id="321" parent="305" name="empleado_id">
       <DasType>bigint|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="321" parent="305" name="fecha_aviso">
+    <column id="322" parent="305" name="fecha_aviso">
       <DasType>datetime(6)|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="322" parent="305" name="observaciones">
+    <column id="323" parent="305" name="observaciones">
       <DasType>varchar(256)|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="323" parent="305" name="ultima_actualizacion">
+    <column id="324" parent="305" name="ultima_actualizacion">
       <DasType>datetime(6)|0s</DasType>
       <Position>6</Position>
     </column>
-    <index id="324" parent="305" name="PRIMARY">
+    <index id="325" parent="305" name="PRIMARY">
       <ColNames>id_aviso</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="325" parent="305" name="PRIMARY">
+    <key id="326" parent="305" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="326" parent="306" name="categoria">
+    <column id="327" parent="306" name="categoria">
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="327" parent="306" name="categoria_id">
+    <column id="328" parent="306" name="categoria_id">
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <foreign-key id="328" parent="306" name="FKe898tfm9sbyh3inrqmyxd4myo">
+    <foreign-key id="329" parent="306" name="FKe898tfm9sbyh3inrqmyxd4myo">
       <ColNames>categoria</ColNames>
       <RefColNames>id_categoria</RefColNames>
       <RefTableName>categorias</RefTableName>
     </foreign-key>
-    <foreign-key id="329" parent="306" name="FKass71aqquwlp245e3ab0nk9in">
+    <foreign-key id="330" parent="306" name="FKass71aqquwlp245e3ab0nk9in">
       <ColNames>categoria_id</ColNames>
       <RefColNames>id_producto</RefColNames>
       <RefTableName>productos</RefTableName>
     </foreign-key>
-    <index id="330" parent="306" name="PRIMARY">
+    <index id="331" parent="306" name="PRIMARY">
       <ColNames>categoria
 categoria_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="331" parent="306" name="FKass71aqquwlp245e3ab0nk9in">
+    <index id="332" parent="306" name="FKass71aqquwlp245e3ab0nk9in">
       <ColNames>categoria_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="332" parent="306" name="PRIMARY">
+    <key id="333" parent="306" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="333" parent="307" name="id_categoria">
+    <column id="334" parent="307" name="id_categoria">
       <AutoIncrement>1</AutoIncrement>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="334" parent="307" name="nombre">
+    <column id="335" parent="307" name="nombre">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <index id="335" parent="307" name="PRIMARY">
+    <index id="336" parent="307" name="PRIMARY">
       <ColNames>id_categoria</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="336" parent="307" name="PRIMARY">
+    <key id="337" parent="307" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="337" parent="308" name="id_cliente">
+    <column id="338" parent="308" name="id_cliente">
       <AutoIncrement>1</AutoIncrement>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="338" parent="308" name="iban_empresa">
+    <column id="339" parent="308" name="iban_empresa">
       <DasType>varchar(24)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="339" parent="308" name="cp_empresa">
+    <column id="340" parent="308" name="cp_empresa">
       <DasType>varchar(5)|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="340" parent="308" name="direccion_empresa">
+    <column id="341" parent="308" name="direccion_empresa">
       <DasType>varchar(100)|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="341" parent="308" name="email_contacto">
+    <column id="342" parent="308" name="email_contacto">
       <DasType>varchar(255)|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="342" parent="308" name="email_empresa">
+    <column id="343" parent="308" name="email_empresa">
       <DasType>varchar(255)|0s</DasType>
       <Position>6</Position>
     </column>
-    <column id="343" parent="308" name="fecha_alta">
+    <column id="344" parent="308" name="fecha_alta">
       <DasType>datetime(6)|0s</DasType>
       <Position>7</Position>
     </column>
-    <column id="344" parent="308" name="nombre_contacto">
+    <column id="345" parent="308" name="nombre_contacto">
       <DasType>varchar(50)|0s</DasType>
       <Position>8</Position>
     </column>
-    <column id="345" parent="308" name="nombre_empresa">
+    <column id="346" parent="308" name="nombre_empresa">
       <DasType>varchar(50)|0s</DasType>
       <Position>9</Position>
     </column>
-    <column id="346" parent="308" name="observaciones">
+    <column id="347" parent="308" name="observaciones">
       <DasType>varchar(256)|0s</DasType>
       <Position>10</Position>
     </column>
-    <column id="347" parent="308" name="rol_id">
+    <column id="348" parent="308" name="rol_id">
       <DasType>bigint|0s</DasType>
       <Position>11</Position>
     </column>
-    <column id="348" parent="308" name="tel_contacto">
+    <column id="349" parent="308" name="tel_contacto">
       <DasType>varchar(12)|0s</DasType>
       <Position>12</Position>
     </column>
-    <column id="349" parent="308" name="tel_empresa">
+    <column id="350" parent="308" name="tel_empresa">
       <DasType>varchar(9)|0s</DasType>
       <Position>13</Position>
     </column>
-    <index id="350" parent="308" name="PRIMARY">
+    <column id="351" parent="308" name="id_usuario">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>14</Position>
+    </column>
+    <foreign-key id="352" parent="308" name="FKf6u564o4dprnq7uln5gjvidp3">
+      <ColNames>id_usuario</ColNames>
+      <RefColNames>id_user</RefColNames>
+      <RefTableName>usuarios</RefTableName>
+    </foreign-key>
+    <index id="353" parent="308" name="PRIMARY">
       <ColNames>id_cliente</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="351" parent="308" name="PRIMARY">
+    <index id="354" parent="308" name="UK_l8nfa1qkfrk958v1rx9h8anvb">
+      <ColNames>id_usuario</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="355" parent="308" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="352" parent="309" name="id_detalle">
+    <key id="356" parent="308" name="UK_l8nfa1qkfrk958v1rx9h8anvb">
+      <UnderlyingIndexName>UK_l8nfa1qkfrk958v1rx9h8anvb</UnderlyingIndexName>
+    </key>
+    <column id="357" parent="309" name="id_detalle">
       <AutoIncrement>1</AutoIncrement>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="353" parent="309" name="base">
+    <column id="358" parent="309" name="base">
       <DasType>double|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="354" parent="309" name="dtos">
+    <column id="359" parent="309" name="dtos">
       <DasType>double|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="355" parent="309" name="facturado">
+    <column id="360" parent="309" name="facturado">
       <DasType>bit(1)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="356" parent="309" name="iva">
+    <column id="361" parent="309" name="iva">
       <DasType>double|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="357" parent="309" name="numero_productos">
+    <column id="362" parent="309" name="numero_productos">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="358" parent="309" name="preciou">
+    <column id="363" parent="309" name="preciou">
       <DasType>double|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <column id="359" parent="309" name="rec_equi">
+    <column id="364" parent="309" name="rec_equi">
       <DasType>double|0s</DasType>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <column id="360" parent="309" name="subtotal">
+    <column id="365" parent="309" name="subtotal">
       <DasType>double|0s</DasType>
       <NotNull>1</NotNull>
       <Position>9</Position>
     </column>
-    <column id="361" parent="309" name="total">
+    <column id="366" parent="309" name="total">
       <DasType>double|0s</DasType>
       <NotNull>1</NotNull>
       <Position>10</Position>
     </column>
-    <column id="362" parent="309" name="id_pedido">
+    <column id="367" parent="309" name="id_pedido">
       <DasType>bigint|0s</DasType>
       <Position>11</Position>
     </column>
-    <column id="363" parent="309" name="id_producto">
+    <column id="368" parent="309" name="id_producto">
       <DasType>bigint|0s</DasType>
       <Position>12</Position>
     </column>
-    <foreign-key id="364" parent="309" name="FKtmc8h6rwnnriytxqghwky9ong">
+    <foreign-key id="369" parent="309" name="FKtmc8h6rwnnriytxqghwky9ong">
       <ColNames>id_pedido</ColNames>
       <RefColNames>id_pedido</RefColNames>
       <RefTableName>pedidos</RefTableName>
     </foreign-key>
-    <foreign-key id="365" parent="309" name="FK6ytrtoo1dmhcmmjsxg01wn4rm">
+    <foreign-key id="370" parent="309" name="FK6ytrtoo1dmhcmmjsxg01wn4rm">
       <ColNames>id_producto</ColNames>
       <RefColNames>id_producto</RefColNames>
       <RefTableName>productos</RefTableName>
     </foreign-key>
-    <index id="366" parent="309" name="PRIMARY">
+    <index id="371" parent="309" name="PRIMARY">
       <ColNames>id_detalle</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="367" parent="309" name="FKtmc8h6rwnnriytxqghwky9ong">
+    <index id="372" parent="309" name="FKtmc8h6rwnnriytxqghwky9ong">
       <ColNames>id_pedido</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="368" parent="309" name="FK6ytrtoo1dmhcmmjsxg01wn4rm">
+    <index id="373" parent="309" name="FK6ytrtoo1dmhcmmjsxg01wn4rm">
       <ColNames>id_producto</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="369" parent="309" name="PRIMARY">
+    <key id="374" parent="309" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="370" parent="310" name="id_empleado">
+    <column id="375" parent="310" name="id_empleado">
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="371" parent="310" name="id_cliente">
+    <column id="376" parent="310" name="id_cliente">
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <foreign-key id="372" parent="310" name="FKpvfy6lk4jwqygdb72lfkt1wgi">
+    <foreign-key id="377" parent="310" name="FKpvfy6lk4jwqygdb72lfkt1wgi">
       <ColNames>id_empleado</ColNames>
       <RefColNames>id_empleado</RefColNames>
       <RefTableName>empleados</RefTableName>
     </foreign-key>
-    <foreign-key id="373" parent="310" name="FKn0hgg3ggaja56f56x788aky2e">
+    <foreign-key id="378" parent="310" name="FKn0hgg3ggaja56f56x788aky2e">
       <ColNames>id_cliente</ColNames>
       <RefColNames>id_cliente</RefColNames>
       <RefTableName>clientes</RefTableName>
     </foreign-key>
-    <index id="374" parent="310" name="PRIMARY">
+    <index id="379" parent="310" name="PRIMARY">
       <ColNames>id_empleado
 id_cliente</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="375" parent="310" name="FKn0hgg3ggaja56f56x788aky2e">
+    <index id="380" parent="310" name="FKn0hgg3ggaja56f56x788aky2e">
       <ColNames>id_cliente</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="376" parent="310" name="PRIMARY">
+    <key id="381" parent="310" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="377" parent="311" name="empleado_id">
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="378" parent="311" name="rol_id">
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <foreign-key id="379" parent="311" name="FKrwm271w52qkeiap6i7qx1iy06">
-      <ColNames>empleado_id</ColNames>
-      <RefColNames>id_empleado</RefColNames>
-      <RefTableName>empleados</RefTableName>
-    </foreign-key>
-    <foreign-key id="380" parent="311" name="FK2ikgdm40via1jybai41el951k">
-      <ColNames>rol_id</ColNames>
-      <RefColNames>id_rol</RefColNames>
-      <RefTableName>roles</RefTableName>
-    </foreign-key>
-    <index id="381" parent="311" name="PRIMARY">
-      <ColNames>empleado_id
-rol_id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="382" parent="311" name="FK2ikgdm40via1jybai41el951k">
-      <ColNames>rol_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="383" parent="311" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="384" parent="312" name="id_empleado">
+    <column id="382" parent="311" name="id_empleado">
       <AutoIncrement>1</AutoIncrement>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="385" parent="312" name="email_empl">
-      <DasType>varchar(255)|0s</DasType>
+    <column id="383" parent="311" name="iban_empleado">
+      <DasType>varchar(24)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="386" parent="312" name="iban_empleado">
-      <DasType>varchar(24)|0s</DasType>
+    <column id="384" parent="311" name="apellidos">
+      <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="387" parent="312" name="apellidos">
+    <column id="385" parent="311" name="direccion">
       <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="388" parent="312" name="direccion">
+    <column id="386" parent="311" name="email_empleado">
       <DasType>varchar(255)|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="389" parent="312" name="fecha_alta">
+    <column id="387" parent="311" name="fecha_alta">
       <DasType>datetime(6)|0s</DasType>
       <Position>6</Position>
     </column>
-    <column id="390" parent="312" name="nombre">
+    <column id="388" parent="311" name="nombre">
       <DasType>varchar(255)|0s</DasType>
       <Position>7</Position>
     </column>
-    <column id="391" parent="312" name="telefono">
+    <column id="389" parent="311" name="telefono">
       <DasType>varchar(9)|0s</DasType>
       <Position>8</Position>
     </column>
-    <index id="392" parent="312" name="PRIMARY">
+    <column id="390" parent="311" name="usuario_id">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+    </column>
+    <foreign-key id="391" parent="311" name="FKf5la9sef5mevf72dun7f2rxu4">
+      <ColNames>usuario_id</ColNames>
+      <RefColNames>id_user</RefColNames>
+      <RefTableName>usuarios</RefTableName>
+    </foreign-key>
+    <index id="392" parent="311" name="PRIMARY">
       <ColNames>id_empleado</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="393" parent="312" name="PRIMARY">
+    <index id="393" parent="311" name="UK_sjpxfuol5uag54oxbayrfuuii">
+      <ColNames>usuario_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="394" parent="311" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="394" parent="313" name="id_mensaje">
+    <key id="395" parent="311" name="UK_sjpxfuol5uag54oxbayrfuuii">
+      <UnderlyingIndexName>UK_sjpxfuol5uag54oxbayrfuuii</UnderlyingIndexName>
+    </key>
+    <column id="396" parent="312" name="id_mensaje">
       <AutoIncrement>1</AutoIncrement>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="395" parent="313" name="direccion_empresa">
-      <DasType>varchar(100)|0s</DasType>
+    <column id="397" parent="312" name="acepta_condiciones">
+      <DasType>bit(1)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="396" parent="313" name="email_contacto">
-      <DasType>varchar(255)|0s</DasType>
+    <column id="398" parent="312" name="direccion_empresa">
+      <DasType>varchar(100)|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="397" parent="313" name="email_empresa">
+    <column id="399" parent="312" name="email_contacto">
       <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="398" parent="313" name="estado_msje">
-      <DasType>enum(&apos;PENDIENTE&apos;, &apos;ACEPTADO&apos;, &apos;RECHAZADO&apos;)|0e</DasType>
+    <column id="400" parent="312" name="email_empresa">
+      <DasType>varchar(255)|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="399" parent="313" name="fecha">
-      <DasType>datetime(6)|0s</DasType>
+    <column id="401" parent="312" name="estado_msje">
+      <DasType>enum(&apos;PENDIENTE&apos;, &apos;ACEPTADO&apos;, &apos;RECHAZADO&apos;)|0e</DasType>
       <Position>6</Position>
     </column>
-    <column id="400" parent="313" name="nombre_contacto">
-      <DasType>varchar(50)|0s</DasType>
+    <column id="402" parent="312" name="fecha">
+      <DasType>datetime(6)|0s</DasType>
       <Position>7</Position>
     </column>
-    <column id="401" parent="313" name="nombre_empresa">
+    <column id="403" parent="312" name="nombre_contacto">
       <DasType>varchar(50)|0s</DasType>
       <Position>8</Position>
     </column>
-    <column id="402" parent="313" name="observaciones">
-      <DasType>varchar(256)|0s</DasType>
+    <column id="404" parent="312" name="nombre_empresa">
+      <DasType>varchar(50)|0s</DasType>
       <Position>9</Position>
     </column>
-    <column id="403" parent="313" name="tel_contacto">
-      <DasType>varchar(12)|0s</DasType>
+    <column id="405" parent="312" name="observaciones">
+      <DasType>varchar(256)|0s</DasType>
       <Position>10</Position>
     </column>
-    <column id="404" parent="313" name="tel_empresa">
-      <DasType>varchar(9)|0s</DasType>
+    <column id="406" parent="312" name="tel_contacto">
+      <DasType>varchar(12)|0s</DasType>
       <Position>11</Position>
     </column>
-    <column id="405" parent="313" name="acepta_condiciones">
-      <DasType>bit(1)|0s</DasType>
+    <column id="407" parent="312" name="tel_empresa">
+      <DasType>varchar(9)|0s</DasType>
       <Position>12</Position>
     </column>
-    <index id="406" parent="313" name="PRIMARY">
+    <index id="408" parent="312" name="PRIMARY">
       <ColNames>id_mensaje</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="407" parent="313" name="PRIMARY">
+    <key id="409" parent="312" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="408" parent="314" name="id_pedido">
+    <column id="410" parent="313" name="id_pedido">
       <AutoIncrement>1</AutoIncrement>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="409" parent="314" name="enviado">
+    <column id="411" parent="313" name="enviado">
       <DasType>bit(1)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="410" parent="314" name="facturado">
+    <column id="412" parent="313" name="facturado">
       <DasType>bit(1)|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="411" parent="314" name="fecha_factura">
+    <column id="413" parent="313" name="fecha_factura">
       <DasType>datetime(6)|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="412" parent="314" name="fecha_pedido">
+    <column id="414" parent="313" name="fecha_pedido">
       <DasType>datetime(6)|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="413" parent="314" name="observaciones">
+    <column id="415" parent="313" name="observaciones">
       <DasType>varchar(255)|0s</DasType>
       <Position>6</Position>
     </column>
-    <column id="414" parent="314" name="ultima_actualizacion">
+    <column id="416" parent="313" name="ultima_actualizacion">
       <DasType>datetime(6)|0s</DasType>
       <Position>7</Position>
     </column>
-    <column id="415" parent="314" name="id_cliente">
+    <column id="417" parent="313" name="id_cliente">
       <DasType>bigint|0s</DasType>
       <Position>8</Position>
     </column>
-    <column id="416" parent="314" name="id_empleado">
+    <column id="418" parent="313" name="id_empleado">
       <DasType>bigint|0s</DasType>
       <Position>9</Position>
     </column>
-    <foreign-key id="417" parent="314" name="FKdnomiluem4t3x66t6b9aher47">
+    <foreign-key id="419" parent="313" name="FKdnomiluem4t3x66t6b9aher47">
       <ColNames>id_cliente</ColNames>
       <RefColNames>id_cliente</RefColNames>
       <RefTableName>clientes</RefTableName>
     </foreign-key>
-    <foreign-key id="418" parent="314" name="FKltrtqgh9kyqgjst49dj88e4ra">
+    <foreign-key id="420" parent="313" name="FKltrtqgh9kyqgjst49dj88e4ra">
       <ColNames>id_empleado</ColNames>
       <RefColNames>id_empleado</RefColNames>
       <RefTableName>empleados</RefTableName>
     </foreign-key>
-    <index id="419" parent="314" name="PRIMARY">
+    <index id="421" parent="313" name="PRIMARY">
       <ColNames>id_pedido</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="420" parent="314" name="FKdnomiluem4t3x66t6b9aher47">
+    <index id="422" parent="313" name="FKdnomiluem4t3x66t6b9aher47">
       <ColNames>id_cliente</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="421" parent="314" name="FKltrtqgh9kyqgjst49dj88e4ra">
+    <index id="423" parent="313" name="FKltrtqgh9kyqgjst49dj88e4ra">
       <ColNames>id_empleado</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="422" parent="314" name="PRIMARY">
+    <key id="424" parent="313" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="423" parent="315" name="id_producto">
+    <column id="425" parent="314" name="id_producto">
       <AutoIncrement>1</AutoIncrement>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="424" parent="315" name="alto">
+    <column id="426" parent="314" name="alto">
       <DasType>float|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="425" parent="315" name="ancho">
+    <column id="427" parent="314" name="ancho">
       <DasType>float|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="426" parent="315" name="capacidad_l">
+    <column id="428" parent="314" name="capacidad_l">
       <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="427" parent="315" name="descatalogado">
+    <column id="429" parent="314" name="descatalogado">
       <DasType>bit(1)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="428" parent="315" name="descuento_max">
+    <column id="430" parent="314" name="descuento_max">
       <DasType>double|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="429" parent="315" name="fondo">
+    <column id="431" parent="314" name="fondo">
       <DasType>float|0s</DasType>
       <Position>7</Position>
     </column>
-    <column id="430" parent="315" name="iva">
+    <column id="432" parent="314" name="iva">
       <DasType>double|0s</DasType>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <column id="431" parent="315" name="nombre">
+    <column id="433" parent="314" name="nombre">
       <DasType>varchar(255)|0s</DasType>
       <Position>9</Position>
     </column>
-    <column id="432" parent="315" name="potencia_w">
+    <column id="434" parent="314" name="potencia_w">
       <DasType>int|0s</DasType>
       <Position>10</Position>
     </column>
-    <column id="433" parent="315" name="precio_compra">
+    <column id="435" parent="314" name="precio_compra">
       <DasType>double|0s</DasType>
       <NotNull>1</NotNull>
       <Position>11</Position>
     </column>
-    <column id="434" parent="315" name="precio_venta">
+    <column id="436" parent="314" name="precio_venta">
       <DasType>double|0s</DasType>
       <NotNull>1</NotNull>
       <Position>12</Position>
     </column>
-    <column id="435" parent="315" name="rec_equivalencia">
+    <column id="437" parent="314" name="rec_equivalencia">
       <DasType>double|0s</DasType>
       <NotNull>1</NotNull>
       <Position>13</Position>
     </column>
-    <column id="436" parent="315" name="stock">
+    <column id="438" parent="314" name="stock">
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>14</Position>
     </column>
-    <column id="437" parent="315" name="stock_minimo">
+    <column id="439" parent="314" name="stock_minimo">
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>15</Position>
     </column>
-    <column id="438" parent="315" name="ultima_compra">
+    <column id="440" parent="314" name="ultima_compra">
       <DasType>datetime(6)|0s</DasType>
       <Position>16</Position>
     </column>
-    <column id="439" parent="315" name="unidades_servidas">
+    <column id="441" parent="314" name="unidades_servidas">
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>17</Position>
     </column>
-    <column id="440" parent="315" name="voltaje_v">
+    <column id="442" parent="314" name="voltaje_v">
       <DasType>int|0s</DasType>
       <Position>18</Position>
     </column>
-    <column id="441" parent="315" name="categoria_id_categoria">
+    <column id="443" parent="314" name="categoria_id_categoria">
       <DasType>bigint|0s</DasType>
       <Position>19</Position>
     </column>
-    <column id="442" parent="315" name="proveedor_id_proveedor">
+    <column id="444" parent="314" name="proveedor_id_proveedor">
       <DasType>bigint|0s</DasType>
       <Position>20</Position>
     </column>
-    <foreign-key id="443" parent="315" name="FK4i0dk1ruj2fqoovdka50hv8ul">
+    <foreign-key id="445" parent="314" name="FK4i0dk1ruj2fqoovdka50hv8ul">
       <ColNames>categoria_id_categoria</ColNames>
       <RefColNames>id_categoria</RefColNames>
       <RefTableName>categorias</RefTableName>
     </foreign-key>
-    <foreign-key id="444" parent="315" name="FKracs6adygo3henbukytql4n2n">
+    <foreign-key id="446" parent="314" name="FKracs6adygo3henbukytql4n2n">
       <ColNames>proveedor_id_proveedor</ColNames>
       <RefColNames>id_proveedor</RefColNames>
       <RefTableName>proveedores</RefTableName>
     </foreign-key>
-    <index id="445" parent="315" name="PRIMARY">
+    <index id="447" parent="314" name="PRIMARY">
       <ColNames>id_producto</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="446" parent="315" name="FK4i0dk1ruj2fqoovdka50hv8ul">
+    <index id="448" parent="314" name="FK4i0dk1ruj2fqoovdka50hv8ul">
       <ColNames>categoria_id_categoria</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="447" parent="315" name="FKracs6adygo3henbukytql4n2n">
+    <index id="449" parent="314" name="FKracs6adygo3henbukytql4n2n">
       <ColNames>proveedor_id_proveedor</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="448" parent="315" name="PRIMARY">
+    <key id="450" parent="314" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="449" parent="316" name="id_proveedor">
+    <column id="451" parent="315" name="id_proveedor">
       <AutoIncrement>1</AutoIncrement>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="450" parent="316" name="cif">
+    <column id="452" parent="315" name="cif">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="451" parent="316" name="direccion">
+    <column id="453" parent="315" name="direccion">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="452" parent="316" name="mail_contacto">
+    <column id="454" parent="315" name="mail_contacto">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="453" parent="316" name="mail_empresa">
+    <column id="455" parent="315" name="mail_empresa">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="454" parent="316" name="contacto">
+    <column id="456" parent="315" name="contacto">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="455" parent="316" name="empresa">
+    <column id="457" parent="315" name="empresa">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <column id="456" parent="316" name="tel_contacto">
+    <column id="458" parent="315" name="tel_contacto">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <column id="457" parent="316" name="tel_empresa">
+    <column id="459" parent="315" name="tel_empresa">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>9</Position>
     </column>
-    <index id="458" parent="316" name="PRIMARY">
+    <index id="460" parent="315" name="PRIMARY">
       <ColNames>id_proveedor</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="459" parent="316" name="PRIMARY">
+    <key id="461" parent="315" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="460" parent="317" name="id_rol">
+    <column id="462" parent="316" name="id_rol">
+      <AutoIncrement>8</AutoIncrement>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="461" parent="317" name="nombre">
-      <DasType>varchar(255)|0s</DasType>
+    <column id="463" parent="316" name="nombre_rol">
+      <DasType>varchar(30)|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <index id="462" parent="317" name="PRIMARY">
+    <index id="464" parent="316" name="PRIMARY">
       <ColNames>id_rol</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="463" parent="317" name="PRIMARY">
+    <index id="465" parent="316" name="UK_7odo9mpa3aq06bh7o6ri3v5ue">
+      <ColNames>nombre_rol</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="466" parent="316" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="467" parent="316" name="UK_7odo9mpa3aq06bh7o6ri3v5ue">
+      <UnderlyingIndexName>UK_7odo9mpa3aq06bh7o6ri3v5ue</UnderlyingIndexName>
+    </key>
+    <column id="468" parent="317" name="id_usuario">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="469" parent="317" name="id_rol">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <foreign-key id="470" parent="317" name="FKor5vdfg7bv12b37vaawa9lee2">
+      <ColNames>id_usuario</ColNames>
+      <RefColNames>id_user</RefColNames>
+      <RefTableName>usuarios</RefTableName>
+    </foreign-key>
+    <foreign-key id="471" parent="317" name="FKo74ec96jhrl0qnl41u14osa2b">
+      <ColNames>id_rol</ColNames>
+      <RefColNames>id_rol</RefColNames>
+      <RefTableName>roles</RefTableName>
+    </foreign-key>
+    <index id="472" parent="317" name="PRIMARY">
+      <ColNames>id_usuario
+id_rol</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="473" parent="317" name="FKo74ec96jhrl0qnl41u14osa2b">
+      <ColNames>id_rol</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="474" parent="317" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="475" parent="318" name="id_user">
+      <AutoIncrement>14</AutoIncrement>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="476" parent="318" name="acepta_condiciones">
+      <DasType>bit(1)|0s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="477" parent="318" name="enabled">
+      <DasType>bit(1)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="478" parent="318" name="estado_usuario">
+      <DasType>enum(&apos;PENDIENTE&apos;, &apos;ACEPTADO&apos;, &apos;RECHAZADO&apos;)|0e</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="479" parent="318" name="fecha">
+      <DasType>datetime(6)|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="480" parent="318" name="user_email">
+      <DasType>varchar(100)|0s</DasType>
+      <Position>6</Position>
+    </column>
+    <column id="481" parent="318" name="user_name">
+      <DasType>varchar(50)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="482" parent="318" name="user_password">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+    </column>
+    <index id="483" parent="318" name="PRIMARY">
+      <ColNames>id_user</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="484" parent="318" name="UK_r9ksbmgwvokav9vgydstfdmws">
+      <ColNames>user_name</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="485" parent="318" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="486" parent="318" name="UK_r9ksbmgwvokav9vgydstfdmws">
+      <UnderlyingIndexName>UK_r9ksbmgwvokav9vgydstfdmws</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>

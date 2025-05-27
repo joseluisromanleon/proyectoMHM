@@ -54,8 +54,9 @@ public class CategoriaController {
             this.categoriaService.delete(id);
         }
 
-        @GetMapping(value = {"","/"}, params = {"!nombre", "!page", "!size", "!buscar", "!sort", "!column", "!orden"})
-        //******  agregar paremetros que se quieran evitar  *******
+        //@GetMapping(value = {"","/"}, params = {"!nombre", "!page", "!size", "!buscar", "!sort", "!column", "!orden"})
+
+        @GetMapping(value = {"","/"})
         public List<Categoria> all() {
             categoriaService.all();
             log.info("Accediendo a todas las categorías sin parametros");

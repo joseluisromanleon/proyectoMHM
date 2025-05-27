@@ -20,8 +20,12 @@ import java.util.Set;
 public class Rol {
 
     @Id
-    private Long id_rol;
-    private String nombre;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_rol")
+    private Long idRol;
+
+    @Column(name = "nombre_rol", unique = true, nullable = false, length = 30)
+    private String nombreRol;
 
     @ManyToMany(mappedBy = "roles", cascade = {
             CascadeType.PERSIST,
@@ -29,7 +33,12 @@ public class Rol {
     },fetch = FetchType.EAGER)
     @JsonIgnoreProperties({"roles", "empleados", "pedidos"})         //Rompe el lazo de Serializacion
     @ToStringExclude    //Rompe el lazo de Serializacion
-    private Set<Empleado> empleados;
+    private Set<Usuario> usuarios;
 
 
+
+    // ******** CONSTRUCTOR PARA TESTS **************
+    public Rol(String nombre) {
+        this.nombreRol = nombre;
+    }
 }
