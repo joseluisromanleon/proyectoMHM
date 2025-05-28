@@ -4,72 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="42527e49-09cd-4dfe-b96d-d5608878e110" name="Changes" comment="15-05-2025 Terminado Mensajes Controller, Service, Repository">
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/public/freidoras.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/modal-login/modal-login.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/modal-login/modal-login.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/modal-login/modal-login.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/modal-register/modal-register.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/modal-register/modal-register.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/modal-register/modal-register.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/componentes/Dataloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/config/SecurityConfig .java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/controller/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/controller/JwtController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/controller/UsuarioController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/domain/Usuario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/dto/JwtDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/dto/LoginRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/dto/UsuarioDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/exception/UsuarioNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/repository/RolRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/repository/UsuarioRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/service/JwtService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/service/UsuarioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/26da8319-2f15-4267-8c02-426df19870b3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/26da8319-2f15-4267-8c02-426df19870b3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="42527e49-09cd-4dfe-b96d-d5608878e110" name="Changes" comment="27/05/2025  terminado login y token para el localstorage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/cabecera/cabecera.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/cabecera/cabecera.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/contacto-modal/contacto-modal.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/modal-contact/modal-contact.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/contacto-modal/contacto-modal.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/modal-contact/modal-contact.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/contacto-modal/contacto-modal.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/modal-contact/modal-contact.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/mensaje/modal/mensaje-form-modal.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/mensaje/modalSinUsoAngularMaterial/mensaje-form-modal.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/mensaje/modal/mensaje-form-modal.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/mensaje/modalSinUsoAngularMaterial/mensaje-form-modal.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/mensaje/modal/mensaje-form-modal.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/mensaje/modalSinUsoAngularMaterial/mensaje-form-modal.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/nav/nav.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/nav/nav.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/modal-login/modal-login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/modal-login/modal-login.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/nav/nav.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/nav/nav.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/nav/nav.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/nav/nav.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/services/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/CorsConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/controller/CategoriaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/controller/CategoriaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/domain/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/domain/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/domain/Empleado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/domain/Empleado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/domain/Mensaje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/domain/Mensaje.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/domain/Rol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/domain/Rol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/dto/MensajeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/dto/MensajeDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/dto/ProductoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/dto/ProductoDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/repository/CategoriaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/repository/CategoriaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/service/CategoriaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/mhm/service/CategoriaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/CorsConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/controller/CategoriaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/controller/CategoriaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/domain/Cliente$ClienteBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/domain/Cliente$ClienteBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/domain/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/domain/Cliente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/domain/Empleado.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/domain/Empleado.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/domain/Rol.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/domain/Rol.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/dto/ProductoDTO$ProductoDTOBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/dto/ProductoDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/dto/ProductoDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/repository/CategoriaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/repository/CategoriaRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/service/CategoriaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/iesvdm/mhm/service/CategoriaService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,12 +30,12 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="com.haulmont.jpb.JpaEntity" />
-        <option value="TypeScript File" />
         <option value="HTML File" />
         <option value="CSS File" />
         <option value="Interface" />
         <option value="Record" />
         <option value="Class" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -224,7 +165,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.MhmApplication">
+  <component name="RunManager" selected="npm.Angular CLI Server">
     <configuration name="data.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/src/main/resources/data.sql" />
       <script-mode>FILE</script-mode>
@@ -318,7 +259,7 @@
       <workItem from="1746724100305" duration="19501000" />
       <workItem from="1746864370067" duration="167838000" />
       <workItem from="1747644789088" duration="93478000" />
-      <workItem from="1748325735499" duration="10149000" />
+      <workItem from="1748325735499" duration="23706000" />
     </task>
     <task id="LOCAL-00001" summary="v1 para presentacion">
       <option name="closed" value="true" />
@@ -560,7 +501,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747325384159</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="27/05/2025  terminado login y token para el localstorage">
+      <option name="closed" value="true" />
+      <created>1748344542044</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1748344542044</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -591,7 +540,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="voy a cambiar de repo a uno limpio" />
     <MESSAGE value="lo subo a joseluisRomanleon/mhm_api_rest.git" />
     <MESSAGE value="lo subo a joseluisRomanleon/proyectoMHM.git" />
     <MESSAGE value="lo subo 2 a joseluisRomanleon/proyectoMHM.git" />
@@ -616,7 +564,8 @@
     <MESSAGE value="11-05-2025 video, cabecera y carrusel terminado responsive" />
     <MESSAGE value="13-05-2025 video, cabecera y carrusel transparencias" />
     <MESSAGE value="15-05-2025 Terminado Mensajes Controller, Service, Repository" />
-    <option name="LAST_COMMIT_MESSAGE" value="15-05-2025 Terminado Mensajes Controller, Service, Repository" />
+    <MESSAGE value="27/05/2025  terminado login y token para el localstorage" />
+    <option name="LAST_COMMIT_MESSAGE" value="27/05/2025  terminado login y token para el localstorage" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -1,7 +1,15 @@
-import { AuthService} from '../../services/auth.service';
-import {Component, HostListener, OnInit} from '@angular/core';
-import {NgIf} from '@angular/common';
-import {RouterLink} from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { NgForOf, NgIf } from '@angular/common';
+import { RouterLink } from '@angular/router';
+
+type AppRole = 'ROLE_ADMIN' | 'ROLE_MECANICO' | 'ROLE_COMERCIAL' | 'ROLE_CLIENTE' | 'ROLE_VISITANTE';
+
+interface MenuItem {
+  label: string;
+  action: string;
+  submenu?: MenuItem[];
+}
 
 @Component({
   selector: 'app-nav',
@@ -9,53 +17,93 @@ import {RouterLink} from '@angular/router';
   imports: [
     NgIf,
     RouterLink,
+    NgForOf,
   ],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
 })
-export class NavComponent implements OnInit{
-  //variable para controlar el tamano de la pantalla
+export class NavComponent implements OnInit {
   isMobile = window.innerWidth < 765;
-// Variables para controlar el estado del usuario
-  isLoggedIn: boolean = false;  // Indica si el usuario está logueado
-  userRole: string = '';        // Rol del usuario (admin, cliente, proveedor, etc.)
-  username: string = '';        // Nombre del usuario
-  roles: string[] = [];         // array de roles
-  estado: string = '';          // estado del usuario
+  isLoggedIn: boolean = false;
+  mainRole?: AppRole;
+  username: string = '';
+  roles: string[] = [];
+  estado: string = '';
+
+  menuOptions: Record<AppRole, MenuItem[]> = {
+    'ROLE_ADMIN': [
+      { label: 'Panel Usuarios', action: 'usuarios' },
+      { label: 'Panel Productos', action: 'productos' },
+      { label: 'Panel Comunicación', action: 'comunicacion',
+        submenu: [
+          { label: 'Avisos', action: 'avisos' },
+          { label: 'Mensajes', action: 'mensajes' }
+        ]
+      }
+    ],
+    'ROLE_MECANICO': [
+      { label: 'Mis Avisos', action: 'avisos' },
+      { label: 'Mis Rutas', action: 'rutas' },
+      { label: 'Mis Clientes', action: 'clientes' },
+    ],
+    'ROLE_COMERCIAL': [
+      { label: 'Mis Mensajes', action: 'Mensajes' },
+      { label: 'Mis Rutas', action: 'rutas' },
+      { label: 'Mis Clientes', action: 'clientes' },
+    ],
+    'ROLE_CLIENTE': [
+      { label: 'Mis Avisos', action: 'avisos' },
+      { label: 'Mis Mensajes', action: 'mensajes' },
+      { label: 'Panel Documentos', action: 'documentos' },
+    ],
+    'ROLE_VISITANTE': [
+      { label: 'Contactar ', action: 'contactar' },
+      { label: 'Salir', action: 'logout' },
+    ]
+  };
 
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
-    // Suscríbete al observable para reaccionar a cambios de login/logout
-
     this.authService.isLoggedIn$.subscribe(isLogged => {
+      console.log('isLoggedIn:', isLogged);
       this.isLoggedIn = isLogged;
       if (isLogged) {
         this.roles = this.authService.getRoles();
         this.username = this.authService.getName();
         this.estado = this.authService.getEstado();
+        if (this.roles.length > 0) {
+          const firstRole = this.roles[0];
+          this.mainRole = Object.keys(this.menuOptions).includes(firstRole)
+            ? firstRole as AppRole
+            : undefined;
+        }else {
+          // Si no hay roles, fuerza logout
+          this.logout();
+        }
       } else {
         this.roles = [];
         this.estado = '';
         this.username = '';
+        this.mainRole = undefined;
       }
+      console.log('mainRole:', this.mainRole);
     });
   }
 
-  // Función para obtener el rol del usuario
-  getUserRole(): string {
-    // Simula la obtención del rol del usuario (por ejemplo, desde localStorage)
-    return localStorage.getItem('userRole') || '';
-  }
-
-  // Función para obtener el nombre del usuario
-  getUserName(): string {
-    // Simula la obtención del nombre del usuario (por ejemplo, desde localStorage)
-    return localStorage.getItem('username') || 'Usuario';
-  }
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.isMobile = window.innerWidth < 765;
+  }
+
+  // Y el método logout:
+  logout() {
+    this.authService.logout();
+    this.roles = [];
+    this.estado = '';
+    this.username = '';
+    this.mainRole = undefined;
+    this.isLoggedIn = false;
   }
 }

@@ -2,16 +2,53 @@
 <div class="limpiar  d-flex justify-content-end align-items-center"
      style="background-color: rgba(0, 0, 0, 0.3); left: 0; z-index: 1;">
   <div class="nav container justify-content-end">
-    <ul *ngIf="!isLoggedIn" class="d-flex align-items-center justify-content-center p-2 gap-2">
+
+    <!-- Si NO está logueado: solo Login y Register -->
+    <ul *ngIf="!isLoggedIn"
+        class="d-flex align-items-center justify-content-center p-2 gap-2">
       <li>
         <button class="btn nav-btn m-0" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
       </li>
       <li>
         <button class="btn nav-btn m-0" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
       </li>
+    </ul>
+
+    <!-- Si está logueado como visitante -->
+    <ul *ngIf="isLoggedIn && mainRole === 'ROLE_VISITANTE'"
+        class="d-flex align-items-center justify-content-center p-2 gap-2">
+      <li *ngFor="let option of menuOptions['ROLE_VISITANTE']">
+        <button class="btn nav-btn m-0"
+                [attr.data-bs-toggle]="option.action === 'contactar' ? 'modal' : null"
+                [attr.data-bs-target]="option.action === 'contactar' ? '#contactModal' : null"
+                (click)="option.action === 'logout' ? logout() : null">
+          {{ option.label }}
+        </button>
+      </li>
       <li>
-        <button class="btn nav-btn m-0" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</button>
+        <button class="btn nav-btn m-0" (click)="logout()" title="Salir">
+          <i class="bi bi-box-arrow-right"></i>
+        </button>
       </li>
     </ul>
+
+    <!-- Si está logueado y tiene otro rol -->
+    <ul *ngIf="isLoggedIn && mainRole && mainRole !== 'ROLE_VISITANTE' && menuOptions[mainRole]"
+        class="d-flex align-items-center justify-content-center p-2 gap-2">
+      <li *ngFor="let option of menuOptions[mainRole]">
+        <button class="btn nav-btn m-0">{{ option.label }}</button>
+        <ul *ngIf="option.submenu" class="submenu">
+          <li *ngFor="let child of option.submenu">
+            <button class="btn nav-btn m-0">{{ child.label }}</button>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <button class="btn nav-btn m-0" (click)="logout()" title="Salir">
+          <i class="bi bi-box-arrow-right"></i>
+        </button>
+      </li>
+    </ul>
+
   </div>
 </div>

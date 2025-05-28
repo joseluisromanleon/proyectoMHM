@@ -19,12 +19,11 @@ export class AuthService {
     return this.http.post(this.apiUrl, credentials);
   }
 
-
   logout() {
+    localStorage.clear();
     localStorage.removeItem('token');
     this.isLoggedInSubject.next(false);
   }
-
 
   // auth.service.ts
   getRoles(): string[] {
@@ -38,6 +37,11 @@ export class AuthService {
   getName(): string {
     return localStorage.getItem('username') || '';
   }
+
+  setLoggedIn(value: boolean) {
+    this.isLoggedInSubject.next(value);
+  }
+
 
   isAdmin(): boolean {
     return this.getRoles().includes('ROLE_ADMIN');
@@ -58,5 +62,4 @@ export class AuthService {
   isActivo(): boolean {
     return this.getEstado() === 'ACEPTADO';
   }
-
 }
