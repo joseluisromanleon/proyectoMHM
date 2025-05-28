@@ -1,23 +1,23 @@
 <!-- Máscara con título -->
-<div class="limpiar  d-flex justify-content-end align-items-center"
-     style="background-color: rgba(0, 0, 0, 0.3); left: 0; z-index: 1;">
-  <div class="nav container justify-content-end">
+<nav class="navbar navbar-expand-lg navbar-dark limpiar"
+     style="background-color: rgba(0, 0, 0, 0.6); left: 0; z-index: 1;">
+  <div class="nav container-fluid justify-content-end">
 
     <!-- Si NO está logueado: solo Login y Register -->
     <ul *ngIf="!isLoggedIn"
-        class="d-flex align-items-center justify-content-center p-2 gap-2">
-      <li>
+        class="navbar-nav d-flex flex-row align-items-center justify-content-end gap-2 p-2 m-0 w-100">
+      <li class="nav-item">
         <button class="btn nav-btn m-0" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
       </li>
-      <li>
+      <li class="nav-item">
         <button class="btn nav-btn m-0" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
       </li>
     </ul>
 
     <!-- Si está logueado como visitante -->
     <ul *ngIf="isLoggedIn && mainRole === 'ROLE_VISITANTE'"
-        class="d-flex align-items-center justify-content-center p-2 gap-2">
-      <li *ngFor="let option of menuOptions['ROLE_VISITANTE']">
+        class="navbar-nav d-flex flex-row align-items-center justify-content-end gap-2 p-2 m-0 w-100">
+      <li class="nav-item" *ngFor="let option of menuOptions['ROLE_VISITANTE']">
         <button class="btn nav-btn m-0"
                 [attr.data-bs-toggle]="option.action === 'contactar' ? 'modal' : null"
                 [attr.data-bs-target]="option.action === 'contactar' ? '#contactModal' : null"
@@ -25,7 +25,7 @@
           {{ option.label }}
         </button>
       </li>
-      <li>
+      <li class="nav-item">
         <button class="btn nav-btn m-0" (click)="logout()" title="Salir">
           <i class="bi bi-box-arrow-right"></i>
         </button>
@@ -34,21 +34,33 @@
 
     <!-- Si está logueado y tiene otro rol -->
     <ul *ngIf="isLoggedIn && mainRole && mainRole !== 'ROLE_VISITANTE' && menuOptions[mainRole]"
-        class="d-flex align-items-center justify-content-center p-2 gap-2">
-      <li *ngFor="let option of menuOptions[mainRole]">
-        <button class="btn nav-btn m-0">{{ option.label }}</button>
-        <ul *ngIf="option.submenu" class="submenu">
+        class="navbar-nav d-flex flex-row align-items-center justify-content-end gap-2 p-2 m-0 w-100">
+      <li class="nav-item dropdown" *ngFor="let option of menuOptions[mainRole]">
+        <a
+          *ngIf="option.submenu; else noDropdown"
+          class="nav-link dropdown-toggle"
+          href="#"
+          [id]="getDropdownId(option.label)"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          {{ option.label }}
+        </a>
+        <ng-template #noDropdown>
+          <a class="nav-link" href="#">{{ option.label }}</a>
+        </ng-template>
+        <ul *ngIf="option.submenu" class="dropdown-menu" [attr.aria-labelledby]="getDropdownId(option.label)">
           <li *ngFor="let child of option.submenu">
-            <button class="btn nav-btn m-0">{{ child.label }}</button>
+            <a class="dropdown-item" href="#">{{ child.label }}</a>
           </li>
         </ul>
       </li>
-      <li>
+      <li class="nav-item">
         <button class="btn nav-btn m-0" (click)="logout()" title="Salir">
-          <i class="bi bi-box-arrow-right"></i>
+          <i class="bi bi-box-arrow-right" style="font-size: 1.2rem;"></i>
         </button>
       </li>
     </ul>
-
   </div>
-</div>
+</nav>

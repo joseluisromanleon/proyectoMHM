@@ -3,8 +3,6 @@ import { AuthService } from '../../services/auth.service';
 import { AbstractControl, FormGroup, ReactiveFormsModule, Validators, FormBuilder } from '@angular/forms';
 import { NgClass, NgIf } from '@angular/common';
 
-declare var bootstrap: any; // <-- Añade esto
-
 @Component({
   selector: 'app-login-modal',
   standalone: true,
@@ -69,19 +67,9 @@ export class ModalLoginComponent implements OnInit, AfterViewInit {
 
         // Notifica al AuthService
         this.authService.setLoggedIn(true);
-
-
         this.error = null;
 
-        // Cierra el modal programáticamente (Bootstrap 5)
-        // Asegúrate de tener Bootstrap JS cargado en el proyecto
-        // @ts-ignore
-        const modalInstance = bootstrap.Modal.getInstance(this.modalRef.nativeElement) ||
-          new bootstrap.Modal(this.modalRef.nativeElement);
-        modalInstance.hide();
-
-        // Opcional: puedes emitir un evento o navegar a otra ruta si lo necesitas
-      },
+       },
       error: (err) => {
         console.error('Error en login:', err);
         this.error = 'Usuario o contraseña incorrectos';

@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="42527e49-09cd-4dfe-b96d-d5608878e110" name="Changes" comment="27/05/2025  terminado login y token para el localstorage">
+    <list default="true" id="42527e49-09cd-4dfe-b96d-d5608878e110" name="Changes" comment="28/05/2025  navs para Roles iniciados">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/modal-login/modal-login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/modal-login/modal-login.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/modal-login/modal-login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/modal-login/modal-login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/nav/nav.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/nav/nav.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/nav/nav.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/nav/nav.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/nav/nav.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/components/nav/nav.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/app/services/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/frontend/app-mhm/src/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,7 +259,7 @@
       <workItem from="1746724100305" duration="19501000" />
       <workItem from="1746864370067" duration="167838000" />
       <workItem from="1747644789088" duration="93478000" />
-      <workItem from="1748325735499" duration="23706000" />
+      <workItem from="1748325735499" duration="37733000" />
     </task>
     <task id="LOCAL-00001" summary="v1 para presentacion">
       <option name="closed" value="true" />
@@ -509,7 +509,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748344542044</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="28/05/2025  navs para Roles iniciados">
+      <option name="closed" value="true" />
+      <created>1748432435648</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1748432435648</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -540,7 +548,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="lo subo a joseluisRomanleon/mhm_api_rest.git" />
     <MESSAGE value="lo subo a joseluisRomanleon/proyectoMHM.git" />
     <MESSAGE value="lo subo 2 a joseluisRomanleon/proyectoMHM.git" />
     <MESSAGE value="nav y logo" />
@@ -565,7 +572,8 @@
     <MESSAGE value="13-05-2025 video, cabecera y carrusel transparencias" />
     <MESSAGE value="15-05-2025 Terminado Mensajes Controller, Service, Repository" />
     <MESSAGE value="27/05/2025  terminado login y token para el localstorage" />
-    <option name="LAST_COMMIT_MESSAGE" value="27/05/2025  terminado login y token para el localstorage" />
+    <MESSAGE value="28/05/2025  navs para Roles iniciados" />
+    <option name="LAST_COMMIT_MESSAGE" value="28/05/2025  navs para Roles iniciados" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

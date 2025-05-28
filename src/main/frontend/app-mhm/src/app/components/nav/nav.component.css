@@ -1,54 +1,58 @@
-
 .limpiar {
   margin: 0;
   padding: 0;
-  width: 100vw; /* Ancho completo de la ventana */
+  width: 100vw;
   position: absolute;
 }
 
+.navbar {
+  padding: 0 1rem;
+}
+
 .nav {
-  height: 50px; /* Ajusta la altura del contenedor para que el logo encaje */
+  height: 50px;
   max-width: 1100px;
   margin: 0 auto;
-
 }
-ul {
-  list-style: none; /* Elimina los puntos de la lista */
-  padding: 0; /* Elimina el padding predeterminado */
-  margin: 0; /* Elimina el margen predeterminado */
+
+.navbar-nav .btn,
+.navbar-nav .nav-link{
+  font-weight: 500;
+  border-radius: 0.25rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.navbar-nav .btn:hover,
+.navbar-nav .nav-link:hover,
+.navbar-nav .dropdown-item:hover {
+  background: #ffc107;
+  color: #212529;
+}
+
+.dropdown-menu {
+  min-width: 180px;
+  border-radius: 0.25rem;
 }
 
 ul > li {
   list-style: none;
 }
-/* Estilos para los dropdown (desplegables) items personalizados */
+
 .nav-btn {
-  /*background-color: #343a40; /* Fondo gris oscuro */
-  color: white; /* Texto blanco */
-  border-radius: 0; /* Sin esquinas redondeadas */
-  padding: 5px; /* Espaciado interno para que parezcan botones */
-  text-align: center; /* Centrar el texto */
-  margin: 2px 0; /* Separación entre opciones */
+  color: white;
+  border-radius: 0;
+  padding: 5px;
+  text-align: center;
+  margin: 2px 0;
   display: block;
 }
 
-/* Cambia el color al pasar el cursor */
-.nav-btn:hover {
-  /* background-color: #495057; /* Un gris más claro cuando el mouse esté sobre el botón */
-  color: black;
-  text-decoration: none; /* Sin subrayado */
-}
-
-/* Opcional: Estilo para todo el menú desplegable */
 .custom-dropdown-menu {
-  border-radius: 0; /* Sin esquinas redondeadas */
+  border-radius: 0;
   padding: 0;
-  border: none; /* Sin bordes */
+  border: none;
 }
 
-
-
-/* Responsive */
 @media (max-width: 992px) {
   .nav {
     text-size-adjust: 60%;
@@ -57,8 +61,5 @@ ul > li {
 @media (max-width: 500px) {
   .nav {
     text-size-adjust: 40%;
-
   }
 }
-
-

@@ -1,5 +1,5 @@
 import { AuthService } from '../../services/auth.service';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, OnInit } from '@angular/core';
 import { NgForOf, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -57,16 +57,15 @@ export class NavComponent implements OnInit {
       { label: 'Panel Documentos', action: 'documentos' },
     ],
     'ROLE_VISITANTE': [
-      { label: 'Contactar ', action: 'contactar' },
+      { label: 'Contactar', action: 'contactar' },
       { label: 'Salir', action: 'logout' },
     ]
   };
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.authService.isLoggedIn$.subscribe(isLogged => {
-      console.log('isLoggedIn:', isLogged);
       this.isLoggedIn = isLogged;
       if (isLogged) {
         this.roles = this.authService.getRoles();
@@ -77,8 +76,7 @@ export class NavComponent implements OnInit {
           this.mainRole = Object.keys(this.menuOptions).includes(firstRole)
             ? firstRole as AppRole
             : undefined;
-        }else {
-          // Si no hay roles, fuerza logout
+        } else {
           this.logout();
         }
       } else {
@@ -87,17 +85,15 @@ export class NavComponent implements OnInit {
         this.username = '';
         this.mainRole = undefined;
       }
-      console.log('mainRole:', this.mainRole);
+      this.cdr.detectChanges();
     });
   }
-
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.isMobile = window.innerWidth < 765;
   }
 
-  // Y el método logout:
   logout() {
     this.authService.logout();
     this.roles = [];
@@ -105,5 +101,10 @@ export class NavComponent implements OnInit {
     this.username = '';
     this.mainRole = undefined;
     this.isLoggedIn = false;
+  }
+
+  /** Función simple para id de dropdown (sin pipes) */
+  getDropdownId(label: string): string {
+    return label.replace(/\s+/g, '').toLowerCase() + 'Dropdown';
   }
 }
