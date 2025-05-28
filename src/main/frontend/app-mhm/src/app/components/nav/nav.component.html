@@ -1,4 +1,3 @@
-<!-- Máscara con título -->
 <nav class="navbar navbar-expand-lg navbar-dark limpiar"
      style="background-color: rgba(0, 0, 0, 0.6); left: 0; z-index: 1;">
   <div class="nav container-fluid justify-content-end">
@@ -16,12 +15,11 @@
 
     <!-- Si está logueado como visitante -->
     <ul *ngIf="isLoggedIn && mainRole === 'ROLE_VISITANTE'"
-        class="navbar-nav d-flex flex-row align-items-center justify-content-end gap-2 p-2 m-0 w-100">
+        class="navbar-nav d-flex flex-row align-items-center justify-content-end gap-2 p-2  w-100">
       <li class="nav-item" *ngFor="let option of menuOptions['ROLE_VISITANTE']">
         <button class="btn nav-btn m-0"
                 [attr.data-bs-toggle]="option.action === 'contactar' ? 'modal' : null"
-                [attr.data-bs-target]="option.action === 'contactar' ? '#contactModal' : null"
-                (click)="option.action === 'logout' ? logout() : null">
+                [attr.data-bs-target]="option.action === 'contactar' ? '#contactModal' : null">
           {{ option.label }}
         </button>
       </li>
@@ -34,15 +32,15 @@
 
     <!-- Si está logueado y tiene otro rol -->
     <ul *ngIf="isLoggedIn && mainRole && mainRole !== 'ROLE_VISITANTE' && menuOptions[mainRole]"
-        class="navbar-nav d-flex flex-row align-items-center justify-content-end gap-2 p-2 m-0 w-100">
-      <li class="nav-item dropdown" *ngFor="let option of menuOptions[mainRole]">
+        class="navbar-nav d-flex flex-row align-items-center justify-content-end gap-3 p-2 w-100">
+      <li class="nav-item dropdown" *ngFor="let option of menuOptions[mainRole]" ngbDropdown>
+        <!-- Dropdown solo si hay submenu -->
         <a
           *ngIf="option.submenu; else noDropdown"
+          ngbDropdownToggle
           class="nav-link dropdown-toggle"
           href="#"
-          [id]="getDropdownId(option.label)"
           role="button"
-          data-bs-toggle="dropdown"
           aria-expanded="false"
         >
           {{ option.label }}
@@ -50,7 +48,7 @@
         <ng-template #noDropdown>
           <a class="nav-link" href="#">{{ option.label }}</a>
         </ng-template>
-        <ul *ngIf="option.submenu" class="dropdown-menu" [attr.aria-labelledby]="getDropdownId(option.label)">
+        <ul *ngIf="option.submenu" ngbDropdownMenu class="dropdown-menu">
           <li *ngFor="let child of option.submenu">
             <a class="dropdown-item" href="#">{{ child.label }}</a>
           </li>

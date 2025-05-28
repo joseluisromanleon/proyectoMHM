@@ -2,6 +2,7 @@ import { AuthService } from '../../services/auth.service';
 import { ChangeDetectorRef, Component, HostListener, OnInit } from '@angular/core';
 import { NgForOf, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { NgbDropdownModule, NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
 type AppRole = 'ROLE_ADMIN' | 'ROLE_MECANICO' | 'ROLE_COMERCIAL' | 'ROLE_CLIENTE' | 'ROLE_VISITANTE';
 
@@ -18,6 +19,8 @@ interface MenuItem {
     NgIf,
     RouterLink,
     NgForOf,
+    NgbDropdownModule, // Solo necesitas el módulo, no los componentes individuales
+    NgbCollapseModule,
   ],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
@@ -32,12 +35,30 @@ export class NavComponent implements OnInit {
 
   menuOptions: Record<AppRole, MenuItem[]> = {
     'ROLE_ADMIN': [
-      { label: 'Panel Usuarios', action: 'usuarios' },
-      { label: 'Panel Productos', action: 'productos' },
-      { label: 'Panel Comunicación', action: 'comunicacion',
+      { label: 'Usuarios', action: 'usuarios',
         submenu: [
-          { label: 'Avisos', action: 'avisos' },
-          { label: 'Mensajes', action: 'mensajes' }
+          { label: 'Usuarios', action: 'usuarios' },
+          { label: 'Empleados', action: 'avisos' },
+          { label: 'Clientes', action: 'mensajes' },
+        ]
+      },
+      { label: 'Productos', action: 'productos',
+        submenu: [
+          { label: 'Productos', action: 'productos' },
+          { label: 'Categorias', action: 'categorias' },
+          { label: 'Proveedores', action: 'proveedores' },
+        ]
+      },
+      { label: 'Comunicación', action: 'comunicacion',
+        submenu: [
+          { label: 'Avisos', action: 'avisos'},
+          { label: 'Mensajes', action: 'mensajes'},
+        ]
+      },
+      { label: 'Administracion', action: 'comunicacion',
+        submenu: [
+          { label: 'Pedidos', action: 'pedidos'},
+          { label: 'Facturas', action: 'facturas'},
         ]
       }
     ],
@@ -71,6 +92,7 @@ export class NavComponent implements OnInit {
         this.roles = this.authService.getRoles();
         this.username = this.authService.getName();
         this.estado = this.authService.getEstado();
+
         if (this.roles.length > 0) {
           const firstRole = this.roles[0];
           this.mainRole = Object.keys(this.menuOptions).includes(firstRole)
@@ -101,10 +123,5 @@ export class NavComponent implements OnInit {
     this.username = '';
     this.mainRole = undefined;
     this.isLoggedIn = false;
-  }
-
-  /** Función simple para id de dropdown (sin pipes) */
-  getDropdownId(label: string): string {
-    return label.replace(/\s+/g, '').toLowerCase() + 'Dropdown';
   }
 }
