@@ -1,64 +1,67 @@
 <nav class="navbar navbar-expand-lg navbar-dark limpiar"
-     style="background-color: rgba(0, 0, 0, 0.6); left: 0; z-index: 1;">
-  <div class="nav container-fluid justify-content-end">
+     style="background-color: rgba(0, 0, 0, 0.6); left: 0; z-index: 10;">
+  <div class="container-fluid nav d-flex justify-content-end">
+    <!-- Botón hamburguesa -->
+    <button class="navbar-toggler" type="button"
+            (click)="isMenuCollapsed = !isMenuCollapsed"
+            [attr.aria-expanded]="!isMenuCollapsed"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <!-- Si NO está logueado: solo Login y Register -->
-    <ul *ngIf="!isLoggedIn"
-        class="navbar-nav d-flex flex-row align-items-center justify-content-end gap-2 p-2 m-0 w-100">
-      <li class="nav-item">
-        <button class="btn nav-btn m-0" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
-      </li>
-      <li class="nav-item">
-        <button class="btn nav-btn m-0" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
-      </li>
-    </ul>
+    <!-- Menú colapsable -->
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse  w-100">
+      <!-- Si NO está logueado -->
+      <ul *ngIf="!isLoggedIn"
+          class="navbar-nav d-flex justify-content-end gap-1 p-5 m-0 w-100">
+        <li class="nav-item">
+          <button class="btn nav-btn m-0" (click)="openLoginModal()">Login</button>
+        </li>
+        <li class="nav-item">
+          <button class="btn nav-btn m-0" (click)="openRegisterModal()">Register</button>
+        </li>
+      </ul>
 
-    <!-- Si está logueado como visitante -->
-    <ul *ngIf="isLoggedIn && mainRole === 'ROLE_VISITANTE'"
-        class="navbar-nav d-flex flex-row align-items-center justify-content-end gap-2 p-2  w-100">
-      <li class="nav-item" *ngFor="let option of menuOptions['ROLE_VISITANTE']">
-        <button class="btn nav-btn m-0"
-                [attr.data-bs-toggle]="option.action === 'contactar' ? 'modal' : null"
-                [attr.data-bs-target]="option.action === 'contactar' ? '#contactModal' : null">
-          {{ option.label }}
-        </button>
-      </li>
-      <li class="nav-item">
-        <button class="btn nav-btn m-0" (click)="logout()" title="Salir">
-          <i class="bi bi-box-arrow-right"></i>
-        </button>
-      </li>
-    </ul>
+      <!-- Si está logueado como visitante -->
+      <ul *ngIf="isLoggedIn && mainRole === 'ROLE_VISITANTE'"
+          class="navbar-nav d-flex justify-content-end gap-1 p-2 m-0 w-100">
+        <li class="nav-item">
+          <button class="btn nav-btn m-0" (click)="openContactModal()">Contacto</button>
+        </li>
+      </ul>
 
-    <!-- Si está logueado y tiene otro rol -->
-    <ul *ngIf="isLoggedIn && mainRole && mainRole !== 'ROLE_VISITANTE' && menuOptions[mainRole]"
-        class="navbar-nav d-flex flex-row align-items-center justify-content-end gap-3 p-2 w-100">
-      <li class="nav-item dropdown" *ngFor="let option of menuOptions[mainRole]" ngbDropdown>
-        <!-- Dropdown solo si hay submenu -->
-        <a
-          *ngIf="option.submenu; else noDropdown"
-          ngbDropdownToggle
-          class="nav-link dropdown-toggle"
-          href="#"
-          role="button"
-          aria-expanded="false"
-        >
-          {{ option.label }}
-        </a>
-        <ng-template #noDropdown>
-          <a class="nav-link" href="#">{{ option.label }}</a>
-        </ng-template>
-        <ul *ngIf="option.submenu" ngbDropdownMenu class="dropdown-menu">
-          <li *ngFor="let child of option.submenu">
-            <a class="dropdown-item" href="#">{{ child.label }}</a>
-          </li>
-        </ul>
-      </li>
-      <li class="nav-item">
-        <button class="btn nav-btn m-0" (click)="logout()" title="Salir">
-          <i class="bi bi-box-arrow-right" style="font-size: 1.2rem;"></i>
-        </button>
-      </li>
-    </ul>
+      <!-- Si está logueado y tiene otro rol -->
+      <ul *ngIf="isLoggedIn && mainRole && mainRole !== 'ROLE_VISITANTE' && menuOptions[mainRole]"
+          class="navbar-nav d-flex justify-content-end gap-1 p-2 m-0 w-100">
+        <li class="nav-item dropdown" *ngFor="let option of menuOptions[mainRole]" ngbDropdown>
+          <a *ngIf="option.submenu; else noDropdown"
+             ngbDropdownToggle
+             class="nav-link dropdown-toggle"
+             (click)="$event.preventDefault()"
+             role="button"
+             aria-expanded="false">
+            {{ option.label }}
+          </a>
+          <ng-template #noDropdown>
+            <a class="nav-link" >{{ option.label }}</a>
+          </ng-template>
+          <ul *ngIf="option.submenu" ngbDropdownMenu class="dropdown-menu">
+            <li *ngFor="let child of option.submenu">
+              <a class="dropdown-item" >{{ child.label }}</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Botón de salir para todos los usuarios logueados -->
+      <ul *ngIf="isLoggedIn"
+          class="navbar-nav  gap-2 p-4 m-0">
+        <li class="nav-item">
+          <button class="btn nav-btn m-0" (click)="logout()" title="Salir">
+            <i class="bi bi-box-arrow-right" style="font-size: 1.2rem;"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>

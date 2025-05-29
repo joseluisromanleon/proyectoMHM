@@ -1,8 +1,12 @@
-import { AuthService } from '../../services/auth.service';
-import { ChangeDetectorRef, Component, HostListener, OnInit } from '@angular/core';
-import { NgForOf, NgIf } from '@angular/common';
-import { RouterLink } from '@angular/router';
-import { NgbDropdownModule, NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import {AuthService} from '../../services/auth.service';
+import {ChangeDetectorRef, Component, HostListener, OnInit} from '@angular/core';
+import {NgForOf, NgIf} from '@angular/common';
+import {RouterLink} from '@angular/router';
+import {NgbDropdownModule, NgbCollapseModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
+import {ModalRegisterComponent} from '../modal-register/modal-register.component';
+import {ModalContactComponent} from '../modal-contact/modal-contact.component';
+import {ModalLoginComponent} from '../modal-login/modal-login.component';
 
 type AppRole = 'ROLE_ADMIN' | 'ROLE_MECANICO' | 'ROLE_COMERCIAL' | 'ROLE_CLIENTE' | 'ROLE_VISITANTE';
 
@@ -21,6 +25,7 @@ interface MenuItem {
     NgForOf,
     NgbDropdownModule, // Solo necesitas el módulo, no los componentes individuales
     NgbCollapseModule,
+    NgbModalModule,
   ],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
@@ -32,58 +37,72 @@ export class NavComponent implements OnInit {
   username: string = '';
   roles: string[] = [];
   estado: string = '';
+  isMenuCollapsed = true;
 
   menuOptions: Record<AppRole, MenuItem[]> = {
     'ROLE_ADMIN': [
-      { label: 'Usuarios', action: 'usuarios',
+      {
+        label: 'Usuarios', action: 'usuarios',
         submenu: [
-          { label: 'Usuarios', action: 'usuarios' },
-          { label: 'Empleados', action: 'avisos' },
-          { label: 'Clientes', action: 'mensajes' },
+          {label: 'Usuarios', action: 'usuarios'},
+          {label: 'Empleados', action: 'avisos'},
+          {label: 'Clientes', action: 'mensajes'},
         ]
       },
-      { label: 'Productos', action: 'productos',
+      {
+        label: 'Productos', action: 'productos',
         submenu: [
-          { label: 'Productos', action: 'productos' },
-          { label: 'Categorias', action: 'categorias' },
-          { label: 'Proveedores', action: 'proveedores' },
+          {label: 'Productos', action: 'productos'},
+          {label: 'Categorias', action: 'categorias'},
+          {label: 'Proveedores', action: 'proveedores'},
         ]
       },
-      { label: 'Comunicación', action: 'comunicacion',
+      {
+        label: 'Comunicación', action: 'comunicacion',
         submenu: [
-          { label: 'Avisos', action: 'avisos'},
-          { label: 'Mensajes', action: 'mensajes'},
+          {label: 'Avisos', action: 'avisos'},
+          {label: 'Mensajes', action: 'mensajes'},
         ]
       },
-      { label: 'Administracion', action: 'comunicacion',
+      {
+        label: 'Administracion', action: 'comunicacion',
         submenu: [
-          { label: 'Pedidos', action: 'pedidos'},
-          { label: 'Facturas', action: 'facturas'},
+          {label: 'Pedidos', action: 'pedidos'},
+          {label: 'Facturas', action: 'facturas'},
         ]
       }
     ],
     'ROLE_MECANICO': [
-      { label: 'Mis Avisos', action: 'avisos' },
-      { label: 'Mis Rutas', action: 'rutas' },
-      { label: 'Mis Clientes', action: 'clientes' },
+      {label: 'Mis Avisos', action: 'avisos'},
+      {label: 'Mis Rutas', action: 'rutas'},
+      {label: 'Mis Clientes', action: 'clientes'},
     ],
     'ROLE_COMERCIAL': [
-      { label: 'Mis Mensajes', action: 'Mensajes' },
-      { label: 'Mis Rutas', action: 'rutas' },
-      { label: 'Mis Clientes', action: 'clientes' },
+      {label: 'Mis Mensajes', action: 'Mensajes'},
+      {label: 'Mis Rutas', action: 'rutas'},
+      {label: 'Mis Clientes', action: 'clientes'},
     ],
     'ROLE_CLIENTE': [
-      { label: 'Mis Avisos', action: 'avisos' },
-      { label: 'Mis Mensajes', action: 'mensajes' },
-      { label: 'Panel Documentos', action: 'documentos' },
+      {label: 'Mis Avisos', action: 'avisos'},
+      {label: 'Mis Mensajes', action: 'mensajes'},
+      {
+        label: 'Panel Documentos', action: 'documentos',
+        submenu: [
+          {label: 'Pedidos', action: 'pedidos'},
+          {label: 'Facturas', action: 'facturas'},
+        ]
+      },
     ],
     'ROLE_VISITANTE': [
-      { label: 'Contactar', action: 'contactar' },
-      { label: 'Salir', action: 'logout' },
+      {label: 'Contactar', action: 'contactar'},
+      {label: 'Salir', action: 'logout'},
     ]
   };
 
-  constructor(private authService: AuthService, private cdr: ChangeDetectorRef) {}
+  constructor(private authService: AuthService,
+              private cdr: ChangeDetectorRef,
+              private modalService: NgbModal) {
+  }
 
   ngOnInit(): void {
     this.authService.isLoggedIn$.subscribe(isLogged => {
@@ -114,6 +133,18 @@ export class NavComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.isMobile = window.innerWidth < 765;
+  }
+
+  openLoginModal() {
+    this.modalService.open(ModalLoginComponent, {centered: true});
+  }
+
+  openRegisterModal() {
+    this.modalService.open(ModalRegisterComponent, {centered:true});
+  }
+
+  openContactModal(){
+    this.modalService.open(ModalContactComponent, {centered:true});
   }
 
   logout() {

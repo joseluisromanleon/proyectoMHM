@@ -1,166 +1,123 @@
-<!-- Modal Bootstrap: el id debe coincidir con el data-bs-target del botón -->
-<div #contactModal class="modal fade " id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content bg-light">
-      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-        <div class="modal-header bg-secondary">
-          <h5 class="modal-title" id="contactModalLabel">Envio de mensaje</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-        </div>
-        <div class="modal-body">
-          <!-- Nombre Empresa -->
-          <div class="mb-3">
-            <label for="nombreEmpresa" class="form-label">Nombre empresa</label>
-            <input type="text" id="nombreEmpresa" class="form-control" formControlName="nombreEmpresa" required maxlength="50"
-              [ngClass]="{'is-invalid': (f['nombreEmpresa'].touched || submitted) && f['nombreEmpresa'].invalid}">
-            <div *ngIf="(f['nombreEmpresa'].touched || submitted) && f['nombreEmpresa'].invalid"
-                 class="text-danger">
-              <div *ngIf="f['nombreEmpresa'].errors?.['required']">El nombre es obligatorio.</div>
-              <div *ngIf="f['nombreEmpresa'].errors?.['minlength']">Debe tener al menos 3 caracteres.</div>
-              <div *ngIf="f['nombreEmpresa'].errors?.['maxlength']">No puede superar 50 caracteres.</div>
-            </div>
-          </div>
-
-          <!-- Dirección Empresa -->
-          <div class="mb-3">
-            <label for="direccionEmpresa" class="form-label">Dirección empresa</label>
-            <input
-              type="text"
-              id="direccionEmpresa"
-              class="form-control"
-              formControlName="direccionEmpresa"
-              [ngClass]="{'is-invalid': (f['direccionEmpresa'].touched || submitted) && f['direccionEmpresa'].invalid}">
-            <div *ngIf="(f['direccionEmpresa'].touched || submitted) && f['direccionEmpresa'].invalid"
-                 class="text-danger">
-              <div *ngIf="f['direccionEmpresa'].errors?.['required']">La dirección es obligatoria.</div>
-              <div *ngIf="f['direccionEmpresa'].errors?.['minlength']">Debe tener al menos 1 carácter.</div>
-              <div *ngIf="f['direccionEmpresa'].errors?.['maxlength']">No puede superar 50 caracteres.</div>
-            </div>
-          </div>
-
-          <!-- Teléfono Empresa -->
-          <div class="mb-3">
-            <label for="telEmpresa" class="form-label">Teléfono empresa</label>
-            <input
-              type="text"
-              id="telEmpresa"
-              class="form-control"
-              formControlName="telEmpresa"
-              [ngClass]="{'is-invalid': (f['telEmpresa'].touched || submitted) && f['telEmpresa'].invalid}">
-            <div *ngIf="(f['telEmpresa'].touched || submitted) && f['telEmpresa'].invalid"
-              class="text-danger">
-              <div *ngIf="f['telEmpresa'].errors?.['required']">El teléfono es obligatorio.</div>
-              <div *ngIf="f['telEmpresa'].errors?.['pattern']">Debe tener exactamente 9 dígitos numéricos.</div>
-            </div>
-          </div>
-
-          <!-- Email Empresa -->
-          <div class="mb-3">
-            <label for="emailEmpresa" class="form-label">Email empresa</label>
-            <input
-              type="email"
-              id="emailEmpresa"
-              class="form-control"
-              formControlName="emailEmpresa"
-              [ngClass]="{'is-invalid': (f['emailEmpresa'].touched || submitted) && f['emailEmpresa'].invalid}">
-            <div *ngIf="(f['emailEmpresa'].touched || submitted) && f['emailEmpresa'].invalid"
-                 class="text-danger">
-              <div *ngIf="f['emailEmpresa'].errors?.['required']">El email es obligatorio.</div>
-              <div *ngIf="f['emailEmpresa'].errors?.['email']">Debe ser un email válido.</div>
-            </div>
-          </div>
-
-          <!-- Nombre Contacto -->
-          <div class="mb-3">
-            <label for="nombreContacto" class="form-label">Nombre contacto</label>
-            <input
-              type="text"
-              id="nombreContacto"
-              class="form-control"
-              formControlName="nombreContacto"
-              [ngClass]="{'is-invalid': (f['nombreContacto'].touched || submitted) && f['nombreContacto'].invalid}">
-            <div *ngIf="(f['nombreContacto'].touched || submitted) && f['nombreContacto'].invalid"
-                 class="text-danger">
-              <div *ngIf="f['nombreContacto'].errors?.['required']">El nombre es obligatorio.</div>
-              <div *ngIf="f['nombreContacto'].errors?.['minlength']">Debe tener al menos 3 caracteres.</div>
-              <div *ngIf="f['nombreContacto'].errors?.['maxlength']">No puede superar 50 caracteres.</div>
-            </div>
-          </div>
-
-          <!-- Teléfono Contacto -->
-          <div class="mb-3">
-            <label for="telContacto" class="form-label">Teléfono contacto</label>
-            <input
-              type="text"
-              id="telContacto"
-              class="form-control"
-              formControlName="telContacto"
-              [ngClass]="{'is-invalid': (f['telContacto'].touched || submitted) && f['telContacto'].invalid}">
-            <div *ngIf="(f['telContacto'].touched || submitted) && f['telContacto'].invalid"
-                 class="text-danger">
-              <div *ngIf="f['telContacto'].errors?.['required']">El teléfono es obligatorio.</div>
-              <div *ngIf="f['telContacto'].errors?.['minlength']">Debe tener al menos 9 caracteres.</div>
-              <div *ngIf="f['telContacto'].errors?.['maxlength']">No puede superar 12 caracteres.</div>
-            </div>
-          </div>
-
-          <!-- Email Contacto -->
-          <div class="mb-3">
-            <label for="emailContacto" class="form-label">Email contacto</label>
-            <input
-              type="email"
-              id="emailContacto"
-              class="form-control"
-              formControlName="emailContacto"
-              [ngClass]="{'is-invalid': (f['emailContacto'].touched || submitted) && f['emailContacto'].invalid}">
-            <div *ngIf="(f['emailContacto'].touched || submitted) && f['emailContacto'].invalid"
-                 class="text-danger">
-              <div *ngIf="f['emailContacto'].errors?.['required']">El email es obligatorio.</div>
-              <div *ngIf="f['emailContacto'].errors?.['email']">Debe ser un email válido.</div>
-            </div>
-          </div>
-
-          <!-- Observaciones -->
-          <div class="mb-3">
-            <label for="mensaje" class="form-label">Mensaje de Contacto</label>
-            <textarea
-              id="mensaje"
-              class="form-control"
-              formControlName="observaciones" placeholder="256 caracteres"
-              [ngClass]="{'is-invalid': (f['observaciones'].touched || submitted) && f['observaciones'].invalid}">
-            </textarea>
-            <div *ngIf="(f['observaciones'].touched || submitted) && f['observaciones'].invalid"
-                 class="text-danger">
-              <div *ngIf="f['observaciones'].errors?.['required']">Exponga el motivo de su contacto.</div>
-              <div *ngIf="f['observaciones'].errors?.['minlength']">Debe tener al menos 1 carácter.</div>
-              <div *ngIf="f['observaciones'].errors?.['maxlength']">No puede superar 256 caracteres.</div>
-            </div>
-          </div>
-
-          <!-- Checkbox de condiciones -->
-          <div class="form-check mb-3">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              id="aceptaCondiciones"
-              formControlName="aceptaCondiciones"
-              [ngClass]="{'is-invalid': submitted && f['aceptaCondiciones'].invalid}"
-            >
-            <label class="form-check-label" for="aceptaCondiciones">
-              Acepto las condiciones de uso de datos y cookies
-            </label>
-            <div *ngIf="submitted && f['aceptaCondiciones'].errors" class="text-danger">
-              Debe aceptar las condiciones para enviar el mensaje.
-            </div>
-          </div>
-          <input type="hidden" formControlName="enabled">
-
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-success" [disabled]="contactForm.invalid">Enviar</button>
-          <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
-        </div>
-      </form>
-    </div>
-  </div>
+<div class="modal-header bg-secondary">
+  <h5 class="modal-title">Envío de mensaje</h5>
+  <button type="button" class="btn-close" aria-label="Cerrar" (click)="onCancel()"></button>
 </div>
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <div class="modal-body">
+    <!-- Nombre Empresa -->
+    <div class="mb-3">
+      <label for="nombreEmpresa" class="form-label">Nombre de la empresa</label>
+      <input type="text" id="nombreEmpresa" class="form-control" formControlName="nombreEmpresa"
+             [ngClass]="{'is-invalid': (f['nombreEmpresa'].touched || submitted) && f['nombreEmpresa'].invalid}">
+      <div *ngIf="(f['nombreEmpresa'].touched || submitted) && f['nombreEmpresa'].invalid" class="text-danger">
+        <div *ngIf="f['nombreEmpresa'].errors?.['required']">El nombre de la empresa es obligatorio.</div>
+        <div *ngIf="f['nombreEmpresa'].errors?.['minlength'] || f['nombreEmpresa'].errors?.['maxlength']">
+          Debe tener entre 3 y 50 caracteres.
+        </div>
+      </div>
+    </div>
+
+    <!-- Dirección Empresa -->
+    <div class="mb-3">
+      <label for="direccionEmpresa" class="form-label">Dirección de la empresa</label>
+      <input type="text" id="direccionEmpresa" class="form-control" formControlName="direccionEmpresa"
+             [ngClass]="{'is-invalid': (f['direccionEmpresa'].touched || submitted) && f['direccionEmpresa'].invalid}">
+      <div *ngIf="(f['direccionEmpresa'].touched || submitted) && f['direccionEmpresa'].invalid" class="text-danger">
+        <div *ngIf="f['direccionEmpresa'].errors?.['required']">La dirección es obligatoria.</div>
+        <div *ngIf="f['direccionEmpresa'].errors?.['minlength'] || f['direccionEmpresa'].errors?.['maxlength']">
+          Debe tener entre 3 y 50 caracteres.
+        </div>
+      </div>
+    </div>
+
+    <!-- Teléfono Empresa -->
+    <div class="mb-3">
+      <label for="telEmpresa" class="form-label">Teléfono de la empresa</label>
+      <input type="tel" id="telEmpresa" class="form-control" formControlName="telEmpresa"
+             [ngClass]="{'is-invalid': (f['telEmpresa'].touched || submitted) && f['telEmpresa'].invalid}">
+      <div *ngIf="(f['telEmpresa'].touched || submitted) && f['telEmpresa'].invalid" class="text-danger">
+        <div *ngIf="f['telEmpresa'].errors?.['required']">El teléfono es obligatorio.</div>
+        <div *ngIf="f['telEmpresa'].errors?.['pattern']">Debe ser un número de 9 dígitos.</div>
+      </div>
+    </div>
+
+    <!-- Email Empresa -->
+    <div class="mb-3">
+      <label for="emailEmpresa" class="form-label">Email de la empresa</label>
+      <input type="email" id="emailEmpresa" class="form-control" formControlName="emailEmpresa"
+             [ngClass]="{'is-invalid': (f['emailEmpresa'].touched || submitted) && f['emailEmpresa'].invalid}">
+      <div *ngIf="(f['emailEmpresa'].touched || submitted) && f['emailEmpresa'].invalid" class="text-danger">
+        <div *ngIf="f['emailEmpresa'].errors?.['required']">El email es obligatorio.</div>
+        <div *ngIf="f['emailEmpresa'].errors?.['email']">Debe ser un email válido.</div>
+      </div>
+    </div>
+
+    <!-- Nombre Contacto -->
+    <div class="mb-3">
+      <label for="nombreContacto" class="form-label">Nombre de contacto</label>
+      <input type="text" id="nombreContacto" class="form-control" formControlName="nombreContacto"
+             [ngClass]="{'is-invalid': (f['nombreContacto'].touched || submitted) && f['nombreContacto'].invalid}">
+      <div *ngIf="(f['nombreContacto'].touched || submitted) && f['nombreContacto'].invalid" class="text-danger">
+        <div *ngIf="f['nombreContacto'].errors?.['required']">El nombre de contacto es obligatorio.</div>
+        <div *ngIf="f['nombreContacto'].errors?.['minlength'] || f['nombreContacto'].errors?.['maxlength']">
+          Debe tener entre 3 y 50 caracteres.
+        </div>
+      </div>
+    </div>
+
+    <!-- Teléfono Contacto -->
+    <div class="mb-3">
+      <label for="telContacto" class="form-label">Teléfono de contacto</label>
+      <input type="tel" id="telContacto" class="form-control" formControlName="telContacto"
+             [ngClass]="{'is-invalid': (f['telContacto'].touched || submitted) && f['telContacto'].invalid}">
+      <div *ngIf="(f['telContacto'].touched || submitted) && f['telContacto'].invalid" class="text-danger">
+        <div *ngIf="f['telContacto'].errors?.['required']">El teléfono es obligatorio.</div>
+        <div *ngIf="f['telContacto'].errors?.['minlength'] || f['telContacto'].errors?.['maxlength']">
+          Debe tener entre 9 y 12 dígitos.
+        </div>
+      </div>
+    </div>
+
+    <!-- Email Contacto -->
+    <div class="mb-3">
+      <label for="emailContacto" class="form-label">Email de contacto</label>
+      <input type="email" id="emailContacto" class="form-control" formControlName="emailContacto"
+             [ngClass]="{'is-invalid': (f['emailContacto'].touched || submitted) && f['emailContacto'].invalid}">
+      <div *ngIf="(f['emailContacto'].touched || submitted) && f['emailContacto'].invalid" class="text-danger">
+        <div *ngIf="f['emailContacto'].errors?.['required']">El email es obligatorio.</div>
+        <div *ngIf="f['emailContacto'].errors?.['email']">Debe ser un email válido.</div>
+      </div>
+    </div>
+
+    <!-- Observaciones -->
+    <div class="mb-3">
+      <label for="observaciones" class="form-label">Observaciones</label>
+      <textarea id="observaciones" class="form-control" formControlName="observaciones"
+                [ngClass]="{'is-invalid': (f['observaciones'].touched || submitted) && f['observaciones'].invalid}"></textarea>
+      <div *ngIf="(f['observaciones'].touched || submitted) && f['observaciones'].invalid" class="text-danger">
+        <div *ngIf="f['observaciones'].errors?.['required']">Las observaciones son obligatorias.</div>
+        <div *ngIf="f['observaciones'].errors?.['minlength'] || f['observaciones'].errors?.['maxlength']">
+          Debe tener entre 3 y 256 caracteres.
+        </div>
+      </div>
+    </div>
+
+    <!-- Acepta condiciones -->
+    <div class="form-check mb-3">
+      <input class="form-check-input" type="checkbox" id="aceptaCondiciones" formControlName="aceptaCondiciones"
+             [ngClass]="{'is-invalid': submitted && f['aceptaCondiciones'].invalid}">
+      <label class="form-check-label" for="aceptaCondiciones">
+        Acepto las condiciones de uso de datos y cookies
+      </label>
+      <div *ngIf="submitted && f['aceptaCondiciones'].errors" class="text-danger">
+        Debe aceptar las condiciones para enviar el mensaje.
+      </div>
+    </div>
+
+    <input type="hidden" formControlName="enabled">
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-success" [disabled]="contactForm.invalid">Enviar</button>
+    <button type="button" class="btn btn-warning" (click)="onCancel()">Cerrar</button>
+  </div>
+</form>

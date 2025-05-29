@@ -1,25 +1,27 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, AbstractControl } from '@angular/forms';
-import {NgClass, NgIf} from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { NgbActiveModal, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-contacto-modal',
   standalone: true,
-  imports: [ReactiveFormsModule, NgIf, NgClass],
+  imports: [NgbModalModule, ReactiveFormsModule, NgIf, NgClass],
   templateUrl: './modal-contact.component.html',
   styleUrls: ['./modal-contact.component.css'],
 })
-export class ModalContactComponent implements OnInit, AfterViewInit {
+export class ModalContactComponent implements OnInit {
   contactForm!: FormGroup;
   submitted = false;
 
   private apiUrl = 'http://localhost:8080/v1/api/mensajes';
 
-  // Resetea los datos cada vez que se abre el modal
-  @ViewChild('contactModal') modalRef!: ElementRef;
-
-  constructor(private fb: FormBuilder, private http: HttpClient) {}
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    public activeModal: NgbActiveModal
+  ) {}
 
   ngOnInit(): void {
     this.contactForm = this.fb.group({
@@ -30,27 +32,15 @@ export class ModalContactComponent implements OnInit, AfterViewInit {
       nombreContacto: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
       telContacto: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(12)]],
       emailContacto: ['', [Validators.required, Validators.email]],
-      observaciones: ['',[Validators.required, Validators.minLength(3), Validators.maxLength(256)]],
+      observaciones: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(256)]],
       aceptaCondiciones: [false, Validators.requiredTrue],
       enabled: [true]
-    });
-  }
-
-  ngAfterViewInit() {
-    // Resetear el formulario cada vez que se abre el modal
-    const modalEl = this.modalRef.nativeElement;
-    modalEl.addEventListener('show.bs.modal', () => {
-      this.contactForm.reset({
-        aceptaCondiciones: false // El checkbox se desmarca por defecto
-      });
-      this.submitted = false;
     });
   }
 
   get f(): { [key: string]: AbstractControl } {
     return this.contactForm.controls;
   }
-
 
   onSubmit() {
     this.submitted = true;
@@ -62,8 +52,15 @@ export class ModalContactComponent implements OnInit, AfterViewInit {
 
     this.http.post(this.apiUrl, this.contactForm.value)
       .subscribe({
-        next: () => alert('Mensaje enviado correctamente'),
+        next: () => {
+          alert('Mensaje enviado correctamente');
+          this.activeModal.close('contact-success');
+        },
         error: () => alert('Error al enviar mensaje'),
       });
+  }
+
+  onCancel() {
+    this.activeModal.dismiss('contact-cancel');
   }
 }

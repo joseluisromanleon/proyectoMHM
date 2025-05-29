@@ -2,3 +2,51 @@
 /* You can add global styles to this file, and also import other style files */
 /* styles.css */
 /* @import '@angular/material/prebuilt-themes/indigo-pink.css';*/
+
+
+/* Fondo oscuro del modal */
+.modal-backdrop {
+  z-index: 2000 !important;
+
+}
+
+/* Contenedor del modal */
+.modal {
+  z-index: 2001 !important; /* Un punto más que el backdrop para que el modal esté encima */
+
+}
+
+/* Asegura que el modal esté centrado y visible */
+.modal-content {
+  position: relative;
+  background-color: #6C757D; /* Gris claro */
+}
+/* Título del modal */
+.modal-header .modal-title {
+  color: #212529; /* Negro */
+  font-weight: bold;
+}
+
+/* Etiquetas (labels) dentro del modal */
+.modal-body label {
+  color: #fff; /* Blanco */
+}
+
+/* Campos de input */
+.modal-body input {
+  background-color: #ced4da; /* Fondo input Blanco  */
+  color: #6C757D; /* Texto negro */
+  border: 1px solid #ced4da; /* Borde natural */
+}
+
+/* Mensajes de warning/error (usando Bootstrap) */
+.modal-body .text-danger {
+  color: #dc3545 !important; /* Rojo */
+  background-color: #ffc107;  /* Amarillo */
+  text-align: center
+}
+
+/* El fondo del modal es transparente por defecto, así que no lo toques */
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}

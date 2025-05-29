@@ -1,24 +1,26 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { NgIf, NgClass } from '@angular/common';
+import { NgbActiveModal, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-register-modal',
   standalone: true,
-  imports: [ReactiveFormsModule, NgIf, NgClass],
+  imports: [NgbModalModule, ReactiveFormsModule, NgIf, NgClass], // <-- Añade NgbModalModule
   templateUrl: './modal-register.component.html',
   styleUrls: ['./modal-register.component.css']
 })
-export class ModalRegisterComponent implements OnInit, AfterViewInit {
+export class ModalRegisterComponent implements OnInit {
   registerForm!: FormGroup;
   submitted = false;
+  private apiUrl = 'http://localhost:8080/api/usuarios';
 
-  private apiUrl = 'http://localhost:8080/v1/api/usuarios';
-
-  @ViewChild('registerModal') modalRef!: ElementRef;
-
-  constructor(private fb: FormBuilder, private http: HttpClient) {}
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    public activeModal: NgbActiveModal // <-- Inyecta NgbActiveModal
+  ) {}
 
   ngOnInit() {
     this.registerForm = this.fb.group({
@@ -30,24 +32,11 @@ export class ModalRegisterComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngAfterViewInit() {
-    // Resetear el formulario cada vez que se abre el modal
-    const modalEl = this.modalRef.nativeElement;
-    modalEl.addEventListener('show.bs.modal', () => {
-      this.registerForm.reset({
-        enabled: true,
-        aceptacondiciones: false  // El checkbox se desmarca por defecto
-      });
-      this.submitted = false;
-    });
-  }
-
   get f(): { [key: string]: AbstractControl } {
     return this.registerForm.controls;
   }
 
   onSubmit() {
-    console.log(this.registerForm.value);
     this.submitted = true;
     this.registerForm.markAllAsTouched();
 
@@ -57,8 +46,15 @@ export class ModalRegisterComponent implements OnInit, AfterViewInit {
 
     this.http.post(this.apiUrl, this.registerForm.value)
       .subscribe({
-        next: () => alert('Registro enviado correctamente'),
+        next: () => {
+          alert('Registro enviado correctamente');
+          this.activeModal.close('register-success'); // <-- Cierra el modal al terminar
+        },
         error: () => alert('Error al registrar usuario'),
       });
+  }
+
+  onCancel() {
+    this.activeModal.dismiss('register-cancel');
   }
 }
